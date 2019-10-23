@@ -44,6 +44,14 @@ ScyllaDB官网号称
 - 多副本之间数据不一致时经常需要手动修复来搞定
 - 虽然ScyllaDB能够充分的利用底层硬件的IOPS，但长时间运行后的Compaction带来的冗余IOPS消耗.
 
+
+
+### 术语说明
+
+https://blog.csdn.net/mytobaby00/article/details/80375196
+
+
+
 ### 同类软件综合对比
 
 ## 安装部署
@@ -67,7 +75,7 @@ ScyllaDB官网号称
 
 ```bash
 # >>>>>>>>> 安装 ScyllaDB
-
+yum install -y sudo
 # 卸载 abrt。 abrt 会和 ScyllaDB 冲突
 sudo yum remove -y abrt
 # 配置yum源
@@ -79,6 +87,8 @@ sudo yum install scylla -y
 ```
 
 ### 配置ScyllaDB
+
+参考链接: [官网ScyllaDB群集配置](https://docs.scylladb.com/operating-scylla/procedures/cluster-management/create_cluster_multidc/)
 
 配置文件
 
@@ -110,7 +120,6 @@ rpc_address: 192.168.172.72
 ```bash
 # 前置依赖
 pip install PyYAML
-yum install -y sudo
 pip install cqlsh
 ```
 
