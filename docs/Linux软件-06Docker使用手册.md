@@ -200,7 +200,8 @@ docker rm $(docker ps -a -q)
     * docker restart 重启容器
     * docker kill -s KILL mynginx  杀掉一个运行中的容器。 -s :向容器发送一个信号
     * docker rm : 删除一个或多少容器
-    * docker pause :暂停容器中所有的进程。docker unpause :恢复容器中所有的进程。
+    * docker pause :暂停容器中所有的进程。
+    * docker unpause :恢复容器中所有的进程。
     * docker create : 创建一个新的容器但不启动它
     * docker exec : 在运行的容器中执行命令
 * 容器操作
@@ -329,7 +330,7 @@ sudo sysctl -w vm.max_map_count=262144
 配置容器系统参数 - 需要从docker上配置  -- 问题1: 登陆docker界面，但是docker中virtualbox不存在。
 
 # 查看已有的docker-machine机器名称
-docker-machine ls 
+docker-machine ls
 # 进入docker
 docker-machine ssh 机器名称ID
 
@@ -342,7 +343,7 @@ docker-machine create -d virtualbox default 机器名称
 错误: Error with pre-create check: "This computer is running Hyper-V. VirtualBox won't boot a 64bits VM when Hyper-V is activated. Either use Hyper-V as a driver, or disable the Hyper-V hypervisor. (To skip this check, use --virtualbox-no-vtx-check)
 错误原因: docker的virtualbox和已有的虚拟机VMware或virtualBox冲突
 参考链接: http://blog.csdn.net/qwsamxy/article/details/50533007/
-解决方法: 
+解决方法:
 bcdedit /set hypervisorlaunchtype off
 bcdedit /set hypervisorlaunchtype auto
 

@@ -39,7 +39,6 @@ export PATH=$PATH:$HBASE_HOME/bin
 vi /software/Spark/hbase/conf/hbase-env.sh
 修改hbase-env.sh，加入下面三行（注意java和hadhoop路径）
 
-
 ```conf
 # java Home路径
 export JAVA_HOME=/usr/java/jdk1.8.0_171
@@ -48,7 +47,7 @@ export HBASE_CLASSPATH=/software/Spark/spark/conf
 export HBASE_MANAGES_ZK=true
 ```
 
-vi /software/Spark/hbase/conf/hbase-site.xml 
+vi /software/Spark/hbase/conf/hbase-site.xml
 修改hbase-site.xml(数据路径可自行修改)
 
 ```xml

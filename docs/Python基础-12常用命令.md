@@ -1,6 +1,9 @@
 # Python命令
 
-
+## Python 字典根据 Value顺序排序
+sort_sum  = sorted(sum_dic.items(),key=lambda item:item[1],reverse=False)
+[('北京', 714),
+ ('上海', 660),]
 
 ## 获取os.system(cmd)的执行结果
 
