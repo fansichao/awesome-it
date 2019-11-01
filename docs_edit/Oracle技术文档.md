@@ -47,7 +47,7 @@ deferred_segment_creation            boolean     FALSE
 select table_name from user_tables where NUM_ROWS=0 or num_rows is null;
 
 然后用一下SQL语句执行查询
--- select 'alter table '||table_name||' allocate extent;' from user_tables where num_rows=0
+-- select 'alter table '||table_name||' allocate extent;' from user_tables where num_rows=0 or num_rows is null;
 
 -- 查询结果如下所示..
 alter table TBL_1 allocate extent;

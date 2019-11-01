@@ -4,7 +4,7 @@ Python/Linux MarkDown/Code
 
 目的用于常用Python、Linux的工具书，方便查询使用。包括模块包的入门、进阶等。
 
-欢迎投稿(文章所有收益归原作者)
+欢迎投稿
 
 邮箱: 643566992@qq.com 备注:github
 
@@ -84,3 +84,6 @@ Python/Linux MarkDown/Code
 - [Python优秀三方包-英文](https://blog.csdn.net/moot123/article/details/51752542)
 - [Python模块大全](https://www.cnblogs.com/kimyeee/p/7359639.html)
 - [Python常用三方包](https://blog.csdn.net/runnoob_1115/article/details/78469020)
+
+## CSDN博客目录
+
