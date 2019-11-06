@@ -17,3 +17,7 @@ Github项目
 ### [呼吸不止,码字不停](https://github.com/maebert/themostdangerouswritingapp)
 
 锻炼码字效率，暂停三秒，所有记录都会丢失。
+
+
+多进程增量爬取智联招聘职位信息
+https://github.com/Python3SpiderOrg/zhilianzhaopin.git

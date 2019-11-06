@@ -8,6 +8,52 @@
 
 ## 常用命令
 
+
+
+## 数组
+
+### JS数组深拷贝
+
+es6克隆一个新的数组的方法：
+
+```javascript
+const a1 = [1,2,3];
+// 写法一：
+const a2 = [...a1];
+// 写法2 ：
+const [...a2] = a1;
+```
+
+### JS数组对象去重
+
+## 数值处理
+
+### 保留指定位数小数
+
+```javascript
+var number = 1.23456789;
+number = number.toFixed(4);
+```
+
+## 变量
+
+### js 动态创建变量名
+
+window['xxx'] 动态创建变量
+
+```javascript
+function create_variable(num){
+    var name = "test_"+num;   //生成变量名
+    window[name] = 100;
+    window['name'] = 200;   //注意看中括号里的内容加引号和不加引号的区别
+    }
+
+    create_variable(2);
+    alert(test_2);  // 100;
+    alert(name); //200;
+```
+
+
 ## 数据转换
 
 JS数据类型列表
@@ -67,9 +113,10 @@ console.log('str:', str)
 console.log('strToObj:', strToObj)
 ```
 
+
 ## 模块功能
 
-### js自动点击onclick js自动触发onclick事件
+### js自动点击onclick js自动触发onclick事件 定时延时执行
 
 ```javascript
 <script type="text/javascript">
@@ -91,21 +138,6 @@ setTimeout(function() {
 <a href="http://www.sinmeng.net" id="clickMe" οnclick="alert('clicked');">触发onclick</a>
 ```
 
-### js 动态创建变量名
-
-window['xxx'] 动态创建变量
-
-```javascript
-function create_variable(num){
-    var name = "test_"+num;   //生成变量名
-    window[name] = 100;
-    window['name'] = 200;   //注意看中括号里的内容加引号和不加引号的区别
-    }
-
-    create_variable(2);
-    alert(test_2);  // 100;
-    alert(name); //200;
-```
 
 ### 页面加载完毕后再执行函数
 
@@ -137,3 +169,8 @@ for(dic_str of pwd.split('&')){
     window[dic_str.split('=')[0]]=dic_str.split('=')[1]
 }
 ```
+
+### 模糊查询(模糊匹配)
+
+https://www.cnblogs.com/sxxya/p/10911623.html
+https://www.jianshu.com/p/4cd4f74a0b20  
