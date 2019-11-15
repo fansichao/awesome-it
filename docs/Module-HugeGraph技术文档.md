@@ -171,7 +171,7 @@ yum -y install lsof crontabs
 
 初始化数据库
 
-bin/init-store
+bin/init-store.sh
 
 > 初始化数据库时，必须先 bin/stop-hugegraph.sh ,否则可能初始化失败。
 
@@ -238,8 +238,6 @@ HugeGraph-Loader 是 HugeGragh 的数据导入组件，能够将多种数据源�
 - 本地磁盘文件或目录，支持压缩文件
 - HDFS 文件或目录，支持压缩文件
 - 部分关系型数据库，如 MySQL
-
-
 
 ## 附件
 

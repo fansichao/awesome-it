@@ -9,6 +9,23 @@
 ## 常用命令
 
 
+## 字符串
+
+### 字符串替换
+
+```javascript
+// 将 str 中的 a 替换为 A
+var str = 'abcabcabc';
+var result = str.replace('a', 'A');
+console.log('result:' + result);  
+
+// 输出 result:Abcabcabc
+
+// 将str 中所有的 a 替换为 A
+var str = 'abcabcabc';
+var result = str.replace(/a/g, 'A');
+console.log('result:' + result); 
+```
 
 ## 数组
 
@@ -113,7 +130,6 @@ console.log('str:', str)
 console.log('strToObj:', strToObj)
 ```
 
-
 ## 模块功能
 
 ### js自动点击onclick js自动触发onclick事件 定时延时执行
@@ -137,7 +153,6 @@ setTimeout(function() {
   
 <a href="http://www.sinmeng.net" id="clickMe" οnclick="alert('clicked');">触发onclick</a>
 ```
-
 
 ### 页面加载完毕后再执行函数
 
@@ -170,7 +185,29 @@ for(dic_str of pwd.split('&')){
 }
 ```
 
+### JS删除div
+
+```javascipt
+
+// js js中的话要通过获取该元素的父级元素，再调用..removeChild(要删除的元素);
+var removeObj = document.getElementById('reducedLine').getElementsByName('mlt24')[0];
+removeObj.parentNode.removeChild(removeObj);
+
+//jquery
+$('#divID').remove();
+```
+
 ### 模糊查询(模糊匹配)
 
 https://www.cnblogs.com/sxxya/p/10911623.html
 https://www.jianshu.com/p/4cd4f74a0b20  
+
+前端开发工具箱
+https://www.html.cn/tool/html2js/
+
+
+[js给节点添加或删除类名](http://www.bubuko.com/infodetail-2698446.html)  
+
+
+
+[html设置层DIV的显示和隐藏](https://www.cnblogs.com/zyb2014/p/3669731.html)
