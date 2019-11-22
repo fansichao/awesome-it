@@ -1,0 +1,69 @@
+scriptEvaluationTimeout: 30000
+# If you want to start gremlin-server for gremlin-console(web-socket),
+# please change `HttpChannelizer` to `WebSocketChannelizer` or comment this line.
+channelizer: org.apache.tinkerpop.gremlin.server.channel.HttpChannelizer
+graphs: {
+  hugegraph: conf/hugegraph.properties,
+  hugegraph1: conf/hugegraph1.properties,
+  hugegraph2: conf/hugegraph2.properties
+}
+plugins:
+  - com.baidu.hugegraph
+scriptEngines: {
+  gremlin-groovy: {
+    imports: [java.lang.Math],
+    staticImports: [java.lang.Math.PI],
+    scripts: [scripts/empty-sample.groovy]
+  }
+}
+serializers:
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GryoLiteMessageSerializerV1d0,
+      config: {
+        serializeResultToString: false,
+        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]
+      }
+    }
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0,
+      config: {
+        serializeResultToString: true,
+        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]
+      }
+    }
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerGremlinV1d0,
+      config: {
+        serializeResultToString: false,
+        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]
+      }
+    }
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerGremlinV2d0,
+      config: {
+        serializeResultToString: false,
+        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]
+      }
+    }
+  - { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0,
+      config: {
+        serializeResultToString: false,
+        ioRegistries: [com.baidu.hugegraph.io.HugeGraphIoRegistry]
+      }
+    }
+metrics: {
+  consoleReporter: {enabled: false, interval: 180000},
+  csvReporter: {enabled: true, interval: 180000, fileName: /tmp/gremlin-server-metrics.csv},
+  jmxReporter: {enabled: false},
+  slf4jReporter: {enabled: false, interval: 180000},
+  gangliaReporter: {enabled: false, interval: 180000, addressingMode: MULTICAST},
+  graphiteReporter: {enabled: false, interval: 180000}
+}
+maxInitialLineLength: 4096
+maxHeaderSize: 8192
+maxChunkSize: 8192
+maxContentLength: 65536
+maxAccumulationBufferComponents: 1024
+resultIterationBatchSize: 64
+writeBufferLowWaterMark: 32768
+writeBufferHighWaterMark: 65536
+ssl: {
+  enabled: false
+}
+

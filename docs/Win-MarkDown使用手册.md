@@ -1,176 +1,158 @@
-<!--
- * @Author: Scfan
- * @Date: 2019-08-10 20:47:12
- * @LastEditors: Scfan
- * @LastEditTime: 2019-08-10 20:47:15
- * @Description: 工作&学习&生活
- * @Email: 643566992@qq.com
- * @Company: 上海
- * @version: V1.0
- -->
+# Title:MarkDown 语法说明&技巧使用&相关工具
 
-# Title:MarkDown语法说明&技巧使用&相关工具
+标签（空格分隔）： MarkDown 语法说明 技巧 BBS 文档 CSDN 博客
 
-标签（空格分隔）： MarkDown 语法说明 技巧 BBS文档 CSDN博客 
+## MarkDown 参考链接
 
----
+**MarkDown 编辑器：**
 
-初级目录
+- [Cmd Markdown 编辑阅读器](https://www.zybuluo.com/cmd/)
+- [有道云笔记 MarkDown 编辑器](http://note.youdao.com/)
 
- - [MarkDown技巧](#MarkDown技巧)
- - [MarkDown工具]
- - [MarkDown相关链接]
- - 
- - [MarkDown语法说明
-     - [CSDN的Markdown语法说明]
-     - [CMDMarkdwon语法说明]
+**MarkDown 编辑器语法：**
 
---- [toc]
+- [【简明版】有道云笔记 Markdown 指南](http://note.youdao.com/iyoudao/?p=2411)
+- [【进阶版】有道云笔记 Markdown 指南](http://note.youdao.com/iyoudao/?p=2445)
+- [Cmd MarkDown 编辑器语法](https://www.zybuluo.com/mdeditor)
+- [CSDN MarkDown 语法](http://blog.csdn.net/qq_21165007/article/details/60882874)
+- [GcsSloop 的博客 MarkDown 高级语法教程](https://juejin.im/entry/5821943f5bbb500059f84b58#fnref:1)
+- [Cmd Markdown 简明语法手册](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#2-%E6%A0%87%E7%AD%BE%E5%88%86%E7%B1%BB)
 
-# MarkDown技巧
+**MarkDown 相关链接：**
 
-**空格的使用：**
+- [MarkDown 技巧：两种方式实现页内跳转](http://www.tuicool.com/articles/viIVRfF)
+
+## MarkDown 功能
+
+### 代码折叠
+
+Markdown 样例
+
+```bash
+<details>
+<summary>展开查看</summary>
+<pre><code>
+System.out.println("Hello to see U!");
+</code></pre>
+</details>
+```
+
+<details>
+<summary>展开查看</summary>
+<pre><code>
+System.out.println("Hello to see U!");
+</code></pre>
+</details>
+
+### 空格的使用
+
 ```Linux
-&ensp;或&#8194;	半方大的空白
-&emsp;或&#8195;	全方大的空白  
-&nbsp;或&#160;	不断行的空白格
+&ensp;或&#8194; 半方大的空白
+&emsp;或&#8195; 全方大的空白
+&nbsp;或&#160; 不断行的空白格
 &emsp; 常用一个汉字的空格
 ```
-**字体高亮：**
-*字体高亮 字体Mark(有道云MarkDown可以使用)*
-```==字体高亮 字体Mark==```
+
+### 字体高亮
+
+_字体高亮 字体 Mark(有道云 MarkDown 可以使用)_
+`==字体高亮 字体Mark==`
 ![字体高亮 字体Mark效果图](http://omhwhig1i.bkt.clouddn.com/17-3-9/64580645-file_1489027185910_6a2.png)
-**图片链接跳转：**
+
+### 自动生成 Markdown 侧边栏目录
+
+自动生成侧边栏目录，需要网站相适应，含 css、js 等文件，无法独立成为一个 html
+[自动生成 Markdwon 侧边栏目录：](http://pan.baidu.com/s/1o8hosf4)
+
+### 图片外链配置(★★★★☆)
+
+- [图片外链网站配置参考博客](http://blog.csdn.net/u014727260/article/details/54897041)
+- 图片外链工具网站：
+  - [极简图床](http://yotuku.cn/#/)
+  - [七牛云存储](https://portal.qiniu.com)
+
+### 图片链接跳转
 
 [![B站](http://omhwhig1i.bkt.clouddn.com/17-4-7/30999908-file_1491561302289_dff0.jpg)](http://www.bilibili.com/)
-```
+
+```bash
 [![](http://omhwhig1i.bkt.clouddn.com/17-4-7/30999908-file_1491561302289_dff0.jpg)](http://www.bilibili.com/) # 图片和链接的结合使用
 ```
-**自动生成Markdown侧边栏目录：**
-自动生成侧边栏目录，需要网站相适应，含css、js等文件，无法独立成为一个html
-[自动生成Markdwon侧边栏目录：](http://pan.baidu.com/s/1o8hosf4)
 
+## CSDN Markdown 博客语法
 
-----
+本 Markdown 编辑器使用[StackEdit][6]修改而来，用它写博客，将会带来全新的体验哦：
 
-# MarkDown工具
-### **MarkDown编辑器：**
- - [Cmd Markdown 编辑阅读器](https://www.zybuluo.com/cmd/)
- - [有道云笔记MarkDown编辑器](http://note.youdao.com/)
-### **MarkDown编辑器语法：**
- - [【简明版】有道云笔记Markdown指南](http://note.youdao.com/iyoudao/?p=2411)
- - [【进阶版】有道云笔记Markdown指南](http://note.youdao.com/iyoudao/?p=2445)
- - [Cmd MarkDown编辑器语法](https://www.zybuluo.com/mdeditor)
- - [CSDN MarkDown语法](http://blog.csdn.net/qq_21165007/article/details/60882874)
- - [GcsSloop的博客MarkDown高级语法教程](https://juejin.im/entry/5821943f5bbb500059f84b58#fnref:1)
- - [Cmd Markdown 简明语法手册](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#2-%E6%A0%87%E7%AD%BE%E5%88%86%E7%B1%BB)
-
-### 图片外链配置(★★★★☆):
- - 图片外链网站配置参考博客：http://blog.csdn.net/u014727260/article/details/54897041
- - 图片外链工具网站：
-	 - 极简图床（http://yotuku.cn/#/）
-	 - 七牛云存储（https://portal.qiniu.com）
- 
-----
-
-### MarkDown相关链接
-- [MarkDown技巧：两种方式实现页内跳转](http://www.tuicool.com/articles/viIVRfF)
-
-
-
-
-
-
-
-
-
-
-
-
------
-
-
-
-
-
-
-
-
-----
-# MarkDown语法说明
-
-## 欢迎使用Markdown编辑器写博客
-
-本Markdown编辑器使用[StackEdit][6]修改而来，用它写博客，将会带来全新的体验哦：
-
-- **Markdown和扩展Markdown简洁的语法**
+- **Markdown 和扩展 Markdown 简洁的语法**
 - **代码块高亮**
 - **图片链接和图片上传**
 - ***LaTex*数学公式**
-- **UML序列图和流程图**
+- **UML 序列图和流程图**
 - **离线写博客**
-- **导入导出Markdown文件**
+- **导入导出 Markdown 文件**
 - **丰富的快捷键**
 
 ### 快捷键
 
- - 加粗    `Ctrl + B` 
- - 斜体    `Ctrl + I` 
- - 引用    `Ctrl + Q`
- - 插入链接    `Ctrl + L`
- - 插入代码    `Ctrl + K`
- - 插入图片    `Ctrl + G`
- - 提升标题    `Ctrl + H`
- - 有序列表    `Ctrl + O`
- - 无序列表    `Ctrl + U`
- - 横线    `Ctrl + R`
- - 撤销    `Ctrl + Z`
- - 重做    `Ctrl + Y`
+- 加粗 `Ctrl + B`
+- 斜体 `Ctrl + I`
+- 引用 `Ctrl + Q`
+- 插入链接 `Ctrl + L`
+- 插入代码 `Ctrl + K`
+- 插入图片 `Ctrl + G`
+- 提升标题 `Ctrl + H`
+- 有序列表 `Ctrl + O`
+- 无序列表 `Ctrl + U`
+- 横线 `Ctrl + R`
+- 撤销 `Ctrl + Z`
+- 重做 `Ctrl + Y`
 
-### Markdown及扩展
+### Markdown 及扩展
 
-> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的HTML页面。    —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> [ 维基百科 ]
+> Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，然后转换成格式丰富的 HTML 页面。 —— <a href="https://zh.wikipedia.org/wiki/Markdown" target="_blank"> [ 维基百科 ]
 
 使用简单的符号标识不同的标题，将某些文字标记为**粗体**或者*斜体*，创建一个[链接](http://www.csdn.net)等，详细语法参考帮助？。
 
-本编辑器支持 **Markdown Extra** , 　扩展了很多好用的功能。具体请参考[Github][2].  
+本编辑器支持 **Markdown Extra** , 　扩展了很多好用的功能。具体请参考[Github][2].
 
 #### 表格
 
-**Markdown　Extra**　表格语法：
+**Markdown 　 Extra**　表格语法：
 
-项目     | 价格
--------- | ---
-Computer | $1600
-Phone    | $12
-Pipe     | $1
+| 项目     | 价格   |
+| -------- | ------ |
+| Computer | \$1600 |
+| Phone    | \$12   |
+| Pipe     | \$1    |
 
 可以使用冒号来定义对齐方式：
 
-| 项目      |    价格 | 数量  |
-| :-------- | --------:| :--: |
-| Computer  | 1600 元 |  5   |
-| Phone     |   12 元 |  12  |
-| Pipe      |    1 元 | 234  |
+| 项目     |    价格 | 数量 |
+| :------- | ------: | :--: |
+| Computer | 1600 元 |  5   |
+| Phone    |   12 元 |  12  |
+| Pipe     |    1 元 | 234  |
 
 #### 定义列表
 
-**Markdown　Extra**　定义列表语法：
+**Markdown 　 Extra**　定义列表语法：
 项目１
 项目２
-:   定义 A
-:   定义 B
+: 定义 A
+: 定义 B
 
 项目３
-:   定义 C
+: 定义 C
 
-:   定义 D
+: 定义 D
 
-	> 定义D内容
+    > 定义D内容
 
 #### 代码块
-代码块语法遵循标准markdown代码，例如：
-``` python
+
+代码块语法遵循标准 markdown 代码，例如：
+
+```python
 @requires_authorization
 def somefunc(param1='', param2=0):
     '''A docstring'''
@@ -184,25 +166,28 @@ class SomeClass:
 ```
 
 #### 脚注
+
 生成一个脚注[^footnote].
-  [^footnote]: 这里是 **脚注** 的 *内容*.
-  
+[^footnote]: 这里是 **脚注** 的 _内容_.
+
 #### 目录
+
 用 `[TOC]`来生成目录：
 
 [TOC]
 
 #### 数学公式
-使用MathJax渲染*LaTex* 数学公式，详见[math.stackexchange.com][1].
 
- - 行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。
- - 块级公式：
+使用 MathJax 渲染*LaTex* 数学公式，详见[math.stackexchange.com][1].
+
+- 行内公式，数学公式为：$\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$。
+- 块级公式：
 
 $$	x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$
 
-更多LaTex语法请参考 [这儿][3].
+更多 LaTex 语法请参考 [这儿][3].
 
-#### UML 图:
+#### UML 图
 
 可以渲染序列图：
 
@@ -230,11 +215,11 @@ cond(no)->op
 
 ### 离线写博客
 
-即使用户在没有网络的情况下，也可以通过本编辑器离线写博客（直接在曾经使用过的浏览器中输入[write.blog.csdn.net/mdeditor](http://write.blog.csdn.net/mdeditor)即可。**Markdown编辑器**使用浏览器离线存储将内容保存在本地。
+即使用户在没有网络的情况下，也可以通过本编辑器离线写博客（直接在曾经使用过的浏览器中输入[write.blog.csdn.net/mdeditor](http://write.blog.csdn.net/mdeditor)即可。**Markdown 编辑器**使用浏览器离线存储将内容保存在本地。
 
 用户写博客的过程中，内容实时保存在浏览器缓存中，在用户关闭浏览器或者其它异常情况下，内容不会丢失。用户再次打开浏览器时，会显示上次用户正在编辑的没有发表的内容。
 
-博客发表后，本地缓存将被删除。　
+博客发表后，本地缓存将被删除。
 
 用户可以选择 <i class="icon-disk"></i> 把正在写的博客保存到服务器草稿箱，即使换浏览器或者清除缓存，内容也不会丢失。
 
@@ -242,14 +227,14 @@ cond(no)->op
 
 ### 浏览器兼容
 
- 1. 目前，本编辑器对Chrome浏览器支持最为完整。建议大家使用较新版本的Chrome。
- 3. IE９以下不支持
- 4. IE９，１０，１１存在以下问题
+1.  目前，本编辑器对 Chrome 浏览器支持最为完整。建议大家使用较新版本的 Chrome。
+2.  IE ９以下不支持
+3.  IE ９，１０，１１存在以下问题
     1. 不支持离线功能
-    1. IE9不支持文件导入导出
-    1. IE10不支持拖拽文件导入
+    2. IE9 不支持文件导入导出
+    3. IE10 不支持拖拽文件导入
 
----------
+---
 
 [1]: http://math.stackexchange.com/
 [2]: https://github.com/jmcmanus/pagedown-extra "Pagedown Extra"
@@ -258,22 +243,17 @@ cond(no)->op
 [5]: http://adrai.github.io/flowchart.js/
 [6]: https://github.com/benweet/stackedit
 
-
-
-## 欢迎使用 Cmd Markdown 编辑阅读器
-
-
-
+## Cmd Markdown 语法
 
 我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，**Cmd Markdown** 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：
 
-> * 整理知识，学习笔 
-
+> - 整理知识，学习笔
 
 ---
-> * 发布日记，杂文，所见所想
-> * 撰写发布技术文稿（代码支持）
-> * 撰写发布学术论文（LaTeX 公式支持）
+
+> - 发布日记，杂文，所见所想
+> - 撰写发布技术文稿（代码支持）
+> - 撰写发布学术论文（LaTeX 公式支持）
 
 ![cmd-markdown-logo](https://www.zybuluo.com/static/img/logo.png)
 
@@ -283,11 +263,11 @@ cond(no)->op
 
 > 请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> **新文稿** 或者使用快捷键 `Ctrl+Alt+N`。
 
-------
+---
 
 ### 什么是 Markdown
 
-Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，**粗体** 或者 *斜体* 某些文字，更棒的是，它还可以
+Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，**粗体** 或者 _斜体_ 某些文字，更棒的是，它还可以
 
 #### 1. 制作一份待办事宜 [Todo 列表](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表)
 
@@ -297,7 +277,7 @@ Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以�
 - [x] 修复 LaTex 公式渲染问题
 - [x] 新增 LaTex 公式编号功能
 
-#### 2. 书写一个质能守恒公式[^LaTeX]
+#### 2. 书写一个质能守恒公式[^latex]
 
 $$E=mc^2$$
 
@@ -354,17 +334,17 @@ Bob-->Alice: I am good thanks!
 
 #### 7. 绘制表格
 
-| 项目        | 价格   |  数量  |
-| --------   | -----:  | :----:  |
-| 计算机     | \$1600 |   5     |
-| 手机        |   \$12   |   12   |
-| 管线        |    \$1    |  234  |
+| 项目   |   价格 | 数量 |
+| ------ | -----: | :--: |
+| 计算机 | \$1600 |  5   |
+| 手机   |   \$12 |  12  |
+| 管线   |    \$1 | 234  |
 
 #### 8. 更详细语法说明
 
 想要查看更详细的语法说明，可以参考我们准备的 [Cmd Markdown 简明语法手册][1]，进阶用户可以参考 [Cmd Markdown 高阶语法手册][2] 了解更多高级功能。
 
-总而言之，不同于其它 *所见即所得* 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。
+总而言之，不同于其它 _所见即所得_ 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。
 
 ---
 
@@ -441,26 +421,20 @@ Bob-->Alice: I am good thanks!
 
 在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！
 
-------
+---
 
 再一次感谢您花费时间阅读这份欢迎稿，点击 <i class="icon-file"></i> (Ctrl+Alt+N) 开始撰写新的文稿吧！祝您在这里记录、阅读、分享愉快！
 
-作者 [@ghosert][3]     
-2016 年 07月 07日    
+作者 [@ghosert][3]  
+2016 年 07 月 07 日
 
-[^LaTeX]: 支持 **LaTeX** 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 [MathJax][4] 参考更多使用方法。
-
+[^latex]: 支持 **LaTeX** 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 [MathJax][4] 参考更多使用方法。
 [^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，**四十一**种主流编程语言。
 
 [1]: https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown
 [2]: https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册
 [3]: http://weibo.com/ghosert
 [4]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
-
-
-
-
-
 
 ```python
 

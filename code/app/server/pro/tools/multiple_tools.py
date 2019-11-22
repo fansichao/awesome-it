@@ -1,4 +1,12 @@
 #! -*- coding:utf-8 -*-
+u""" Python进阶知识 - 多进程多线程协程
+
+
+- 多进程
+- 多线程
+- 协程
+
+"""
 from multiprocessing import Process
 import os
 import time
@@ -11,6 +19,8 @@ def info(name):
 
 def foo(name):
     info(name)
+
+
 
 if __name__ == '__main__':
 
@@ -26,3 +36,10 @@ if __name__ == '__main__':
     p2.join()
     
     print("ending")
+
+
+
+
+
+
+
