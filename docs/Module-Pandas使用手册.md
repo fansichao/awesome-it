@@ -1,18 +1,18 @@
-
-# Pandas命令大全
+# Pandas 命令大全
 
 [toc]
 
-## Pandas简介
+## Pandas 简介
 
-Pandas 是python的一个数据分析包，最初由AQR Capital Management于2008年4月开发，并于2009年底开源出来，目前由专注于Python数据包开发的PyData开发team继续开发和维护，属于PyData项目的一部分。Pandas最初被作为金融数据分析工具而开发出来，因此，pandas为时间序列分析提供了很好的支持。 Pandas的名称来自于面板数据（panel data）和python数据分析（data analysis）。panel data是经济学中关于多维数据集的一个术语，在Pandas中也提供了panel的数据类型。
+Pandas 是 python 的一个数据分析包，最初由 AQR Capital Management 于 2008 年 4 月开发，并于 2009 年底开源出来，目前由专注于 Python 数据包开发的 PyData 开发 team 继续开发和维护，属于 PyData 项目的一部分。Pandas 最初被作为金融数据分析工具而开发出来，因此，pandas 为时间序列分析提供了很好的支持。 Pandas 的名称来自于面板数据（panel data）和 python 数据分析（data analysis）。panel data 是经济学中关于多维数据集的一个术语，在 Pandas 中也提供了 panel 的数据类型。
 
-1. Pandas官网文档: [https://pandas.pydata.org/pandas-docs/stable/](https://pandas.pydata.org/pandas-docs/stable/)
-2. Numpy官方文档: [https://docs.scipy.org/doc/](https://docs.scipy.org/doc/)
+1. Pandas 官网文档: [https://pandas.pydata.org/pandas-docs/stable/](https://pandas.pydata.org/pandas-docs/stable/)
+2. Numpy 官方文档: [https://docs.scipy.org/doc/](https://docs.scipy.org/doc/)
 
-### Pandas数据类型
+### Pandas 数据类型
 
-**Pandas所支持的数据类型:**
+**Pandas 所支持的数据类型:**
+
 1. float/float64
 2. int/int64
 3. bool
@@ -22,9 +22,7 @@ Pandas 是python的一个数据分析包，最初由AQR Capital Management于200
 7. category
 8. object
 
-
-
-## Pandas增加
+## Pandas 增加
 
 **指定列名**
 
@@ -52,7 +50,7 @@ np.array(data_x).tolist()
 data['name'].str.split('|',expand=True)
 ```
 
-**series转DataFrame处理**
+**series 转 DataFrame 处理**
 
 ```python
 # data['xx'] = df.groupby(groupby_cols_li)[sum_col].count()
@@ -107,15 +105,14 @@ set(list(df.agg("aa"))) # 获取单列的值种类
 
 **判断空值**
 
-df['$open'].isnull().any() # 判断open这一列列是否有 NaN
-df['$open'].isnull().all()  # 判断open列是否全部为NaN
+df['$open'].isnull().any() # 判断 open 这一列列是否有 NaN
+df['$open'].isnull().all() # 判断 open 列是否全部为 NaN
 
 **字符切割，切割中文**
 
-1. 必须要utf-8编码 
-2. 使用slice切割
+1. 必须要 utf-8 编码
+2. 使用 slice 切割
 3. 全空列先剔除
-
 
 ```python
 df = pd.read_csv(file_path,sep='|',low_memory=False,encoding='utf-8')
@@ -126,8 +123,9 @@ df[col] = df[col].str.slice(start=0,stop=-2,step=None)
 
 **low_memory**
 
-默认low_memory=True,使用低内存加载数据，但是可能存在类型混淆的情况
-需要  low_memory=False或者指定字段类型
+默认 low_memory=True,使用低内存加载数据，但是可能存在类型混淆的情况
+需要 low_memory=False 或者指定字段类型
+
 ```python
 df = pd.read_csv('somefile.csv', low_memory=False, dtype=str)
 ```
@@ -137,10 +135,10 @@ df = pd.read_csv(fp, dtype=str,sep='|')
 df["JY_JYSJ"] = pd.to_datetime(df["JY_JYSJ"], format="%Y-%m-%d%H:%M:%S")
 df.to_csv(fp, index=False,sep='|')
 
-## Pandas删除
-
+## Pandas 删除
 
 **删除 指定列。含空数据的行**
+
 ```python
 可以通过subset参数来删除在age和sex中含有空数据的全部行
 df4 = df4.dropna(subset=["age","sex"])
@@ -167,17 +165,14 @@ df4 = df4.dropna()
 df4 = df4.dropna(axis=1)
 ```
 
-
-
-## Pandas修改
+## Pandas 修改
 
 **精度处理**
- df.round({'A': 1, 'C': 2})
- 
+df.round({'A': 1, 'C': 2})
 
 **字段重命名**
 
-$a 重命名为a  无返回值d
+\$a 重命名为 a 无返回值 d
 
 ```python
 df.rename(columns={'$a': 'a', '$b': 'b'}, inplace=True)
@@ -205,7 +200,7 @@ df.drop_duplicates([cols],inplace=True)
 df.drop_duplicates(subset='id:ID',keep='first',inplace=True)
 ```
 
-**查看开头为xxx的字符 .str.startswith('0')**
+**查看开头为 xxx 的字符 .str.startswith('0')**
 
 ```python
 df["JY_FROM_CERTID"] = df[df["JY_FROM_CERTID"].str.startswith('0')]
@@ -238,7 +233,7 @@ df[col] = df[col].astype('str')
 
 **替换科学计数法**
 
-将字段类型转为int64，即可去除科学计数法。
+将字段类型转为 int64，即可去除科学计数法。
 但是空值转换会报错，所以需要先填充空值
 
 ```python
@@ -246,9 +241,9 @@ data2[['col1','col2']] = data2[['col1','col2']].fillna(-1)
 data2[['col1','col2']] = data2[['col1','col2']].astype('int64',errors='ignore')
 ```
 
-当int类型进行 concat合并的时候，有可能会出现科学计数法，需要先转为 object.
+当 int 类型进行 concat 合并的时候，有可能会出现科学计数法，需要先转为 object.
 
-**Numpy全局设置无科学计数法**
+**Numpy 全局设置无科学计数法**
 
 ```python
 import numpy as np
@@ -257,7 +252,7 @@ np.set_printoptions(suppress=True, threshold=np.nan)
 # threshold=np.nan 完整输出（没有省略号）
 ```
 
-**Pandas全局设置完整输出**
+**Pandas 全局设置完整输出**
 
 ```python
 import pandas as pd
@@ -275,11 +270,13 @@ https://www.cnblogs.com/bigshow1949/p/7016235.html
 concatdf_new = pd.concat([df1,df2])
 
 ```
-## Pandas查询
+
+## Pandas 查询
 
 **列表查询 in 和 not in**
 
-方法1: merge实现
+方法 1: merge 实现
+
 ```python
 df = pd.DataFrame({'countries':['US','UK','Germany','China']})
 countries = pd.DataFrame({'countries':['UK','China'], 'matched':True})
@@ -292,12 +289,12 @@ not_in = df.merge(countries,how='left',on='countries')
 not_in = not_in[pd.isnull(not_in['matched'])]
 ```
 
-方法2: apply
+方法 2: apply
+
 ```python
 criterion = lambda row: row['countries'] not in countries
 not_in = df[df.apply(criterion, axis=1)]
 ```
-
 
 **pandas 行列循环**
 
@@ -305,14 +302,16 @@ not_in = df[df.apply(criterion, axis=1)]
 df.iterrows()
 ```
 
+## Pandsa 注意事项
 
-## Pandsa注意事项
+**replace 会导致空列类型变更，object->float**
 
-**replace会导致空列类型变更，object->float**
 ```python
 tran_dfs[col] = tran_dfs[col].replace("nan",np.nan)
 ```
-**astype(str)会导致空值变成字符串nan**
+
+**astype(str)会导致空值变成字符串 nan**
+
 ```python
 tran_dfs[col] = tran_dfs[col].astype(str)
 
@@ -326,19 +325,19 @@ Pandas天坑：
 
 5、将列强制类型转换为str时，空值会变成'nan'字符
 
-6. replace后，会造成列类型变更为float。 列全空时会存在此情况。列不为全空时，类型不会变更。 
+6. replace后，会造成列类型变更为float。 列全空时会存在此情况。列不为全空时，类型不会变更。
 replace后会对列类型进行重新检查。从而导致列类型变更。
 
 
 In [32]: import numpy as np;df = pd.DataFrame([[np.nan,np.nan],[np.nan,4],[np.nan,np.nan]],columns=['a',"b"],dtype=str)
 In [33]: df.dtypes
-Out[33]: 
+Out[33]:
 a    object
 b    object
 dtype: object
 
 In [34]:  df['a'] = df['a'].replace('1',"11111", method=None);df.dtypes
-Out[34]: 
+Out[34]:
 a    float64
 b     object
 dtype: object
@@ -347,22 +346,19 @@ dtype: object
 
 ```
 
-## Pandas功能模块
+## Pandas 功能模块
 
 ### 取出重复数据
 
-
-drop_duplicates为我们提供了数据去重的方法,那怎么得到哪些数据有重复呢?
+drop_duplicates 为我们提供了数据去重的方法,那怎么得到哪些数据有重复呢?
 实现步骤：
 
-采用drop_duplicates对数据去两次重，一次将重复数据全部去除（keep=False）记为data1,另一次将重复数据保留一个（keep='first）记为data2;
-求data1和data2的差集即可:data2.append(data1).drop_duplicates(keep=False)
-
-
+采用 drop_duplicates 对数据去两次重，一次将重复数据全部去除（keep=False）记为 data1,另一次将重复数据保留一个（keep='first）记为 data2;
+求 data1 和 data2 的差集即可:data2.append(data1).drop_duplicates(keep=False)
 
 ### 两列转为字典格式
 
-使用 set_index 将key变更为索引列。
+使用 set_index 将 key 变更为索引列。
 使用 to_dict 生成 索引-value 的字典
 
 ```python
@@ -371,27 +367,24 @@ In [30]: print df[['col','name']][0:2]
 2    ACCT_NATURE    账户属性
 3  ACCT_NET_CITY  开户网点_市
 
-In [29]: df[['col','name']].set_index('col').to_dict()['name'] 
-Out[29]: 
+In [29]: df[['col','name']].set_index('col').to_dict()['name']
+Out[29]:
 {'ACCT_CLASS': '\xe8\xb4\xa6\xe6\x88\xb7\xe7\xb1\xbb\xe5\x88\xab',
  'ACCT_CLOSE_DATE': '\xe9\x94\x80\xe6\x88\xb7\xe6\x97\xa5\xe6\x9c\x9f',
 }
 ```
 
-
 ### 中文切割
 
+dtype=unicode
 
-dtype=unicode 
-
-Pandas对中文进行切割时，必须使用 unicode
+Pandas 对中文进行切割时，必须使用 unicode
 
 ```python
         df['CERT_LEFT_2'] = df['CUST_CERTNO'].str.slice(0, 2)
         df['CERT_LEFT_4'] = df['CUST_CERTNO'].str.slice(0, 4)
 
 ```
-
 
 ### 日期-最大最小值
 
@@ -401,16 +394,6 @@ df['JY_JYSJ'].astype('datetime64').max()
 
 ### 统计出现频次
 
-
-
-
-
-
-
-
-
 ### 新加一行
 
 df3.loc['new'] = ['a','a','a','a']
-
-
