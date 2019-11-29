@@ -211,3 +211,10 @@ https://www.html.cn/tool/html2js/
 
 
 [html设置层DIV的显示和隐藏](https://www.cnblogs.com/zyb2014/p/3669731.html)
+
+## 根据ID修改元素
+
+
+var oneDom = document.getElementById("one");
+oneDom.className = "我很好"
+oneDom.className +=" "+"我很好";

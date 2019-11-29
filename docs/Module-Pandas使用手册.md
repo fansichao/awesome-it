@@ -356,6 +356,9 @@ drop_duplicates 为我们提供了数据去重的方法,那怎么得到哪些数
 采用 drop_duplicates 对数据去两次重，一次将重复数据全部去除（keep=False）记为 data1,另一次将重复数据保留一个（keep='first）记为 data2;
 求 data1 和 data2 的差集即可:data2.append(data1).drop_duplicates(keep=False)
 
+
+
+
 ### 两列转为字典格式
 
 使用 set_index 将 key 变更为索引列。
