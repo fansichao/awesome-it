@@ -106,6 +106,6 @@
 
 将更新如下内容
 
-- [Module-Dask并行任务调度.md](https://github.com/fansichao/awesome-it/blob/master/docs/Module-Dask并行任务调度.md)
-- [Module-Apache使用说明.md](https://github.com/fansichao/awesome-it/blob/master/docs/Module-Apache使用说明.md)
-- [Study-如何科学使用StackOverflow.md](https://github.com/fansichao/awesome-it/blob/master/docs/Study-如何科学使用StackOverflow.md)
+- [ ] [Module-Dask 并行任务调度.md](https://github.com/fansichao/awesome-it/blob/master/docs/Module-Dask并行任务调度.md)
+- [x] [Module-Apache 使用说明.md](https://github.com/fansichao/awesome-it/blob/master/docs/Module-Apache使用说明.md)
+- [x] [Study-如何科学使用 StackOverflow.md](https://github.com/fansichao/awesome-it/blob/master/docs/Study-如何科学使用StackOverflow.md)
