@@ -300,6 +300,17 @@ notebook: （所属的目录）
 **其他步骤: 相关问题**
 重要提示: 如果报 Evernote Error: 5 - Note.title，错误（这个错误坑了好一会）。说明是换行符有问题，请将 vscode 右下角的换行符从 CRLF 切换成 LF,然后再次执行 ever publish，就会有 blogs>>vscode 中使用印象笔记 created successfully.提示。如果还有错误，请到 git issue 查找相关问题。
 
+### VScode 编辑后自动保存
+
+参考链接: [vscode 如何设置自动保存](https://jingyan.baidu.com/article/f25ef25486bd5c482c1b82b8.html)
+
+左下角设置图标 -> 设置
+
+- Auto Save = off 不自动保存，每次都需要用户自己手动保存
+- Auto Save = afterDelay 固定间隔时间，自动保存
+- Auto Save = onFocusChange 当焦点离开编辑器的当前窗口时，自动保存
+- onWindowChange 当编辑器窗口失去焦点时，自动保存,只有焦点离开整个编辑器，才会触发保存，在编辑器内部切换页签是不会自动保存的。
+
 ## 1.7. 新增功能
 
 ### 1.7.1. 插件-PicGo MarkDwon 支持图片上传到 Github

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <!-- 模板继承 -->
+        {% extends 'bootstrap/base.html' %}
+        {% block head %}
+        <title>{% block title %}{% endblock %} My Application</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        {% endblock %}
+        <div>
+            <!-- if-else逻辑结构 -->
+            {% if user %}
+                hello {{ user }}
+            {% else %}
+                hello, Stranger
+            {% endif %}
+            <!-- 支持宏，自定义函数 -->
+            {% macro render_comment(commetn) %}
+                <li>{{ comment }}</li>
+            {% endmacro %}
+            <ul>
+                <!-- for循环 -->
+                {% for comment in comments %}
+                    {{render_comment(commetn)}}
+                {% endfor %}
+            </ul>            
+            <!-- 文件导入 -->
+            {% import 'macros.html' as macros %}
+            {% include 'index.html' %}
+        </div>
+    </body>
+</html>
+
+
+

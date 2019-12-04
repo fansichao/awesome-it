@@ -1,0 +1,6 @@
+../
+代理服务设置成功,IP为:[101.231.50.154:8000]
+代理服务设置成功,IP为:[124.237.83.14:53281]
+/home/scfan/Project/mypro/Project/server/pro/base/../tmp/train_city_code.csv
+{'cookies': <RequestsCookieJar[]>, 'session': <requests.sessions.Session object at 0x7f4e0bb76e10>}
+>>>> 输入验证码[5,8]:
