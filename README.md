@@ -1,23 +1,12 @@
 # ReadMe
 
-逻辑说明
+[![技术体系思维导图.png](https://raw.githubusercontent.com/fansichao/images/master/markdown/01-%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0%E4%BD%93%E7%B3%BB.png)](https://www.processon.com/view/link/5de7b9a4e4b02996f1dc792d)
 
-- 使用`Vscode`编辑**文档**
-- 使用`Linux`编辑**代码**
-- **文档**通过`Vscode`同步到**印象笔记**中
-- **文档/代码**同步到`Github`中
+如有问题或需要文档更新。
 
-使用 VScode,而不是印象笔记 MarkDown 的原因 - Vscode 编辑 Markdown 更为方便。
-存储查询查看方面，印象笔记更为方便。
+可发送邮件到邮箱 643566992@qq.com, 备注 github-awesome-it 即可
 
-**预计文档编写在 VScode。查看存储在印象笔记。**
-
-**存在问题** TODO
-
-- 印象笔记仅有查看权限
-- 修改 只能在电脑上`Github或Vscode`修改
-
-## 流程说明
+文档不定期更新
 
 ## 文件说明
 
@@ -114,3 +103,9 @@
 小更新无备注, 仅备注文件新增,大修改等
 
 ### 20191202-20191208
+
+将更新如下内容
+
+- [Module-Dask并行任务调度.md](https://github.com/fansichao/awesome-it/blob/master/docs/Module-Dask并行任务调度.md)
+- [Module-Apache使用说明.md](https://github.com/fansichao/awesome-it/blob/master/docs/Module-Apache使用说明.md)
+- [Study-如何科学使用StackOverflow.md](https://github.com/fansichao/awesome-it/blob/master/docs/Study-如何科学使用StackOverflow.md)
