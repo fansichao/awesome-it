@@ -1,3 +1,0 @@
-{% include 'docs/source/conf.py' %}
-
-master_doc = "index"
