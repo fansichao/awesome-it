@@ -1,42 +1,43 @@
-# B_SparkHadoop机器学习与大数据实战
+# B_SparkHadoop 机器学习与大数据实战
 
-/*
- * @Author: Scfan
- * @Date: 2018-12-10 09:55:05
- * @LastEditors: Scfan
- * @LastEditTime: 2018-12-12 15:29:20
- * @Description: 工作&amp;学习&amp;生活
- * @Email: 643566992@qq.com
- * @Company: 上海
- * @version: V1.0
- */
+/\*
+
+- @Author: Scfan
+- @Date: 2018-12-10 09:55:05
+- @LastEditors: Scfan
+- @LastEditTime: 2018-12-12 15:29:20
+- @Description: 工作&amp;学习&amp;生活
+- @Email: 643566992@qq.com
+- @Company: 上海
+- @version: V1.0
+  \*/
 
 **本文件名称**
-@import 'B_SparkHadoop机器学习与大数据实战.md'
+@import 'B_SparkHadoop 机器学习与大数据实战.md'
 
 **书籍名称**
-@import 'File/00IT资料/00书籍/20181120_精通Python网络爬虫核心技术与框架与项目实战_韦玮_完整高清目录扫描版.pdf'
+@import 'File/00IT 资料/00 书籍/20181120*精通 Python 网络爬虫核心技术与框架与项目实战*韦玮\_完整高清目录扫描版.pdf'
 
-## Hadoop HDFS命令
+## Hadoop HDFS 命令
 
-1. HDFS启动命令：start-all.sh
-2. HDFS页面：[http://192.168.172.70:50070](http://192.168.172.70:50070)
+1. HDFS 启动命令：start-all.sh
+2. HDFS 页面：[http://192.168.172.70:50070](http://192.168.172.70:50070)
 
 ### 常用命令
 
-命令格式 ```hadoop fs -命令```
+命令格式 `hadoop fs -命令`
 
-命令 | 说明
----------|----------|
-hadoop fs -mkdir | 创建HDFS目录 |
-hadoop fs -ls | 列出HDFS目录 |
-hadoop fs -copyFromLocal | 使用-copyFromLocal复制本地文件到HDFS目录 |
-hadoop fs -put | 使用-put复制本地文件到HDFS目录 |
-hadoop fs -cat | 列出HDFS目录下文件内容 |
-hadoop fs -copyToLocal | 使用-copyToLocal将HDFS目录文件复制到本地 |
-hadoop fs -get | 使用-get将HDFS目录文件复制到本地 |
-hadoop fs -cp | 复制HDFS文件 |
-hadoop fs -rm | 删除HDFS文件 |
+| 命令                     | 说明                                        |
+| ------------------------ | ------------------------------------------- |
+| hadoop fs -mkdir         | 创建 HDFS 目录                              |
+| hadoop fs -ls            | 列出 HDFS 目录                              |
+| hadoop fs -copyFromLocal | 使用-copyFromLocal 复制本地文件到 HDFS 目录 |
+| hadoop fs -put           | 使用-put 复制本地文件到 HDFS 目录           |
+| hadoop fs -cat           | 列出 HDFS 目录下文件内容                    |
+| hadoop fs -copyToLocal   | 使用-copyToLocal 将 HDFS 目录文件复制到本地 |
+| hadoop fs -get           | 使用-get 将 HDFS 目录文件复制到本地         |
+| hadoop fs -cp            | 复制 HDFS 文件                              |
+| hadoop fs -rm            | 删除 HDFS 文件                              |
 
 ### 命令使用样例
 
@@ -55,7 +56,7 @@ hadoop fs -copyFromLocal -f /user/local/hadoop/README.txt /user/hduser/test
 hadoop fs -copyFromLocal -f /user/local/hadoop/README.txt a.txt /user/hduser/test
 ```
 
-1. -put: 复制文件，如果文件存在，直接覆盖，无提示。 put可以接受```stdin```标准输入
+1. -put: 复制文件，如果文件存在，直接覆盖，无提示。 put 可以接受`stdin`标准输入
 2. -copyFromLocal: 复制文件，如果文件存在，会提示。
 
 ```bash
@@ -69,38 +70,38 @@ hadoop fs -get /user/hduser/test/hadooplist.txt hadooplist.txt
 
 ## Hadoop MapReduce
 
-MapRedu一种程序开发模式，使用大量服务器并行处理。
-Map分配工作，Reduce将结果汇总整理。
+MapRedu 一种程序开发模式，使用大量服务器并行处理。
+Map 分配工作，Reduce 将结果汇总整理。
 
 TODO java 测试样例 pass
 
 ## Spark RDD
 
-Spark的核心是RDD(Resilient Distributed Dataset),即弹性分布式数据集，是由
-AMPLab实验室提出的概念，属于一种分布式内存系统数据集应用。
-Spark主要优势来源于RDD本身的特性，
-RDD可以兼容其他系统，可以导入其他外部存储数据。
+Spark 的核心是 RDD(Resilient Distributed Dataset),即弹性分布式数据集，是由
+AMPLab 实验室提出的概念，属于一种分布式内存系统数据集应用。
+Spark 主要优势来源于 RDD 本身的特性，
+RDD 可以兼容其他系统，可以导入其他外部存储数据。
 
-### RDD特性
+### RDD 特性
 
-#### RDD运算类型
+#### RDD 运算类型
 
-> RDD的三种基本运算
+> RDD 的三种基本运算
 
 1. **转换运算**:
-   1. RDD执行转换，会产生另外一个RDD
-   2. RDD具有lazy特性，**转换**运算不会立刻执行，而是等到执行**动作**运算时执行
+   1. RDD 执行转换，会产生另外一个 RDD
+   2. RDD 具有 lazy 特性，**转换**运算不会立刻执行，而是等到执行**动作**运算时执行
 2. **动作运算**
    1. 指定**动作运算**后，会产生数据或写入文件系统。
    2. 执行**动作运算**后，会立即执行之前的转换运算和当前的动作运算
 3. **持久化运算**
    1. 内存中使用，提高执行性能
 
-> Lineage机制具有容错功能
+> Lineage 机制具有容错功能
 
-RDD本身具有```Lineage```机制。会记录每个RDD与其父代RDD之间的关联，还会记录通过什么操作才能有父代RDD得到该RDD的信息。
+RDD 本身具有`Lineage`机制。会记录每个 RDD 与其父代 RDD 之间的关联，还会记录通过什么操作才能有父代 RDD 得到该 RDD 的信息。
 
-### RDD转换运算
+### RDD 转换运算
 
 ```python
 # 创建 intRDD
@@ -117,8 +118,8 @@ intRDD.map(addone).collect()
 intRDD.map(lambda x:x+1).collect()
 ```
 
-> filter数字运算
-filter用于对RDD内每个元素进行筛选，并产生另外的RDD。
+> filter 数字运算
+> filter 用于对 RDD 内每个元素进行筛选，并产生另外的 RDD。
 
 ```python
 # intRDD 筛选数字1-5之间
@@ -130,8 +131,8 @@ intRDD.distinct().collect()
 stringRDD.distinct().collect()
 ```
 
-> randomSplit运算
-randomSplit 可以将整个集合元素以随机数的方式按比例分为多个RDD。
+> randomSplit 运算
+> randomSplit 可以将整个集合元素以随机数的方式按比例分为多个 RDD。
 
 ```python
 sRDD = intRDD.randomSplit([0.4,0.6])
@@ -140,7 +141,7 @@ print sRDD[1].collect()
 ```
 
 > groupby 运算
-groupBy 可以按照匿名函数规则分为多个 List
+> groupBy 可以按照匿名函数规则分为多个 List
 
 ```python
 # 使用 groupBy 分为奇数和偶数
@@ -148,7 +149,7 @@ gRDD = intRDD.groupBy(lambda x:"even" if (x%2==0) else "odd").collect()
 
 ```
 
-### 多个RDD转换运算
+### 多个 RDD 转换运算
 
 ```python
 # 使用 union 函数进行 并集运算
@@ -219,7 +220,7 @@ kvRDD1.sortByKey(ascending=True).collect() # 默认 从小到大排序
 kvRDD1.reduceByKey(lambda x,y:x+y).collect()
 ```
 
-### 多个RDD K-V 转换
+### 多个 RDD K-V 转换
 
 ```python
 # join
@@ -285,12 +286,12 @@ avg = total.value / num.value
 
 持久化存储等级如下:
 
-1. MEMORY_ONLY : 存储内存中，多余RDD重新计算
-2. MEMORY_ADN_DISK: 存储内存中，多余RDD存储在硬盘中，在从硬盘读取。
-3. MEMORY_ONLY_SER: 存储内存找那个，多使用CPU资源，内存消耗较少，多余RDD重新计算.
-4. MEMORY_AND_DISK_SER: 存储内存找那个，多使用CPU资源，内存消耗较少，多余RDD存储硬盘中.
+1. MEMORY_ONLY : 存储内存中，多余 RDD 重新计算
+2. MEMORY_ADN_DISK: 存储内存中，多余 RDD 存储在硬盘中，在从硬盘读取。
+3. MEMORY_ONLY_SER: 存储内存找那个，多使用 CPU 资源，内存消耗较少，多余 RDD 重新计算.
+4. MEMORY_AND_DISK_SER: 存储内存找那个，多使用 CPU 资源，内存消耗较少，多余 RDD 存储硬盘中.
 5. DIST_ONLY: 存储硬盘中
-6. MEMORY_ONLY_2,MEMORY_ADN_DISK_2: 每个RDD节点都复制到两个节点上。
+6. MEMORY_ONLY_2,MEMORY_ADN_DISK_2: 每个 RDD 节点都复制到两个节点上。
 
 持久化样例
 

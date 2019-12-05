@@ -24,11 +24,13 @@
 
 TODO 后置,暂无需求
 
+### Apache 参数详解
+
+参考链接: [centos7 部署 Apache 服务器](https://blog.csdn.net/loveer0/article/details/82498851)
+
 ## 附件
 
-### Centos7-Apache 配置过程
-
-实际解决步骤
+### Centos7-Apache 配置示例
 
 **步骤 1 配置 scfan.conf 配置文件:**
 
@@ -118,5 +120,4 @@ Apache 测试页，意味着您的服务器已正确配置并可以使用。从�
 - [Centos7 配置 Apache 实现 HTTPS](https://blog.51cto.com/13043516/2300167)
 - [Centos7 下配置 Apache 的虚拟主机](https://www.cnblogs.com/jxc321/p/8490446.html)
 - [CentOS 7 Apache 服务的安装与配置](https://www.cnblogs.com/fisherpau/p/11375874.html)
-- [centos7 部署 Apache 服务器](https://blog.csdn.net/loveer0/article/details/82498851)
 - [centos7 上搭建 http 服务器以及设置目录访问](https://www.cnblogs.com/snake553/p/8856729.html)
