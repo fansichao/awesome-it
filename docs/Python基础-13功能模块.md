@@ -48,9 +48,8 @@ isinstance(对象,类型名或类型列表或元祖) --> True/False
 
 ## Python 代码建议
 
-**from .. import**
-
 ```bash
+from .. import
 优先使用import a  使用a.B
 有节制使用from a import B
 避免使用 from a import *
@@ -167,5 +166,3 @@ Levenshtein.hamming(str1, str2) #
 
 Levenshtein.distance(str1,str2)计算编辑距离。是描述一个字符串转化成另一个字串最少的操作次数，在其中的操作包括插入、删除、替换。
 Levenshtein.distance(str1, str2)
-
-## 字典处理

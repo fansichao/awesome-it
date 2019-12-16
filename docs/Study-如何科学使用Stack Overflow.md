@@ -103,7 +103,7 @@ tags: StackOverFlow 2019 年 12 月 搜索 必备知识 翻墙
 
 1，In my limited experience with .. 谦虚表达自己在某方面的经验
 
-2， I am searching for a long time on net. But no use. Please help or try to give some ideas how to achieve this. 找了很久未果，求助攻
+2，I am searching for a long time on net. But no use. Please help or try to give some ideas how to achieve this. 找了很久未果，求助攻
 
 3，after searching around for a decent XX solution and found that everything out there was difficult to use. 找了 N 种方法都发现太 TM 难了。
 
@@ -116,6 +116,9 @@ tags: StackOverFlow 2019 年 12 月 搜索 必备知识 翻墙
 7，Wanted to know if it's good practice to do that and what would be the best way to do that? 我的做法是否正确，是否有更好的法子？
 
 8，Thanks in advance. 先行谢过
+
+
+
 
 ### 如何回答
 
@@ -134,3 +137,5 @@ tags: StackOverFlow 2019 年 12 月 搜索 必备知识 翻墙
 - [好文-如何科学使用 Stack Overflow](https://blog.csdn.net/weixin_38233274/article/details/80349534)
 - [如何优雅地使用 Stack Overflow](https://www.cnblogs.com/huangjianping/p/7941983.html)
 - [为什么程序员一定要会用 Google 和 Stack Overflow](https://blog.csdn.net/u012207345/article/details/81139665)
+
+ 

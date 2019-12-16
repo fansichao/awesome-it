@@ -2,7 +2,7 @@
 
 ## Apache 简介
 
-> Apache 是世界使用排名第一的 Web 服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的 Web 服务器端软件之一。它快速、可靠并且可通过简单的 API 扩充，将 Perl/Python 等解释器编译到服务器中。同时 Apache 音译为阿帕奇，是北美印第安人的一个部落，叫阿帕奇族，在美国的西南部。也是一个基金会的名称、一种武装直升机等等. [百度百科 Apache](https://baike.baidu.com/item/apache/6265)
+> [Apache](http://httpd.apache.org/) 是世界使用排名第一的 Web 服务器软件。它可以运行在几乎所有广泛使用的计算机平台上，由于其跨平台和安全性被广泛使用，是最流行的 Web 服务器端软件之一。它快速、可靠并且可通过简单的 API 扩充，将 Perl/Python 等解释器编译到服务器中。同时 Apache 音译为阿帕奇，是北美印第安人的一个部落，叫阿帕奇族，在美国的西南部。也是一个基金会的名称、一种武装直升机等等. [百度百科 Apache](https://baike.baidu.com/item/apache/6265)
 
 **Apacheweb 服务器软件拥有以下特性：**
 
@@ -22,7 +22,7 @@
 
 ## Apache 功能
 
-TODO 后置,暂无需求
+TODO Apache 功能 后置,暂无需求
 
 ### Apache 参数详解
 
@@ -109,9 +109,97 @@ Apache 测试页，意味着您的服务器已正确配置并可以使用。从�
 
 **那么如何使 Apache 测试页消失呢:**
 
-只需打开/var/www/index.html 文件并对其进行修改或删除文件（尽管它可能会触发新的错误）。在 Red Hat Enterprise Linux / CentOS / Fedora Core 下，重命名或删除文件/etc/httpd/conf.d/welcome.conf 以确保您没有看到 Apache 测试页。
+只需打开`/var/www/index.html` 文件并对其进行修改或删除文件（尽管它可能会触发新的错误）。在 `Red Hat Enterprise Linux/CentOS/Fedora Core` 下，重命名或删除文件`/etc/httpd/conf.d/welcome.conf` 以确保您没有看到 Apache 测试页。
 
-您现在可以将内容添加到目录/ var / www / html /中。请注意，在您这样做之前，访问您网站的用户将看到默认页面，而不是您的内容。要防止使用此页面，请遵循文件/etc/httpd/conf.d/welcome.conf 中的说明。
+您现在可以将内容添加到目录`/var/www/html/`中。请注意，在您这样做之前，访问您网站的用户将看到默认页面，而不是您的内容。要防止使用此页面，请遵循文件`/etc/httpd/conf.d/welcome.conf` 中的说明。
+
+## Apache 问题记录
+
+### Apache has not been designed to serve pages while running as root
+
+**问题说明:**
+
+root 用户下无法启动 httpd 服务
+
+**日志信息:**
+
+```bash
+[root@cf8d90d17e9a ~]# systemctl status httpd.service
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+   Active: failed (Result: exit-code) since Mon 2019-12-16 02:06:58 UTC; 25s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 9553 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=1/FAILURE)
+  Process: 9552 ExecStart=/usr/sbin/httpd $OPTIONS -DFOREGROUND (code=exited, status=1/FAILURE)
+ Main PID: 9552 (code=exited, status=1/FAILURE)
+
+Dec 16 02:06:58 cf8d90d17e9a systemd[1]: Starting The Apache HTTP Server...
+Dec 16 02:06:58 cf8d90d17e9a httpd[9552]: AH00526: Syntax error on line 1 of /etc/httpd/conf.d/fdm.conf:
+Dec 16 02:06:58 cf8d90d17e9a httpd[9552]: Error:\tApache has not been designed to serve pages while\n\trunning as root.  There are known ...
+Dec 16 02:06:58 cf8d90d17e9a systemd[1]: httpd.service: main process exited, code=exited, status=1/FAILURE
+Dec 16 02:06:58 cf8d90d17e9a kill[9553]: kill: cannot find process ""
+Dec 16 02:06:58 cf8d90d17e9a systemd[1]: httpd.service: control process exited, code=exited status=1
+Dec 16 02:06:58 cf8d90d17e9a systemd[1]: Failed to start The Apache HTTP Server.
+Dec 16 02:06:58 cf8d90d17e9a systemd[1]: Unit httpd.service entered failed state.
+Dec 16 02:06:58 cf8d90d17e9a systemd[1]: httpd.service failed.
+```
+
+**解决方法:**
+
+用于 `/etc/httpd/conf.d/fdm.conf` 配置中 User 和 Group 不能为`root`,修改为其他用户即可
+
+```bash
+User fdm
+Group fdm
+<VirtualHost *:80>
+    DocumentRoot /home/fdm/web/fdm
+    <Directory /home/fdm/web/fdm>
+        options Indexes MultiViews
+        AllowOverride all
+        Allow from all
+    </Directory>
+</VirtualHost>
+```
+
+### Forbidden You don't have permission to access xxx.html
+
+**问题说明:**
+
+文件权限不足
+
+**解决方法 1:**
+
+```bash
+# 一层层授权
+chmod +x /dira
+chmod +x /dira/dirb/
+chmod +x /dira/dirb/index.html
+# 或者 直接 chmod 777 -R /dira/dirb/index.html
+```
+
+**解决方法 2:**
+
+修改配置文件`/etc/httpd/conf/httpd.conf`
+
+```bash
+DocumentRoot "/home/fdm/web/fdm"
+```
+
+**解决方法 3:**
+修改配置文件`/etc/httpd/conf/httpd.conf`
+
+```conf
+# 注释如下代码
+105 # <Directory />
+106 #     AllowOverride none
+107 #     Require all denied
+108 # </Directory>
+```
+
+以上情况,不同问题解决方法不同,可以叠加使用。
+
+## Apache 注意事项
 
 ### 参考资源
 

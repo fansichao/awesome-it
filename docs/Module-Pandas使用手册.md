@@ -24,13 +24,13 @@ Pandas 是 python 的一个数据分析包，最初由 AQR Capital Management �
 
 ## Pandas 增加
 
-**指定列名**
+**指定列名:**
 
 ```python
 df.to_csv("cnn_predict_result.csv",encoding="utf_8_sig",index=False,columns=columns)
 ```
 
-**数据汇总**
+**数据汇总:**
 
 ```python
 groupby_col = ["a","b","c"]
@@ -38,19 +38,19 @@ sum_col = "amount"
 df_new = df.groupby(groupby_col)[[sum_col]].sum()
 ```
 
-**DataFrame 转 list**
+**DataFrame 转 list:**
 
 ```python
 np.array(data_x).tolist()
 ```
 
-**字符串按照 | 分割**
+**字符串按照 | 分割:**
 
 ```python
 data['name'].str.split('|',expand=True)
 ```
 
-**series 转 DataFrame 处理**
+**series 转 DataFrame 处理:**
 
 ```python
 # data['xx'] = df.groupby(groupby_cols_li)[sum_col].count()
@@ -79,7 +79,7 @@ Out[185]:
 3         海生林  1372  1372
 ```
 
-**按照数据类型区分**
+**按照数据类型区分:**
 
 ```python
 # 将df按照指定字段值拆分成多个小df
@@ -103,12 +103,12 @@ Out[72]:
 set(list(df.agg("aa"))) # 获取单列的值种类
 ```
 
-**判断空值**
+**判断空值:**
 
 df['$open'].isnull().any() # 判断 open 这一列列是否有 NaN
 df['$open'].isnull().all() # 判断 open 列是否全部为 NaN
 
-**字符切割，切割中文**
+**字符切割，切割中文:**
 
 1. 必须要 utf-8 编码
 2. 使用 slice 切割
@@ -121,7 +121,7 @@ if df[col].isnull().all():
 df[col] = df[col].str.slice(start=0,stop=-2,step=None)
 ```
 
-**low_memory**
+**low_memory:**
 
 默认 low_memory=True,使用低内存加载数据，但是可能存在类型混淆的情况
 需要 low_memory=False 或者指定字段类型
@@ -137,14 +137,14 @@ df.to_csv(fp, index=False,sep='|')
 
 ## Pandas 删除
 
-**删除 指定列。含空数据的行**
+**删除 指定列。含空数据的行:**
 
 ```python
 可以通过subset参数来删除在age和sex中含有空数据的全部行
 df4 = df4.dropna(subset=["age","sex"])
 ```
 
-**删除 全空列**
+**删除 全空列:**
 
 ```python
 df = df.dropna(axis=1,how='all')
@@ -170,49 +170,49 @@ df4 = df4.dropna(axis=1)
 **精度处理**
 df.round({'A': 1, 'C': 2})
 
-**字段重命名**
+**字段重命名:**
 
-\$a 重命名为 a 无返回值 d
+`$a` 重命名为 a 无返回值 d
 
 ```python
 df.rename(columns={'$a': 'a', '$b': 'b'}, inplace=True)
 # inplace 直接修改，所以无返回值。 inplace=False 不直接修改，故有返回值
 ```
 
-**指定列填充值**
+**指定列填充值:**
 
 ```python
 col = "aaaaa"
 df[col] = df[col].ffill(0)
 ```
 
-**列函数处理**
+**列函数处理:**
 
 ```python
 # 整列每行采用同一个函数处理
 c=c[["a","b"]].apply(foo,axis=1)
 ```
 
-**数据去重 drop_duplicates**
+**数据去重 drop_duplicates:**
 
 ```python
 df.drop_duplicates([cols],inplace=True)
 df.drop_duplicates(subset='id:ID',keep='first',inplace=True)
 ```
 
-**查看开头为 xxx 的字符 .str.startswith('0')**
+**查看开头为 xxx 的字符 .str.startswith('0'):**
 
 ```python
 df["JY_FROM_CERTID"] = df[df["JY_FROM_CERTID"].str.startswith('0')]
 ```
 
-**去除指定左边开头的字符 str.lstrip("9")**
+**去除指定左边开头的字符 str.lstrip("9"):**
 
 ```python
 df["JY_FROM_CERTID"] =  df["JY_FROM_CERTID"].str.lstrip("9")
 ```
 
-**pandas 列类型转换为 日期格式**
+**pandas 列类型转换为 日期格式:**
 
 ```python
 # # 方法1
@@ -223,7 +223,7 @@ del df2["date"]
 结论：.to_datetime仅转换格式，.DatetimeIndex还能设置为索引
 ```
 
-**类型转换**
+**类型转换:**
 
 ```python
 str float int datetime
@@ -231,7 +231,7 @@ df[col] = df[col].astype('str')
 # 不能使用  df[col].astype('str',inplace=True)
 ```
 
-**替换科学计数法**
+**替换科学计数法:**
 
 将字段类型转为 int64，即可去除科学计数法。
 但是空值转换会报错，所以需要先填充空值
@@ -243,7 +243,7 @@ data2[['col1','col2']] = data2[['col1','col2']].astype('int64',errors='ignore')
 
 当 int 类型进行 concat 合并的时候，有可能会出现科学计数法，需要先转为 object.
 
-**Numpy 全局设置无科学计数法**
+**Numpy 全局设置无科学计数法:**
 
 ```python
 import numpy as np
@@ -252,7 +252,7 @@ np.set_printoptions(suppress=True, threshold=np.nan)
 # threshold=np.nan 完整输出（没有省略号）
 ```
 
-**Pandas 全局设置完整输出**
+**Pandas 全局设置完整输出:**
 
 ```python
 import pandas as pd
@@ -261,10 +261,12 @@ pd.set_option('display.max_columns', 10000, 'display.max_rows', 10000)
 # display.max_rows 显示最大行数
 ```
 
-**数据合并**
+**数据合并:**
 
-参考链接： http://www.cnblogs.com/wzdLY/p/9673767.html
-https://www.cnblogs.com/bigshow1949/p/7016235.html
+参考链接：
+
+- [pandas 的 concat 函数和 append 方法](http://www.cnblogs.com/wzdLY/p/9673767.html)
+- [PANDAS 数据合并与重塑（join/merge 篇）](https://www.cnblogs.com/bigshow1949/p/7016235.html)
 
 ```python
 concatdf_new = pd.concat([df1,df2])
@@ -273,7 +275,7 @@ concatdf_new = pd.concat([df1,df2])
 
 ## Pandas 查询
 
-**列表查询 in 和 not in**
+**列表查询 in 和 not in:**
 
 方法 1: merge 实现
 
@@ -296,7 +298,7 @@ criterion = lambda row: row['countries'] not in countries
 not_in = df[df.apply(criterion, axis=1)]
 ```
 
-**pandas 行列循环**
+**pandas 行列循环:**
 
 ```python
 df.iterrows()
@@ -304,13 +306,13 @@ df.iterrows()
 
 ## Pandsa 注意事项
 
-**replace 会导致空列类型变更，object->float**
+**replace 会导致空列类型变更，object->float:**
 
 ```python
 tran_dfs[col] = tran_dfs[col].replace("nan",np.nan)
 ```
 
-**astype(str)会导致空值变成字符串 nan**
+**astype(str)会导致空值变成字符串 nan:**
 
 ```python
 tran_dfs[col] = tran_dfs[col].astype(str)
@@ -355,9 +357,6 @@ drop_duplicates 为我们提供了数据去重的方法,那怎么得到哪些数
 
 采用 drop_duplicates 对数据去两次重，一次将重复数据全部去除（keep=False）记为 data1,另一次将重复数据保留一个（keep='first）记为 data2;
 求 data1 和 data2 的差集即可:data2.append(data1).drop_duplicates(keep=False)
-
-
-
 
 ### 两列转为字典格式
 

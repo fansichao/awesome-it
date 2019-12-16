@@ -1,26 +1,29 @@
-# LinuxDocker使用手册
+# LinuxDocker 使用手册
 
 [toc]
 
-## Docker介绍
+## Docker 介绍
 
-### Docker的应用场景Web
-* 应用的自动化打包和发布。
-* 自动化测试和持续集成、发布。
-* 在服务型环境中部署和调整数据库或其他的后台应用。
-* 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境。
+### Docker 的应用场景 Web
+
+- 应用的自动化打包和发布。
+- 自动化测试和持续集成、发布。
+- 在服务型环境中部署和调整数据库或其他的后台应用。
+- 从头编译或者扩展现有的 OpenShift 或 Cloud Foundry 平台来搭建自己的 PaaS 环境。
 
 ### Docker 的优点
-* 持续部署与测试
-    * Docker可以确保从开发到产品发布整个过程环境的一致性。便于部署和开发测试。
-* 多云平台
-    * 可移植性
-* 环境标准化和版本控制
-    * 可以方便的进行版本管理
-* 隔离性
-* 安全性
+
+- 持续部署与测试
+  - Docker 可以确保从开发到产品发布整个过程环境的一致性。便于部署和开发测试。
+- 多云平台
+  - 可移植性
+- 环境标准化和版本控制
+  - 可以方便的进行版本管理
+- 隔离性
+- 安全性
 
 ### Docker 的主要用途
+
 （1）提供一次性的环境。比如，本地测试他人的软件、持续集成的时候提供单元测试和构建的环境。
 （2）提供弹性的云服务。因为 Docker 容器可以随开随关，很适合动态扩容和缩容。
 （3）组建微服务架构。通过多个容器，一台机器可以跑多个服务，因此在本机就可以模拟出微服务架构
@@ -28,18 +31,15 @@
 [https://blog.csdn.net/u013007900/article/details/62219169](https://blog.csdn.net/u013007900/article/details/62219169)
 [https://blog.csdn.net/xiangxizhishi/article/details/79441391](https://blog.csdn.net/xiangxizhishi/article/details/79441391)
 
-## Docker架构
+## Docker 架构
 
+- Docker 基本概念[https://blog.csdn.net/omnispace/article/details/79778544](https://blog.csdn.net/omnispace/article/details/79778544)
+- Docker 介绍以及其相关术语、底层原理和技术:[https://blog.csdn.net/zxygww/article/details/53709106](https://blog.csdn.net/zxygww/article/details/53709106)
 
-* Docker基本概念[https://blog.csdn.net/omnispace/article/details/79778544](https://blog.csdn.net/omnispace/article/details/79778544)
-* Docker 介绍以及其相关术语、底层原理和技术:[https://blog.csdn.net/zxygww/article/details/53709106](https://blog.csdn.net/zxygww/article/details/53709106)
-
-
-Docker 使用客户端-服务器 (C/S) 架构模式，使用远程API来管理和创建Docker容器。
+Docker 使用客户端-服务器 (C/S) 架构模式，使用远程 API 来管理和创建 Docker 容器。
 Docker 容器通过 Docker 镜像来创建。容器与镜像的关系类似于面向对象编程中的对象与类
 
-
-## Docker术语
+## Docker 术语
 
 **集群**
 一个集群指容器运行所需要的云资源组合，关联了若干服务器节点、负载均衡、专有网络等云资源。
@@ -52,22 +52,24 @@ Docker 镜像是容器应用打包的标准格式，在部署容器化应用时�
 **编排模板**
 编排模板包含了一组容器服务的定义和其相互关联，可以用于多容器应用的部署和管理。容器服务支持 Docker Compose 模板规范并有所扩展。
 **应用**
-一个应用可通过单个镜像或一个编排模板创建，每个应用可包含1个或多个服务。
+一个应用可通过单个镜像或一个编排模板创建，每个应用可包含 1 个或多个服务。
 **服务**
 一组基于相同镜像和配置定义的容器，作为一个可伸缩的微服务。
 **关联关系**
 ![关联关系](https://upload-images.jianshu.io/upload_images/2536979-89132b1352b2dbf4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/719/format/webp)
 
-## Docker使用
-### Docker安装
+## Docker 使用
+
+### Docker 安装
 
 **安装说明:**
-1. CentOS6.10 环境，要求6.8+
-2. Docker版本 1.7.1
 
-**步骤1:** 配置下载镜像 ```docker.repo```  文件
+1. CentOS6.10 环境，要求 6.8+
+2. Docker 版本 1.7.1
 
-CentOS6安装方法
+**步骤 1:** 配置下载镜像 `docker.repo` 文件
+
+CentOS6 安装方法
 
 ```bash
 [root@yinsho ~]# cat /etc/yum.repos.d/docker.repo
@@ -76,10 +78,10 @@ name=Docker Repository
 baseurl=https://yum.dockerproject.org/repo/main/centos/6
 enabled=1
 gpgcheck=1
-gpgkey=https://yum.dockerproject.org/gpg 
+gpgkey=https://yum.dockerproject.org/gpg
 ```
 
-CentOS7安装方法
+CentOS7 安装方法
 
 ```bash
 [root@yinsho ~]# cat /etc/yum.repos.d/docker.repo
@@ -91,14 +93,14 @@ gpgcheck=1
 gpgkey=https://yum.dockerproject.org/gpg
 ```
 
-**步骤2:** 重建元数据
+**步骤 2:** 重建元数据
 
 ```bash
 yum clean all
 yum makecache
 ```
 
-**步骤3:** 安装docker
+**步骤 3:** 安装 docker
 
 ```bash
 yum install docker-engine  -y
@@ -110,16 +112,16 @@ yum install docker-engine  -y
 # 如果执行报错 docker-engine conflicts with xxxxx
 # 先卸载 docker，再安装 docker-engine
 yum remove docker -y
- ```
+```
 
-**步骤4:** 启动docker服务
+**步骤 4:** 启动 docker 服务
 
 ```bash
 service docker start
 chkconfig docker on
 ```
 
-**步骤5:** 非root用户使用 docker. 将用户添加到docker用户组
+**步骤 5:** 非 root 用户使用 docker. 将用户添加到 docker 用户组
 
 ```bash
 sudo groupadd docker
@@ -138,29 +140,21 @@ sudo chkconfig on docker
 newgrp - docker 或  pkill X
 ```
 
-
-
 **参考说明:** xxx
 
-安装参考链接: 
- https://blog.csdn.net/abcd_d_/article/details/53996791
+安装参考链接:
+https://blog.csdn.net/abcd_d_/article/details/53996791
 
- 
 yum update -y
 如果报错 No module named yum
-参考: https://www.cnblogs.com/clover-siyecao/p/5650893.html 
-
-
+参考: https://www.cnblogs.com/clover-siyecao/p/5650893.html
 
 rpm -Uvh http://ftp.riken.jp/Linux/fedora/epel/6Server/x86_64/epel-release-6-8.noarch.rpm
 
 yum remove docker -y
 yum install -y docker-io
- 
 
- 
-
-### Docker常用命令
+### Docker 常用命令
 
 ```bash
 # Docker服务启停
@@ -175,7 +169,7 @@ docker run -it -v /docker_test:/yufei --name yufei_6 centos
 # 查看docker容器列表(运行中)
 docker ps
 # 查看所有的docker容器列表
-docker ps -a 
+docker ps -a
 # 启停容器
 docker start yufei_01
 docker stop yufei_01
@@ -191,53 +185,52 @@ docker rm $(docker ps -a -q)
 
 ```
 
-### Docker命令大全
+### Docker 命令大全
 
-* Docker命令大全:[http://www.runoob.com/docker/docker-command-manual.html](http://www.runoob.com/docker/docker-command-manual.html)
+- Docker 命令大全:[http://www.runoob.com/docker/docker-command-manual.html](http://www.runoob.com/docker/docker-command-manual.html)
 
-* 容器生命周期管理
-    * docker run 创建一个新的容器并运行一个命令
-    * docker restart 重启容器
-    * docker kill -s KILL mynginx  杀掉一个运行中的容器。 -s :向容器发送一个信号
-    * docker rm : 删除一个或多少容器
-    * docker pause :暂停容器中所有的进程。
-    * docker unpause :恢复容器中所有的进程。
-    * docker create : 创建一个新的容器但不启动它
-    * docker exec : 在运行的容器中执行命令
-* 容器操作
-    * docker ps : 列出容器
-    * docker inspect : 获取容器/镜像的元数据。
-    * docker top :查看容器中运行的进程信息，支持 ps 命令参数
-    * docker attach :连接到正在运行中的容器
-    * docker events : 从服务器获取实时事件
-    * docker logs : 获取容器的日志
-    * docker wait : 阻塞运行直到容器停止，然后打印出它的退出代码
-    * docker export :将文件系统作为一个tar归档文件导出到STDOUT
-    * docker port :列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口。
-* 容器rootfs命令
-    * docker commit :从容器创建一个新的镜像。
-    * docker cp :用于容器与主机之间的数据拷贝
-    * docker diff : 检查容器里文件结构的更改
-* 镜像仓库    
-    * docker login : 登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hubdocker 
-    * docker logout : 登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub
-    * docker pull : 从镜像仓库中拉取或者更新指定镜像
-    * docker push : 将本地的镜像上传到镜像仓库,要先登陆到镜像仓库
-    * docker search: 从Docker Hub查找镜像
-* 本地镜像管理    
-    * docker images : 列出本地镜像
-    * docker rmi : 删除本地一个或多少镜像
-    * docker tag : 标记本地镜像，将其归入某一仓库
-    * docker build 命令用于使用 Dockerfile 创建镜像
-    * docker history : 查看指定镜像的创建历史
-    * docker save : 将指定镜像保存成 tar 归档文件
-    * docker import : 从归档文件中创建镜像
-* info|version
-    * docker info : 显示 Docker 系统信息，包括镜像和容器数。
-    * docker version :显示 Docker 版本信息
+- 容器生命周期管理
+  - docker run 创建一个新的容器并运行一个命令
+  - docker restart 重启容器
+  - docker kill -s KILL mynginx 杀掉一个运行中的容器。 -s :向容器发送一个信号
+  - docker rm : 删除一个或多少容器
+  - docker pause :暂停容器中所有的进程。
+  - docker unpause :恢复容器中所有的进程。
+  - docker create : 创建一个新的容器但不启动它
+  - docker exec : 在运行的容器中执行命令
+- 容器操作
+  - docker ps :  列出容器
+  - docker inspect :  获取容器/镜像的元数据。
+  - docker top :查看容器中运行的进程信息，支持 ps 命令参数
+  - docker attach :连接到正在运行中的容器
+  - docker events :  从服务器获取实时事件
+  - docker logs :  获取容器的日志
+  - docker wait :  阻塞运行直到容器停止，然后打印出它的退出代码
+  - docker export :将文件系统作为一个 tar 归档文件导出到 STDOUT
+  - docker port :列出指定的容器的端口映射，或者查找将 PRIVATE_PORT NAT 到面向公众的端口。
+- 容器 rootfs 命令
+  - docker commit :从容器创建一个新的镜像。
+  - docker cp :用于容器与主机之间的数据拷贝
+  - docker diff :  检查容器里文件结构的更改
+- 镜像仓库
+  - docker login :  登陆到一个 Docker 镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hubdocker
+  - docker logout :  登出一个 Docker 镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub
+  - docker pull :  从镜像仓库中拉取或者更新指定镜像
+  - docker push :  将本地的镜像上传到镜像仓库,要先登陆到镜像仓库
+  - docker search: 从 Docker Hub 查找镜像
+- 本地镜像管理
+  - docker images :  列出本地镜像
+  - docker rmi :  删除本地一个或多少镜像
+  - docker tag :  标记本地镜像，将其归入某一仓库
+  - docker build  命令用于使用 Dockerfile 创建镜像
+  - docker history :  查看指定镜像的创建历史
+  - docker save :  将指定镜像保存成 tar 归档文件
+  - docker import :  从归档文件中创建镜像
+- info|version
+  - docker info : 显示 Docker 系统信息，包括镜像和容器数。
+  - docker version :显示 Docker 版本信息
 
-### docker命令样例
-
+### docker 命令样例
 
 ```bash
 
@@ -293,28 +286,30 @@ docker commit 8e613c207029 fdm_docker02 
 
 
 ```
+
 # 其他模块
+
 ```bash
 其他模块
 使用xshell登录docker -- 方式1 进入docker虚拟机
 ssh 192.168.99.100 # docker的IP ，通过查看docker虚拟机的ip登入docker界面
-用户名默认是: docker  
-密码默认: tcuser  
+用户名默认是: docker
+密码默认: tcuser
 端口: 22
 
-# 涉及安装openssh-server  
+# 涉及安装openssh-server
 http://blog.csdn.net/vincent2610/article/details/52490397
-yum install -y openssh-server  
-vi /etc/ssh/sshd_config  
-将PermitRootLogin的值从withoutPassword改为yes  
+yum install -y openssh-server
+vi /etc/ssh/sshd_config
+将PermitRootLogin的值从withoutPassword改为yes
 登出容器，并将容器保存为新的镜像。
 关闭原有容器，用新镜像生成新的容器
 使用xshell登录docker -- 方式2 docker进入容器
 1.安装配置好sshd，并进入后重启服务。
 2.docker run 通过 -p 50001:22，将22端口映射到50001
 3.打开cmd，查看windwosIP，例如 192.168.43.25
-4.ssh 192.168.43.25 50001 
-或者 ssh 192.168.43.25 -p 50001 
+4.ssh 192.168.43.25 50001
+或者 ssh 192.168.43.25 -p 50001
 即可登录进入容器中
 
 
@@ -322,7 +317,7 @@ vi /etc/ssh/sshd_config
 # sysctl: setting key "vm.max_map_count": Read-only file system 问题
 参考链接: https://stackoverflow.com/questions/41064572/docker-elk-vm-max-map-count
 说明: 由于docker是最高层级，容器是最低层级，部分系统参数需要从docker中修改，否则权限不足
-解决方法: 
+解决方法:
 docker-machine create -d virtualbox default # 创建默认虚拟机，涉及需要开启windows功能 Hyper-V
 docker-machine start 机器名称 # 出现蓝屏问题，暂时未解决 PASS
 docker-machine ssh
@@ -368,25 +363,25 @@ docker system prune -a
 
 参考链接: https://www.cnblogs.com/myzony/p/9071210.html
 
-pass  
+pass
 CentOS7可用？
 ```
 
 ## 参考链接
 
-docker基础命令: https://www.server110.com/docker/201411/11122.html
+docker 基础命令: https://www.server110.com/docker/201411/11122.html
 docker run 参数: http://www.runoob.com/docker/docker-run-command.html
-docker官方英文文档: https://docs.docker.com/
-docker中文文档网站: http://www.docker.org.cn/
-第一本docker书籍: https://download.csdn.net/download/qq_21165007/10276074
+docker 官方英文文档: https://docs.docker.com/
+docker 中文文档网站: http://www.docker.org.cn/
+第一本 docker 书籍: https://download.csdn.net/download/qq_21165007/10276074
 
-## docker问题记录
+## docker 问题记录
 
 ### 问题: FATA[0000] Get http:///var/run/docker.sock/v1.18/images/json: dial unix /var/run/docker.sock: permission denied. Are you trying to connect to a TLS-enabled daemon without TLS?
 
 参考链接: [Are you trying to connect to a TLS-enabled daemon without TLS?](https://www.cnblogs.com/ppgs8903/p/5041919.html)
 
-问题原因: 非root用户未成功添加到用户组或未生效
+问题原因: 非 root 用户未成功添加到用户组或未生效
 
 解决方法:
 
@@ -404,6 +399,7 @@ newgrp - docker 或 pkill X
 ### 问题: Repository dgraph/dgraph already being pulled by another client. Waiting.
 
 解决方法: 重启服务
+
 ```bashe
 [root@WOdocker pull dgraph/dgraph:latest
 Repository dgraph/dgraph already being pulled by another client. Waiting.
@@ -461,25 +457,23 @@ qnib/plain-dgraph                          Plain image
 
 
 ```
- 
- 
 
- 
 ### 问题:Segmentation Fault or Critical Error encountered
+
 提示: Segmentation Fault or Critical Error encountered. Dumping core and aborting.
 Aborted
-解答: 安装错误安装docker了，应该安装docker-io
+解答: 安装错误安装 docker 了，应该安装 docker-io
 
 ### 问题:docker-io-1.7.1-2.el6.x86_64
+
 提示: Transaction Check Error:
   file /usr/bin/docker from install of docker-io-1.7.1-2.el6.x86_64 conflicts with file from package docker-1.5-5.el6.x86_64
-解答: 这个是因为先装了docker，再装docker-io后的结果，解决方法是yum remove docker后再yum install docker-io即可。
-
+解答: 这个是因为先装了 docker，再装 docker-io 后的结果，解决方法是 yum remove docker 后再 yum install docker-io 即可。
 
 ### 问题:/var/run/docker.sock: no such file or directory
+
 提示: Get http:///var/run/docker.sock/v1.19/images/search?term=centos: dial unix /var/run/docker.sock: no such file or directory. Are you trying to connect to a ?
-解答: docker没有启动，/etc/init.d/docker start
- 
+解答: docker 没有启动，/etc/init.d/docker start
 
 ### 问题: 容器内中文乱码
 
@@ -507,13 +501,12 @@ source /etc/locale.conf
 
 ## 参考资源
 
-Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从Apache2.0协议开源。
+Docker 是一个开源的应用容器引擎，基于  Go 语言   并遵从 Apache2.0 协议开源。
 Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。
 容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。
 
-**Docker参考链接: **
-- Docker官方中文网: [http://www.docker.org.cn/](http://www.docker.org.cn/)
-- Docker官网: [https://www.docker.com/](https://www.docker.com/)
-- Docker菜鸟教程: [http://www.runoob.com/docker/docker-tutorial.html](http://www.runoob.com/docker/docker-tutorial.html)
+**Docker 参考链接:**
 
- 
+- Docker 官方中文网: [http://www.docker.org.cn/](http://www.docker.org.cn/)
+- Docker 官网: [https://www.docker.com/](https://www.docker.com/)
+- Docker 菜鸟教程: [http://www.runoob.com/docker/docker-tutorial.html](http://www.runoob.com/docker/docker-tutorial.html)
