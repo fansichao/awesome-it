@@ -369,7 +369,7 @@ In [30]: print df[['col','name']][0:2]
 2    ACCT_NATURE    账户属性
 3  ACCT_NET_CITY  开户网点_市
 
-In [29]: df[['col','name']].set_index('col').to_dict()['name']
+In [29]: df[['col','name']].set_index('col').to_dict()['name'] 
 Out[29]:
 {'ACCT_CLASS': '\xe8\xb4\xa6\xe6\x88\xb7\xe7\xb1\xbb\xe5\x88\xab',
  'ACCT_CLOSE_DATE': '\xe9\x94\x80\xe6\x88\xb7\xe6\x97\xa5\xe6\x9c\x9f',
@@ -399,3 +399,95 @@ df['JY_JYSJ'].astype('datetime64').max()
 ### 新加一行
 
 df3.loc['new'] = ['a','a','a','a']
+
+### 设置空列 reindex
+
+```python
+In [20]: df
+Out[20]:
+   a
+0  1
+1  2
+In [21]: df.reindex(columns=['a','b'])
+Out[21]:
+   a   b
+0  1 NaN
+1  2 NaN
+In [27]: df.dtypes
+Out[27]: 
+a    object
+dtype: object
+
+In [28]: df.reindex(columns=['a','b']).dtypes
+Out[28]: 
+a     object
+b    float64
+dtype: object
+
+# 注意类型问题
+
+# 没有inplace参数
+df = df.reindex(columns=['a','b'])
+```
+
+### 忽略大小写替换字符
+```python
+# df.astype(str).apply(lambda x: re.sub('nan', 'sss', x, flags=re.IGNORECASE)) 忽略大小写替换字符
+```
+
+
+### 读取时指定类型和字段名称
+
+```python
+    cust_df = pd.read_csv(nj_config['cust']['filepath'], dtype=str, sep='|', names=nj_config['cust']['name_code_dic'].keys()).dropna(how="all")
+
+```
+
+
+### 判断列空
+
+```python
+df['$open'].isnull().any() # 判断open这一列列是否有 NaN
+
+df['$open'].isnull().all()  # 判断open列是否全部为NaN
+
+df.isnull().all()  # 判断某列是否全部为NaN
+```
+### 数据类型转换
+
+
+```python
+
+
+_STRICT_MODE = "raise"
+_MIDDLE_MODE = "coerce"
+_EASY_MODE = "ignore"
+
+        acct_df[curr] = pd.to_numeric(acct_df[curr].astype(str).\
+            str.replace(",", "").replace("nan", "0"), errors=VERIFY_MODE,downcast='float')
+
+
+end_date = pd.to_datetime(df_tranjrnl['TRAN_DATE'], errors='coerce').dt.date.max()
+```
+
+### Pandas bool值取反
+
+```python
+In [16]: a =np.array([True,False,True,True,False])
+
+In [17]: c = (1-a).astype(np.bool)
+
+In [18]: c
+
+Out[18]: array([False,  True, False, False,  True])
+
+```
+
+
+### Pandas   groupby + apply + sortValues
+
+
+```python
+来个例子， groupby + apply + sortValues的例子
+data.groupby('customer_id')['repayment_date'].apply(lambda x:x.sort_values(ascending=False)).reset_index()
+```

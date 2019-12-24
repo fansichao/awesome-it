@@ -1,28 +1,15 @@
-# Linux-Locale介绍说明
+# Linux-Locale 介绍说明
 
-<!-- TOC -->
+<!-- TOC -->autoauto- [Linux-Locale 介绍说明](#linux-locale-介绍说明)auto    - [Locale 基本概念](#locale-基本概念)auto        - [locale 涉及到的配置](#locale-涉及到的配置)auto        - [locale 涉及到的环境变量](#locale-涉及到的环境变量)auto        - [Locale 常量含义](#locale-常量含义)auto    - [Locale 常用命令](#locale-常用命令)autoauto<!-- /TOC -->
 
-- [Linux-Locale介绍说明](#Linux-Locale%E4%BB%8B%E7%BB%8D%E8%AF%B4%E6%98%8E)
-  - [Locale基本概念](#Locale%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5)
-    - [locale涉及到的配置](#locale%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E9%85%8D%E7%BD%AE)
-    - [locale涉及到的环境变量](#locale%E6%B6%89%E5%8F%8A%E5%88%B0%E7%9A%84%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F)
-    - [Locale常量含义](#Locale%E5%B8%B8%E9%87%8F%E5%90%AB%E4%B9%89)
-  - [Locale常用命令](#Locale%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4)
+Locale 是根据计算机用户所使用的语言，所在国家或者地区，以及当地的文化传统所定义的一个软件运行时的语言环境。
 
-<!-- /TOC -->
+Locale 包括语言(Language), 地域 (Territory) 和字符集(Codeset)。
+一个 locale 的书写格式为: **语言[\_地域[.字符集]]**。
+完全的 locale 表达方式是 **[语言[\_地域][.字符集] [@修正值]**。
+zh*CN.GB2312 ＝中文*中华人民共和国＋国标 2312 字符集。
 
-Locale是根据计算机用户所使用的语言，所在国家或者地区，以及当地的文化传统所定义的一个软件运行时的语言环境。
-
-Locale包括语言(Language), 地域 (Territory) 和字符集(Codeset)。
-一个locale的书写格式为: **语言[_地域[.字符集]]**。
-完全的locale表达方式是 **[语言[_地域][.字符集] [@修正值]**。
-zh_CN.GB2312＝中文_中华人民共和国＋国标2312字符集。
-
- 
- 
-
-
-## Locale基本概念
+## Locale 基本概念
 
 ```bash
 1 名称：
@@ -34,8 +21,8 @@ zh_CN.GB2312＝中文_中华人民共和国＋国标2312字符集。
 4 字体
     用于把字符集的编码转换成屏幕上的字体显示
 ```
- 
-### locale涉及到的配置
+
+### locale 涉及到的配置
 
 ```bash
 1 /etc/sysconfig/i18n：
@@ -47,15 +34,18 @@ zh_CN.GB2312＝中文_中华人民共和国＋国标2312字符集。
 4 /usr/share/i18n/charmaps/：
     所有的字符编码文件
 ```
- 
-### locale涉及到的环境变量
+
+### locale 涉及到的环境变量
+
 ```bash
 1 LC_ALL
 2 LC_*
 3 LANG（环境变量，通常用这个就行了）
 4 LC_ALL > LC_* > LANG
 ```
-### Locale常量含义
+
+### Locale 常量含义
+
 ```bash
 LANG=语言
 LC_CTYPE=语言符号及分类
@@ -73,24 +63,22 @@ LC_IDENTIFICATION=对locale自身包含信息的概述
 LC_ALL=
 ```
 
+从优先级角度：LC*ALL > LC*\* > LANG
 
-
-从优先级角度：LC_ALL > LC_* > LANG
-
-
-## Locale常用命令
+## Locale 常用命令
 
 ```bash
 # 查看现有语言环境
 locale
 # 可用语言环境
-locale -a 
+locale -a
 # 临时修改语言环境
 export LANG=en_US.UTF-8
 export LANG=zh_CN.UTF-8
 ```
 
 **永久修改系统级字符集**
+
 ```bash
 
 /etc/sysconfig/i18n
@@ -103,10 +91,3 @@ LANG="zh_CN.UTF-8"或者LANG="zh_CN.gbk"
 SYSFONT="latarcyrheb-sun16"
 
 ```
-
-
- 
-
-
-
-

@@ -61,6 +61,17 @@ else
 fi
 ```
 
+#### 检查字符串是否在其中
+
+```bash
+STR='GNU/Linux is an operating system'
+SUB='Linux'
+if [[ "$STR" == *"$SUB"* ]]; then
+  echo "It's there."
+fi
+```
+https://www.linuxidc.com/Linux/2019-08/159866.htm
+
 #### 检查字符串是否存在文件中
 
 ```bash
@@ -71,6 +82,13 @@ then
 else
     echo "source ${out_path}" >> ${bash_path}
 fi
+```
+
+#### 解决 sudo 默认密码
+
+```bash
+sudo_password=qwe123
+echo ${sudo_password} | sudo -S sh -c "echo 'ssss' > /root/1.log"
 ```
 
 #### 读取配置文件 config.ini
@@ -175,4 +193,23 @@ export KEY1=val1
 export KEY2=val2
 # item [CONFIG_NAME2]
 export KEY3=val3
+```
+
+## 问题记录
+
+### sudo pip command not found
+
+```bash
+# 解决 sudo pip 失败的问题
+echo "alias sudo='sudo env PATH=$PATH'" >> ~/.bashrc
+source ~/.bashrc
+```
+
+### sudo echo Permission denied 权限不够的问题
+
+```bash
+# 如下解决方案
+sudo sh -c 'echo "This is testPage." >> /usr/local/nginx/html/index.html'
+sudo tee version.txt <<< "要插入内容"
+echo qwe123 | sudo -S sh -c "echo 'ssss' > /root/1.log"
 ```

@@ -1,40 +1,6 @@
 # Neo4j使用手册
 
-<!-- TOC -->
-
-- [Neo4j使用手册](#neo4j%e4%bd%bf%e7%94%a8%e6%89%8b%e5%86%8c)
-  - [Neo4j入门介绍](#neo4j%e5%85%a5%e9%97%a8%e4%bb%8b%e7%bb%8d)
-  - [安装部署](#%e5%ae%89%e8%a3%85%e9%83%a8%e7%bd%b2)
-  - [软件使用](#%e8%bd%af%e4%bb%b6%e4%bd%bf%e7%94%a8)
-    - [配置文件](#%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6)
-  - [Neo4j语法](#neo4j%e8%af%ad%e6%b3%95)
-    - [Neo4j术语/概念](#neo4j%e6%9c%af%e8%af%ad%e6%a6%82%e5%bf%b5)
-    - [Neo4j运算符](#neo4j%e8%bf%90%e7%ae%97%e7%ac%a6)
-    - [Cypher语法](#cypher%e8%af%ad%e6%b3%95)
-    - [Cpyher函数](#cpyher%e5%87%bd%e6%95%b0)
-    - [Cypher常用语句](#cypher%e5%b8%b8%e7%94%a8%e8%af%ad%e5%8f%a5)
-  - [数据导入](#%e6%95%b0%e6%8d%ae%e5%af%bc%e5%85%a5)
-    - [Neo4j-import](#neo4j-import)
-      - [文件格式](#%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f)
-      - [导入命令](#%e5%af%bc%e5%85%a5%e5%91%bd%e4%bb%a4)
-    - [batch-import](#batch-import)
-      - [文件格式](#%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f-1)
-      - [导入命令](#%e5%af%bc%e5%85%a5%e5%91%bd%e4%bb%a4-1)
-    - [Load-csv](#load-csv)
-      - [文件格式](#%e6%96%87%e4%bb%b6%e6%a0%bc%e5%bc%8f-2)
-  - [问题记录](#%e9%97%ae%e9%a2%98%e8%ae%b0%e5%bd%95)
-    - [Value 15979221751 is too big to be represented as int](#value-15979221751-is-too-big-to-be-represented-as-int)
-    - [already contains a database](#already-contains-a-database)
-    - [Max 1024 open files allowed, minimum of 40000 recommended.](#max-1024-open-files-allowed-minimum-of-40000-recommended)
-    - [其他情况](#%e5%85%b6%e4%bb%96%e6%83%85%e5%86%b5)
-  - [其他说明](#%e5%85%b6%e4%bb%96%e8%af%b4%e6%98%8e)
-    - [参考资源](#%e5%8f%82%e8%80%83%e8%b5%84%e6%ba%90)
-    - [No4j最大支持节点和关系数量](#no4j%e6%9c%80%e5%a4%a7%e6%94%af%e6%8c%81%e8%8a%82%e7%82%b9%e5%92%8c%e5%85%b3%e7%b3%bb%e6%95%b0%e9%87%8f)
-    - [Neo4j数据预热](#neo4j%e6%95%b0%e6%8d%ae%e9%a2%84%e7%83%ad)
-    - [检查Neo4j是否启动](#%e6%a3%80%e6%9f%a5neo4j%e6%98%af%e5%90%a6%e5%90%af%e5%8a%a8)
-    - [性能测试](#%e6%80%a7%e8%83%bd%e6%b5%8b%e8%af%95)
-
-<!-- /TOC -->
+<!-- TOC -->autoauto- [Neo4j使用手册](#neo4j使用手册)auto    - [Neo4j入门介绍](#neo4j入门介绍)auto    - [安装部署](#安装部署)auto    - [软件使用](#软件使用)auto        - [配置文件](#配置文件)auto    - [Neo4j语法](#neo4j语法)auto        - [Neo4j术语/概念](#neo4j术语概念)auto        - [Neo4j运算符](#neo4j运算符)auto        - [Cypher语法](#cypher语法)auto        - [Cpyher函数](#cpyher函数)auto        - [Cypher常用语句](#cypher常用语句)auto    - [数据导入](#数据导入)auto        - [Neo4j-import](#neo4j-import)auto            - [文件格式](#文件格式)auto            - [导入命令](#导入命令)auto        - [batch-import](#batch-import)auto            - [文件格式](#文件格式-1)auto            - [导入命令](#导入命令-1)auto        - [Load-csv](#load-csv)auto            - [文件格式](#文件格式-2)auto    - [问题记录](#问题记录)auto        - [Value 15979221751 is too big to be represented as int](#value-15979221751-is-too-big-to-be-represented-as-int)auto        - [already contains a database](#already-contains-a-database)auto        - [Max 1024 open files allowed, minimum of 40000 recommended.](#max-1024-open-files-allowed-minimum-of-40000-recommended)auto        - [其他情况](#其他情况)auto    - [其他说明](#其他说明)auto        - [参考资源](#参考资源)auto        - [No4j最大支持节点和关系数量](#no4j最大支持节点和关系数量)auto        - [Neo4j数据预热](#neo4j数据预热)auto        - [检查Neo4j是否启动](#检查neo4j是否启动)auto        - [性能测试](#性能测试)autoauto<!-- /TOC -->
 
 ## Neo4j入门介绍
 
@@ -807,7 +773,7 @@ Cypher删除
 MATCH (e: Employee) DELETE e
 
 # 删除节点及关系
-MATCH (cc: CreditCard)-[rel]-(c:Customer) 
+MATCH (cc: CreditCard)-[rel]-(c:Customer)
 DELETE cc,c,rel
 
 # 删除属性

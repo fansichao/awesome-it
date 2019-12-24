@@ -2,6 +2,8 @@
 
 ## Python2 和 Python3 并存
 
+### Python3 安装配置
+
 参考链接:
 https://www.cnblogs.com/gaoyuechen/p/8006365.html
 
@@ -29,6 +31,10 @@ Python 3.6.0 (default, Feb  1 2017, 14:56:52)
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
+
+### pip3 安装配置
+
+### env3 安装配置
 
 ### 判断数据类型
 

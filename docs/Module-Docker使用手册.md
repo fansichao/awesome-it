@@ -22,6 +22,15 @@
 - 隔离性
 - 安全性
 
+  1.优势
+
+docker 启动快，开启一个 container 通常只需要几秒钟，而虚拟机开机至少几十秒；
+docker 需要的资源更少， docker 在操作系统级别进行虚拟化， docker 容器和内核交互，几乎没有性能损耗，性能优于通过 Hypervisor 层与内核层的虚拟化；
+docker 更轻量， docker 重装或者复制到其他机器比虚拟机快很多，重新安装 docker 容器只需要几十秒种，而虚拟机至少需要几分钟；并且 dockers 的 image 文件导出占用只有几百兆，但是虚拟机的镜像包往往有几个 G； 2.缺点
+
+docker 无法对外开放所有端口，docker 只能对宿主机和同宿主机的 docker 开放所有端口，其他机器访问 dockers 需要通过宿主机进行端口转发，而不能像虚拟机一样通过 IP 访问；
+docker 默认安装系统包较少，默认安装的虚拟机往往字段一些常用的系统包，但是 docker 很多常用的包都没有（比如 docker 下 centos7 默认是没有 ip 命令的，也不支持 ssh 登陆）；
+
 ### Docker 的主要用途
 
 （1）提供一次性的环境。比如，本地测试他人的软件、持续集成的时候提供单元测试和构建的环境。
@@ -183,6 +192,51 @@ docker rm yufei_01
 docker rm $(docker ps -a -q)
 
 
+
+# Docker服务启停
+service docker start
+service docker stop
+service docker restart
+
+# Docker网络管理
+docker network create --subnet=172.18.0.0/16 extnetwork #创建网络
+docker network ls #列出当前所有网络
+docker network rm extnetwork #删除网络
+
+# 创建一个容器
+docker run --privileged=true -m 8000M --cpus=2 -itd --name 12306 --net extnetwork --ip 172.18.0.72 docker_7 /usr/sbin/init
+参数说明
+-i：允许我们对容器内的 (STDIN) 进行交互
+-t：在新容器内指定一个伪终端或终端
+-d: 后台运行
+--privileged=true 如果不加此参数，root也可能会部分操作无权限
+-m 限制最大使用内存
+--cpus cpu使用限制
+--name：是给容器起一个名字
+--net 指定网段
+--ip 指定ip
+参数里面的centos是镜像名字，如果本地无名字对应的镜像，则会在网络上寻找，并自动下载到本地,若不指定版本，则下载最新版本
+
+# 查看docker容器列表(运行中)
+docker ps
+# 查看所有的docker容器列表
+docker ps -a
+
+# 启停容器
+docker start docker_7
+docker restart docker_7
+docker stop docker_7
+
+# 删除容器，如果容器在运行需要先停止
+docker stop docker_7
+docker rm docker_7
+
+# 容器保存为镜像
+docker commit docker_7 img_docker_7
+
+# 镜像导入导出
+docker export docker_7 -o docker_7.tar
+docker import docker_7.tar docker_7
 ```
 
 ### Docker 命令大全
@@ -287,7 +341,7 @@ docker commit 8e613c207029 fdm_docker02 
 
 ```
 
-# 其他模块
+## 其他模块
 
 ```bash
 其他模块
@@ -367,6 +421,10 @@ pass
 CentOS7可用？
 ```
 
+## Docker 功能
+
+### Docker 网络配置使用
+
 ## 参考链接
 
 docker 基础命令: https://www.server110.com/docker/201411/11122.html
@@ -374,6 +432,58 @@ docker run 参数: http://www.runoob.com/docker/docker-run-command.html
 docker 官方英文文档: https://docs.docker.com/
 docker 中文文档网站: http://www.docker.org.cn/
 第一本 docker 书籍: https://download.csdn.net/download/qq_21165007/10276074
+
+Docker 是一个开源的应用容器引擎，基于  Go 语言   并遵从 Apache2.0 协议开源。
+Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。
+容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。
+
+**Docker 参考链接:**
+
+- Docker 官方中文网: [http://www.docker.org.cn/](http://www.docker.org.cn/)
+- Docker 官网: [https://www.docker.com/](https://www.docker.com/)
+- Docker 菜鸟教程: [http://www.runoob.com/docker/docker-tutorial.html](http://www.runoob.com/docker/docker-tutorial.html)
+
+## Docker 性能监控
+
+不同方法：
+
+- 官方 docker stats
+- ps -e
+- ctop
+
+### docker stats
+
+参考链接:
+
+- [Docker 官方 stats](https://docs.docker.com/engine/reference/commandline/stats/?spm=a2c6h.13066369.0.0.1f661b135gtUOK)
+- [Linux 内存监控，据说 Docker 官方 stats 不准确](https://www.cnblogs.com/xuxinkun/p/5541894.html)
+
+docker stats -a
+![Module_Docker_性能监控01.png](https://raw.githubusercontent.com/fansichao/images/master/markdown/Module_Docker_%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A701.png)
+
+### ps -e
+
+查看 Docker 运行情况
+
+```bash
+ps aux | grep  d276413151a0
+ps -e -o 'pid,comm,args,pcpu,rsz,vsz,stime,user,uid'  | grep 8189
+
+rsz 为实际占用内存
+```
+
+### ctop
+
+参考链接：[实时查看 Docker 容器占用的 CPU、内存状态](https://www.testwo.com/article/987)
+
+```bash
+wget https://github.com/bcicen/ctop/releases/download/v0.5/ctop-0.5-linux-amd64 -O ctop
+sudo mv ctop /usr/local/bin/.
+sudo chmod +x /usr/local/bin/ctop
+ctop
+```
+
+![Module_Docker_性能监控02.png](https://raw.githubusercontent.com/fansichao/images/master/markdown/Module_Docker_%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A702.png)
 
 ## docker 问题记录
 
@@ -497,16 +607,23 @@ locale -a
 # echo
 echo 'LANG="zh_CN.UTF-8"' > /etc/locale.conf
 source /etc/locale.conf
+
 ```
 
-## 参考资源
+如果不能解决,可以用如下方法
 
-Docker 是一个开源的应用容器引擎，基于  Go 语言   并遵从 Apache2.0 协议开源。
-Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。
-容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。
+```bash
+echo "exprot LC_ALL=en_US.utf8" >> ~/.bash_profile
+# 在用户中加入这个, 或者在 /etc/profie 中加入
+# 不是一个好方法，但是可以解决问题
+```
 
-**Docker 参考链接:**
+### `/var/run/docker.sock: connect: permission denied`
 
-- Docker 官方中文网: [http://www.docker.org.cn/](http://www.docker.org.cn/)
-- Docker 官网: [https://www.docker.com/](https://www.docker.com/)
-- Docker 菜鸟教程: [http://www.runoob.com/docker/docker-tutorial.html](http://www.runoob.com/docker/docker-tutorial.html)
+解决方法
+
+```bash
+(env) [scfan@fdm docker_cmd]$  docker import docker_7.tar docker_7
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.26/images/create?fromSrc=-&message=&repo=docker_7&tag=: dial unix /var/run/docker.sock: connect: permission denied
+(env) [scfan@fdm docker_cmd]$ sudo chmod 777 /var/run/docker.sock
+```
