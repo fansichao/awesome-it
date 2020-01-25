@@ -1,23 +1,21 @@
-# Neo4j使用手册
+# Neo4j 使用手册
 
-<!-- TOC -->autoauto- [Neo4j使用手册](#neo4j使用手册)auto    - [Neo4j入门介绍](#neo4j入门介绍)auto    - [安装部署](#安装部署)auto    - [软件使用](#软件使用)auto        - [配置文件](#配置文件)auto    - [Neo4j语法](#neo4j语法)auto        - [Neo4j术语/概念](#neo4j术语概念)auto        - [Neo4j运算符](#neo4j运算符)auto        - [Cypher语法](#cypher语法)auto        - [Cpyher函数](#cpyher函数)auto        - [Cypher常用语句](#cypher常用语句)auto    - [数据导入](#数据导入)auto        - [Neo4j-import](#neo4j-import)auto            - [文件格式](#文件格式)auto            - [导入命令](#导入命令)auto        - [batch-import](#batch-import)auto            - [文件格式](#文件格式-1)auto            - [导入命令](#导入命令-1)auto        - [Load-csv](#load-csv)auto            - [文件格式](#文件格式-2)auto    - [问题记录](#问题记录)auto        - [Value 15979221751 is too big to be represented as int](#value-15979221751-is-too-big-to-be-represented-as-int)auto        - [already contains a database](#already-contains-a-database)auto        - [Max 1024 open files allowed, minimum of 40000 recommended.](#max-1024-open-files-allowed-minimum-of-40000-recommended)auto        - [其他情况](#其他情况)auto    - [其他说明](#其他说明)auto        - [参考资源](#参考资源)auto        - [No4j最大支持节点和关系数量](#no4j最大支持节点和关系数量)auto        - [Neo4j数据预热](#neo4j数据预热)auto        - [检查Neo4j是否启动](#检查neo4j是否启动)auto        - [性能测试](#性能测试)autoauto<!-- /TOC -->
-
-## Neo4j入门介绍
+## Neo4j 入门介绍
 
 http://dl2.iteye.com/upload/attachment/0120/3433/e84b4219-9e96-31fb-927f-241366d91c74.png
 
 > Neo4j 是目前最流行的图形数据库，支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，
-顶点和边都可以设置属性，顶点也称作节点，边也称作关系，每个节点和关系都可以由一个或多个属性。
-Neo4j创建的图是用顶点和边构建一个有向图，其查询语言cypher已经成为事实上的标准。
+> 顶点和边都可以设置属性，顶点也称作节点，边也称作关系，每个节点和关系都可以由一个或多个属性。
+> Neo4j 创建的图是用顶点和边构建一个有向图，其查询语言 cypher 已经成为事实上的标准。
 
 它包括如下几个显著特点：
 
-- 完整的ACID支持
+- 完整的 ACID 支持
 - 高可用性
 - 轻易扩展到上亿级别的节点和关系
 - 通过遍历工具高速检索数据
 
-其他的图形数据库还包括Oracle NoSQL数据库，OrientDB，HypherGraphDB，GraphBase，InfiniteGraph，AllegroGraph。
+其他的图形数据库还包括 Oracle NoSQL 数据库，OrientDB，HypherGraphDB，GraphBase，InfiniteGraph，AllegroGraph。
 
 ## 安装部署
 
@@ -28,12 +26,13 @@ Neo4j创建的图是用顶点和边构建一个有向图，其查询语言cypher
 
 部署说明
 
-- 安装包获取: [Neo4j官网](https://neo4j.com/)下载
-- [Neo4j安装包3.3.5](https://neo4j.com/artifact.php?name=neo4j-community-3.3.5-unix.tar.gz)
+- 安装包获取: [Neo4j 官网](https://neo4j.com/)下载
+- [Neo4j 安装包 3.3.5](https://neo4j.com/artifact.php?name=neo4j-community-3.3.5-unix.tar.gz)
 - 前置依赖:
+
   - Java1.8+
-  - 系统文件数40000+
-  
+  - 系统文件数 40000+
+
 ```bash
 # vi /etc/security/limits.conf
 fdm              soft    nofile          65535
@@ -43,25 +42,25 @@ fdm              hard    nofile          65535
 ```
 
 - 安装说明: 解压即用
-- 配置文件: ```conf/neo4j.conf```
+- 配置文件: `conf/neo4j.conf`
 - 软件使用:
-  - ```bin/neo4j restart``` 服务重启,启动在后台
-  - ```bin/neo4j console``` 服务启动,启动在前台
-  - Neo4j页面入口 [http://localhost:7474](http://localhost:7474)
+  - `bin/neo4j restart` 服务重启,启动在后台
+  - `bin/neo4j console` 服务启动,启动在前台
+  - Neo4j 页面入口 [http://localhost:7474](http://localhost:7474)
 
 ## 软件使用
 
 软件目录说明：
 
-- bin目录：用于存储Neo4j的可执行程序；
-- conf目录：用于控制Neo4j启动的配置文件；
-- data目录：用于存储核心数据库文件；
-- plugins目录：用于存储Neo4j的插件；
-- import目录：用于存放load csv文件,作为根目录(配置文件中可修改)
+- bin 目录：用于存储 Neo4j 的可执行程序；
+- conf 目录：用于控制 Neo4j 启动的配置文件；
+- data 目录：用于存储核心数据库文件；
+- plugins 目录：用于存储 Neo4j 的插件；
+- import 目录：用于存放 load csv 文件,作为根目录(配置文件中可修改)
 
 ### 配置文件
 
-配置文件路径: ```conf/neo4j.conf```
+配置文件路径: `conf/neo4j.conf`
 
 配置文件说明
 
@@ -71,22 +70,22 @@ fdm              hard    nofile          65535
 # 如果想自定义neo4j数据库数据的存储路径，要同时修改dbms.active_database 和 dbms.directories.data 两项配置，
 # 修改配置后，数据会存放在${dbms.directories.data}/databases/${dbms.active_database} 目录下
 # 安装的数据库的名称，默认使用${NEO4J_HOME}/data/databases/graph.db目录
-# The name of the database to mount  
+# The name of the database to mount
 #dbms.active_database=graph.db
 
 #安装Neo4j数据库的各个配置路径，默认使用$NEO4J_HOME下的路径
 #Paths of directories in the installation.
 # 数据路径
-#dbms.directories.data=data  
+#dbms.directories.data=data
 # 插件路径
-#dbms.directories.plugins=plugins  
+#dbms.directories.plugins=plugins
 #dbms.directories.certificates=certificates  证书路径
 #dbms.directories.logs=logs 日志路径
 #dbms.directories.lib=lib jar包路径
 #dbms.directories.run=run 运行路径
 
 #默认情况下想load csv文件，只能把csv文件放到${NEO4J_HOME}/import目录下，把下面的#删除后，可以在load csv时使用绝对路径，这样可能不安全
-#This setting constrains all `LOAD CSV` import files to be under the `import` directory. Remove or comment it out to allow files to be loaded from anywhere in the filesystem; this introduces possible security problems. See the `LOAD CSV` section of the manual for details.  
+#This setting constrains all `LOAD CSV` import files to be under the `import` directory. Remove or comment it out to allow files to be loaded from anywhere in the filesystem; this introduces possible security problems. See the `LOAD CSV` section of the manual for details.
 #此设置将所有“LOAD CSV”导入文件限制在`import`目录下。删除注释允许从文件系统的任何地方加载文件;这引入了可能的安全问题。
 dbms.directories.import=import
 
@@ -103,9 +102,9 @@ dbms.allow_format_migration=true
 #dbms.memory.heap.initial_size=512m
 #dbms.memory.heap.max_size=512m
 
-#The amount of memory to use for mapping the store files, in bytes (or kilobytes with the 'k' suffix, megabytes with 'm' and gigabytes with 'g'). 
+#The amount of memory to use for mapping the store files, in bytes (or kilobytes with the 'k' suffix, megabytes with 'm' and gigabytes with 'g').
 # 用于映射存储文件的内存量（以字节为单位）千字节带有'k'后缀，兆字节带有'm'，千兆字节带有'g'）。
-#If Neo4j is running on a dedicated server, then it is generally recommended to leave about 2-4 gigabytes for the operating system, give the JVM enough heap to hold all your transaction state and query context, and then leave the rest for the page cache. 
+#If Neo4j is running on a dedicated server, then it is generally recommended to leave about 2-4 gigabytes for the operating system, give the JVM enough heap to hold all your transaction state and query context, and then leave the rest for the page cache.
 # 如果Neo4j在专用服务器上运行，那么通常建议为操作系统保留大约2-4千兆字节，为JVM提供足够的堆来保存所有的事务状态和查询上下文，然后保留其余的页面缓存 。
 #The default page cache memory assumes the machine is dedicated to running Neo4j, and is heuristically set to 50% of RAM minus the max Java heap size.  默认页面缓存存储器假定机器专用于运行Neo4j，并且试探性地设置为RAM的50％减去最大Java堆大小。
 #dbms.memory.pagecache.size=10g
@@ -193,7 +192,7 @@ dbms.shell.host=127.0.0.1
 #The port the shell will listen on, default is 1337.
 dbms.shell.port=1337
 
-#Only allow read operations from this Neo4j instance. This mode still requires write access to the directory for lock purposes.  
+#Only allow read operations from this Neo4j instance. This mode still requires write access to the directory for lock purposes.
 # 只允许从Neo4j实例读取操作。此模式仍然需要对目录的写访问以用于锁定目的。
 #dbms.read_only=false
 
@@ -209,7 +208,7 @@ dbms.jvm.additional=-XX:+UseG1GC
 #Have common exceptions keep producing stack traces, so they can be debugged regardless of how often logs are rotated. 有共同的异常保持生成堆栈跟踪，所以他们可以被调试，无论日志被旋转的频率
 dbms.jvm.additional=-XX:-OmitStackTraceInFastThrow
 
-#Make sure that `initmemory` is not only allocated, but committed to the process, before starting the database. This reduces memory fragmentation, increasing the effectiveness of transparent huge pages. It also reduces the possibility of seeing performance drop due to heap-growing GC events, where a decrease in available page cache leads to an increase in mean IO response time. Try reducing the heap memory, if this flag degrades performance.    确保在启动数据库之前，“initmemory”不仅被分配，而且被提交到进程。这减少了内存碎片，增加了透明大页面的有效性。它还减少了由于堆增长的GC事件而导致性能下降的可能性，其中可用页面缓存的减少导致平均IO响应时间的增加。如果此标志降低性能，请减少堆内存。    
+#Make sure that `initmemory` is not only allocated, but committed to the process, before starting the database. This reduces memory fragmentation, increasing the effectiveness of transparent huge pages. It also reduces the possibility of seeing performance drop due to heap-growing GC events, where a decrease in available page cache leads to an increase in mean IO response time. Try reducing the heap memory, if this flag degrades performance.    确保在启动数据库之前，“initmemory”不仅被分配，而且被提交到进程。这减少了内存碎片，增加了透明大页面的有效性。它还减少了由于堆增长的GC事件而导致性能下降的可能性，其中可用页面缓存的减少导致平均IO响应时间的增加。如果此标志降低性能，请减少堆内存。
 dbms.jvm.additional=-XX:+AlwaysPreTouch
 
 #Trust that non-static final fields are really final. This allows more optimizations and improves overall performance. NOTE: Disable this if you use embedded mode, or have extensions or dependencies that may use reflection or serialization to change the value of final fields!    信任非静态final字段真的是final。这允许更多的优化和提高整体性能。注意：如果使用嵌入模式，或者有可能使用反射或序列化更改最终字段的值的扩展或依赖关系，请禁用此选项！
@@ -219,9 +218,9 @@ dbms.jvm.additional=-XX:+TrustFinalNonStaticFields
 #Disable explicit garbage collection, which is occasionally invoked by the JDK itself.  禁用显式垃圾回收，这是偶尔由JDK本身调用。
 dbms.jvm.additional=-XX:+DisableExplicitGC
 
-#Remote JMX monitoring, uncomment and adjust the following lines as needed. Absolute paths to jmx.access and jmx.password files are required.  
+#Remote JMX monitoring, uncomment and adjust the following lines as needed. Absolute paths to jmx.access and jmx.password files are required.
 # 远程JMX监视，取消注释并根据需要调整以下行。需要jmx.access和jmx.password文件的绝对路径。
-#Also make sure to update the jmx.access and jmx.password files with appropriate permission roles and passwords, the shipped configuration contains only a read only role called 'monitor' with password 'Neo4j'. 
+#Also make sure to update the jmx.access and jmx.password files with appropriate permission roles and passwords, the shipped configuration contains only a read only role called 'monitor' with password 'Neo4j'.
 # 还要确保使用适当的权限角色和密码更新jmx.access和jmx.password文件，所配置的配置只包含名为“monitor”的只读角色，密码为“Neo4j”。
 #For more details, see: http://download.oracle.com/javase/8/docs/technotes/guides/management/agent.html On Unix based systems the jmx.password file needs to be owned by the user that will run the server, and have permissions set to 0600. Unix系统，有关详情，请参阅：http：//download.oracle.com/javase/8/docs/technotes/guides/management/agent.html，jmx.password文件需要由运行服务器的用户拥有，并且权限设置为0600。
 #For details on setting these file permissions on Windows see: http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html   Windows系统  有关在设置这些文件权限的详细信息，请参阅：http://docs.oracle.com/javase/8/docs/technotes/guides/management/security-windows.html
@@ -252,7 +251,7 @@ dbms.windows_service_name=neo4j
 dbms.jvm.additional=-Dunsupported.dbms.udc.source=zip
 ```
 
-默认的Neo4j配置文件
+默认的 Neo4j 配置文件
 
 ```bash
 #*****************************************************************
@@ -599,70 +598,68 @@ dbms.connectors.default_listen_address=192.168.100.162
 dbms.connectors.default_advertised_address=192.168.100.162
 ```
 
-## Neo4j语法
+## Neo4j 语法
 
-Cypher是图形数据库Neo4j的声明式查询语言。
+Cypher 是图形数据库 Neo4j 的声明式查询语言。
 
-CQL代表Cypher查询语言。 像Oracle数据库具有查询语言SQL，Neo4j具有CQL作为查询语言。
+CQL 代表 Cypher 查询语言。 像 Oracle 数据库具有查询语言 SQL，Neo4j 具有 CQL 作为查询语言。
 
-[neo4j入门教程](https://www.w3cschool.cn/neo4j/neo4j_id_property.html)
+[neo4j 入门教程](https://www.w3cschool.cn/neo4j/neo4j_id_property.html)
 
-### Neo4j术语/概念
+### Neo4j 术语/概念
 
 基础术语/概念
 
-
-
-下面介绍下neo4j的几个核心概念：
+下面介绍下 neo4j 的几个核心概念：
 
 - Nodes（节点，类似地铁图里的一个地铁站）
-图谱的基本单位主要是节点和关系，他们都可以包含属性，一个节点就是一行数据，一个关系也是一行数据，里面的属性就是数据库里面的row里面的字段。
-除了属性之外，关系和节点还可以有零到多个标签，标签也可以认为是一个特殊分组方式。
+  图谱的基本单位主要是节点和关系，他们都可以包含属性，一个节点就是一行数据，一个关系也是一行数据，里面的属性就是数据库里面的 row 里面的字段。
+  除了属性之外，关系和节点还可以有零到多个标签，标签也可以认为是一个特殊分组方式。
 
 - Relationships（关系，类似两个相邻地铁站之间路线）
-关系的功能是组织和连接节点，一个关系连接2个节点，一个开始节点和一个结束节点。当所有的点被连接起来，就形成了一张图谱，通过关系可以组织节点形成任意的结构，比如list，tree，map，tuple，或者更复杂的结构。关系拥有方向进和出，代表一种指向。
+  关系的功能是组织和连接节点，一个关系连接 2 个节点，一个开始节点和一个结束节点。当所有的点被连接起来，就形成了一张图谱，通过关系可以组织节点形成任意的结构，比如 list，tree，map，tuple，或者更复杂的结构。关系拥有方向进和出，代表一种指向。
 
 - Properties（属性，类似地铁站的名字，位置，大小，进出口数量等）
-属性非常类似数据库里面的字段，只有节点和关系可以拥有0到多个属性，属性类型基本和java的数据类型一致，分为 数值，字符串，布尔，以及其他的一些类型，字段名必须是字符串。
+  属性非常类似数据库里面的字段，只有节点和关系可以拥有 0 到多个属性，属性类型基本和 java 的数据类型一致，分为 数值，字符串，布尔，以及其他的一些类型，字段名必须是字符串。
 
 - Labels（标签，类似地铁站的属于哪个区）
-标签通过形容一种角色或者给节点加上一种类型，一个节点可以有多个类型，通过类型区分一类节点，这样在查询时候可以更加方便和高效，除此之外标签在给属性建立索引或者约束时候也会用到。label名称必须是非空的unicode字符串，另外lables最大标记容量是int的最大值，近似21亿。
+  标签通过形容一种角色或者给节点加上一种类型，一个节点可以有多个类型，通过类型区分一类节点，这样在查询时候可以更加方便和高效，除此之外标签在给属性建立索引或者约束时候也会用到。label 名称必须是非空的 unicode 字符串，另外 lables 最大标记容量是 int 的最大值，近似 21 亿。
 
 - Traversal（遍历，类似我们看地图找路径）
-查询时候通常是遍历图谱然后找到路径，在遍历时通常会有一个开始节点，然后根据cpyher提供的查询语句，遍历相关路径上的节点和关系，从而得到最终的结果。
+  查询时候通常是遍历图谱然后找到路径，在遍历时通常会有一个开始节点，然后根据 cpyher 提供的查询语句，遍历相关路径上的节点和关系，从而得到最终的结果。
 
 - Paths（路径，类似从一个地铁站到另一个地铁站的所有的到达路径）
-路径是一个或多个节点通过关系连接起来的产物，例如得到图谱查询或者遍历的结果。
+  路径是一个或多个节点通过关系连接起来的产物，例如得到图谱查询或者遍历的结果。
 
 - Schema（模式，类似存储数据的结构）
-neo4j是一个无模式或者less模式的图谱数据库，像mongodb，solr，lucene或者es一样，你可以使用它不需要定义任何schema，
+  neo4j 是一个无模式或者 less 模式的图谱数据库，像 mongodb，solr，lucene 或者 es 一样，你可以使用它不需要定义任何 schema，
 
 - Indexes（索引）
-遍历图通过需要大量的随机读写，如果没有索引，则可能意味着每次都是全图扫描，这样效率非常低下，为了获得更好的性能，我们可以在字段属性上构建索引，这样任何查询操作都会使用索引，从而大幅度提升seek性能，
+  遍历图通过需要大量的随机读写，如果没有索引，则可能意味着每次都是全图扫描，这样效率非常低下，为了获得更好的性能，我们可以在字段属性上构建索引，这样任何查询操作都会使用索引，从而大幅度提升 seek 性能，
 
-构建索引是一个异步请求，并不会立刻生效，会再后台创建直至成功后，才能最终生效。如果创建失败，可以重建索引，先删除索引，在创建即可，然后从log里面找出创建失败的原因然后分析。
+构建索引是一个异步请求，并不会立刻生效，会再后台创建直至成功后，才能最终生效。如果创建失败，可以重建索引，先删除索引，在创建即可，然后从 log 里面找出创建失败的原因然后分析。
 
 - Constraints（约束）
-约束可以定义在某个字段上，限制字段值唯一，创建约束会自动创建索引。
+  约束可以定义在某个字段上，限制字段值唯一，创建约束会自动创建索引。
 
 参考链接:
 
-[Neo4j术语与概念](https://blog.csdn.net/u010454030/article/details/52949031)
+[Neo4j 术语与概念](https://blog.csdn.net/u010454030/article/details/52949031)
 
-### Neo4j运算符
+### Neo4j 运算符
 
-| 运算名称   | 运算符                           |
-|--------|-------------------------------------------|
+| 运算名称   | 运算符                                    |
+| ---------- | ----------------------------------------- |
 | 常规运算   | DISTINCT, ., []                           |
-| 算数运算   | +, -, *, /, %, ^                          |
+| 算数运算   | +, -, \*, /, %, ^                         |
 | 比较运算   | =, <>, <, >, <=, >=, IS NULL, IS NOT NULL |
 | 逻辑运算   | AND, OR, XOR, NOT                         |
-| 字符串操作  | +                                         |
-| List操作 | +, IN, [x], [x .. y]                      |
+| 字符串操作 | +                                         |
+| List 操作  | +, IN, [x], [x .. y]                      |
 | 正则操作   | =~                                        |
-| 字符串匹配  | STARTS WITH, ENDS WITH, CONTAINS          |
+| 字符串匹配 | STARTS WITH, ENDS WITH, CONTAINS          |
 
-### Cypher语法
+### Cypher 语法
 
 ```python
 # Create 语句
@@ -686,7 +683,7 @@ RETURN lab.name,lab.id
 # Match - 查询指定节点,创建关系
 MATCH (cust:Customer),(cc:CreditCard)
 WHERE cust.id = "1001" AND cc.id= "5001"
-CREATE (cust)-[r:DO_SHOPPING_WITH{shopdate:"12/12/2014",price:55000}]->(cc) 
+CREATE (cust)-[r:DO_SHOPPING_WITH{shopdate:"12/12/2014",price:55000}]->(cc)
 RETURN r
 
 
@@ -753,20 +750,17 @@ MATCH (n { name: 'Andres' })
 SET n.name = NULL RETURN n.name, n.age
 
 # IN 查询集合
-MATCH (e:Employee) 
+MATCH (e:Employee)
 WHERE e.id IN [123,124]
 RETURN e.id,e.name,e.sal,e.deptno
 
 ```
 
-
-
-
-Cypher删除
+Cypher 删除
 
 - 两种删除方式。DELETE REMOVE
-- Delete用于删除节点和关系。Remove用于删除标签和属性。
-- Delete和Remove都需要和Match配合使用。
+- Delete 用于删除节点和关系。Remove 用于删除标签和属性。
+- Delete 和 Remove 都需要和 Match 配合使用。
 
 ```bash
 # 删除节点
@@ -786,9 +780,9 @@ MATCH (m:label1)
 REMOVE m:label2
 ```
 
-Cypher更新
+Cypher 更新
 
-- set方式更新数据。可以和match等配合使用
+- set 方式更新数据。可以和 match 等配合使用
 
 ```bash
 # 更新节点属性
@@ -935,10 +929,9 @@ WHERE begin.name = 'A' AND END .name = 'D'
 FOREACH (n IN nodes(p)| SET n.marked = TRUE )
 ```
 
-### Cpyher函数
+### Cpyher 函数
 
-
-### Cypher常用语句
+### Cypher 常用语句
 
 查询指定节点
 
@@ -958,7 +951,7 @@ MATCH (n:cust) where n.id = '623026199412212548' set n.name='set_name_test' RETU
 match (ee:cust)-[:tran]-(tranx) where ee.address='吉林省东莞市新城哈尔滨街D座 690272' return ee,tranx
 ```
 
-节点数据导入-loadcsv方式-merge(更新已存在数据)
+节点数据导入-loadcsv 方式-merge(更新已存在数据)
 
 ```bash
 USING PERIODIC COMMIT 10000 LOAD CSV WITH HEADERS
@@ -978,27 +971,26 @@ create index on :cust(id)
 create index on :tran(id)
 ```
 
-
 ## 数据导入
 
 数据导入的几种方式
 
-- Cypher create 语句，为每一条数据写一个create
-- Cypher load csv 语句，将数据转成CSV格式，通过LOAD CSV读取数据。
-- 官方提供的neo4j-import工具，未来将被neo4j-admin import代替 
-- 官方提供的Java API - BatchInserter
+- Cypher create 语句，为每一条数据写一个 create
+- Cypher load csv 语句，将数据转成 CSV 格式，通过 LOAD CSV 读取数据。
+- 官方提供的 neo4j-import 工具，未来将被 neo4j-admin import 代替
+- 官方提供的 Java API - BatchInserter
 - 大牛编写的 batch-import 工具
 - neo4j-apoc load.csv + apoc.load.relationship
 - 针对实际业务场景，定制化开发
 
 参考链接:
 
-- [海量数据导入Neo4j的几种方式](https://blog.csdn.net/zhanaolu4821/article/details/80820434)
-- [Neo4j批量导入数据的几种方式](http://weikeqin.cn/2017/04/14/neo4j-import-data/)
-- [使用batch-import工具向neo4j中导入海量数据](https://my.oschina.net/u/2538940/blog/883829)
-- [batch-import已经编译好的工具3.0，对应neo4j-3.0.4](https://github.com/mo9527/batch-import-tool)
-- [batch-import的github](https://github.com/mo9527/batch-import)
-- [batch-import的相关说明](https://github.com/jexp/batch-import/tree/20)
+- [海量数据导入 Neo4j 的几种方式](https://blog.csdn.net/zhanaolu4821/article/details/80820434)
+- [Neo4j 批量导入数据的几种方式](http://weikeqin.cn/2017/04/14/neo4j-import-data/)
+- [使用 batch-import 工具向 neo4j 中导入海量数据](https://my.oschina.net/u/2538940/blog/883829)
+- [batch-import 已经编译好的工具 3.0，对应 neo4j-3.0.4](https://github.com/mo9527/batch-import-tool)
+- [batch-import 的 github](https://github.com/mo9527/batch-import)
+- [batch-import 的相关说明](https://github.com/jexp/batch-import/tree/20)
 
 本节主要说明三种导入方式 loadcsv、neo4j-import、batch-import
 
@@ -1006,8 +998,8 @@ create index on :tran(id)
 
 数据导入的注意事项
 
-- 如果设定唯一主键时，ID必须唯一
-- 边中的ID必须存在于节点中，否则关系导入会跳过。
+- 如果设定唯一主键时，ID 必须唯一
+- 边中的 ID 必须存在于节点中，否则关系导入会跳过。
 
 ### Neo4j-import
 
@@ -1026,10 +1018,9 @@ id:ID,certno,name,label,cust_certtype:string,cust_namespell:string,birthday:int,
 
 文件格式说明
 
-- 文件中ID必须唯一
+- 文件中 ID 必须唯一
 
 #### 导入命令
-
 
 ```bash
 neo4j-import适应场景
@@ -1047,15 +1038,13 @@ bin/neo4j-import --bad-tolerance=1000000 --skip-duplicate-nodes=true --skip-bad-
 
 ```
 
-
 ### batch-import
 
 注意事项:
 
 - batch-import 不支持多进程调用。
-- batch-import版本必须和neo4j版本一致。
-  - (否则导致数据库自动升级后虽然正常使用，但是batch-import已经无法读取升级后的数据库了)
-
+- batch-import 版本必须和 neo4j 版本一致。
+  - (否则导致数据库自动升级后虽然正常使用，但是 batch-import 已经无法读取升级后的数据库了)
 
 #### 文件格式
 
@@ -1070,8 +1059,7 @@ id:string:id_index,certno:string:id_index,Type,tran_date:int,amount:int,count:in
 
 文件格式说明：
 
-- id:string:id_index ID唯一,指定类型,设置索引
-
+- id:string:id_index ID 唯一,指定类型,设置索引
 
 #### 导入命令
 
@@ -1105,7 +1093,6 @@ batch_import.node_index.id_index2=exact
 batch_import.node_index.id_index3=exact
 ```
 
-
 ### Load-csv
 
 #### 文件格式
@@ -1130,29 +1117,19 @@ LOAD CSV WITH HEADERS FROM "file:///tran.csv" AS line match
 (from:cust{id:line.start_id}),(to:cust{id:line.end_id}) create (from)-[r:tran{ type:line. type,tran_date:line.tran_date,amount:line.amount,count:line.count}]->(to)
 ```
 
-
-
-
-
-
-
-
-
-
-
 ## 问题记录
 
 ### Value 15979221751 is too big to be represented as int
 
-int不支持11位及其以上
+int 不支持 11 位及其以上
 
 ### already contains a database
 
-使用neo4j-import时,指定的数据库名称必须不存在,否则会报此错。
+使用 neo4j-import 时,指定的数据库名称必须不存在,否则会报此错。
 
 ### Max 1024 open files allowed, minimum of 40000 recommended.
 
-文件打开数太小。 修改文件 ```/etc/security/limits.conf```
+文件打开数太小。 修改文件 `/etc/security/limits.conf`
 
 ```bash
 # 添加如下两行。重新登录 ssh 即可
@@ -1161,31 +1138,30 @@ fdm              hard    nofile          65535
 ```
 
 ### 其他情况
-  
-  csv数据导入失败：可能性有多种
 
-		* 
-文件head头不对。  存在节点和交易关系头不对的情况
-		* 
-节点或交易边数据，ID存在重复。   csv文件中ID必须唯一。且所有实体表中的:ID是必须写的，并且ID 全局唯一，也就是三个表格中的ID都是唯一的，不可以有重复，在关系表中，不可以存在没有ID指向的实体。
+csv 数据导入失败：可能性有多种
 
+    	*
+
+文件 head 头不对。 存在节点和交易关系头不对的情况 \*
+节点或交易边数据，ID 存在重复。 csv 文件中 ID 必须唯一。且所有实体表中的:ID 是必须写的，并且 ID 全局唯一，也就是三个表格中的 ID 都是唯一的，不可以有重复，在关系表中，不可以存在没有 ID 指向的实体。
 
 ## 其他说明
 
 ### 参考资源
 
-- [Neo4j语句入门](https://www.w3cschool.cn/neo4j/neo4j_cql_set.html)
-- [Neo4j数据导入参考博客](http://weikeqin.com/2017/04/11/neo4j-load-csv/)
-- [Python-Neo4j语法](https://neo4j.com/developer/python/)
-- [官网Neo4j语法简图](https://neo4j.com/docs/pdf/cypher-refcard-3.3.pdf)
+- [Neo4j 语句入门](https://www.w3cschool.cn/neo4j/neo4j_cql_set.html)
+- [Neo4j 数据导入参考博客](http://weikeqin.com/2017/04/11/neo4j-load-csv/)
+- [Python-Neo4j 语法](https://neo4j.com/developer/python/)
+- [官网 Neo4j 语法简图](https://neo4j.com/docs/pdf/cypher-refcard-3.3.pdf)
 
-### No4j最大支持节点和关系数量
+### No4j 最大支持节点和关系数量
 
-目前累积统计它有34.4亿个节点，344亿的关系，和6870亿条属性。
+目前累积统计它有 34.4 亿个节点，344 亿的关系，和 6870 亿条属性。
 
-### Neo4j数据预热
+### Neo4j 数据预热
 
-使用bin/neo4j-shell 进入neo4j命令行界面，执行以下语句预热：
+使用 bin/neo4j-shell 进入 neo4j 命令行界面，执行以下语句预热：
 
 ```bash
 MATCH (n)
@@ -1193,24 +1169,24 @@ OPTIONAL MATCH (n)-[r]->()
 RETURN count(n.prop) + count(r.prop);
 ```
 
-建立index可以使得查询性能得到巨大提升。如果不建立index，则需要对每个node的每一个属性进行遍历，所以比较慢。 并且index建立之后，新加入的数据都会自动编入到index中。 注意index是建立在label上的，不是在node上，所以一个node有多个label，需要对每一个label都建立index.
+建立 index 可以使得查询性能得到巨大提升。如果不建立 index，则需要对每个 node 的每一个属性进行遍历，所以比较慢。 并且 index 建立之后，新加入的数据都会自动编入到 index 中。 注意 index 是建立在 label 上的，不是在 node 上，所以一个 node 有多个 label，需要对每一个 label 都建立 index.
 
-### 检查Neo4j是否启动
+### 检查 Neo4j 是否启动
 
-检查neo4j是否启动,通常10s左右可以启动成功。
+检查 neo4j 是否启动,通常 10s 左右可以启动成功。
 [https://neo4j.com/docs/operations-manual/current/configuration/wait-for-start/](https://neo4j.com/docs/operations-manual/current/configuration/wait-for-start/)
 
 ### 性能测试
 
-neo4j-import方式
+neo4j-import 方式
 
 IMPORT DONE in 1m 17s 799ms. Imported:
-  7295460 nodes
-  10000000 relationships
-  112954600 properties
+7295460 nodes
+10000000 relationships
+112954600 properties
 
-real    1m19.456s
-user    5m51.375s
-sys    0m15.706s
+real 1m19.456s
+user 5m51.375s
+sys 0m15.706s
 
-耗时 79.73S 速度  216,916.30条/s
+耗时 79.73S 速度 216,916.30 条/s

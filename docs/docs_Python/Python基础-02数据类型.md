@@ -1,10 +1,9 @@
-# Python基础知识02-数据类型
+# Python 基础知识 02-数据类型
 
+**变量** Python 中的变量是不需要声明数据类型的，每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建，变量的"类型"是所指的内存中被赋值对象的类型
 
-**变量** Python中的变量是不需要声明数据类型的，每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建，变量的"类型"是所指的内存中被赋值对象的类型
+**Python 中数据类型：**
 
-
-**Python中数据类型**
 - 字符串 str
 - 布尔类型 bool
 - 整数 int
@@ -16,7 +15,6 @@
 - 日期 date
 
 ## 数据类型说明
-
 
 ## 字符串 str
 
@@ -36,7 +34,6 @@ print "name is %s"%Bob
 print "name is {name}".format(**{'name':name})
 
 ```
-
 
 ## 布尔类型 bool
 
@@ -61,7 +58,9 @@ In [8]: a = 5;type(a)
 Out[8]: int
 
 ```
+
 ## 浮点数 float
+
 ```python
 In [9]: a = 0.5;type(a)
 Out[9]: float
@@ -71,26 +70,23 @@ Out[9]: float
 
 包含整数、浮点数、复数等。
 
-
-
-
 ```python
 # 数学函数包
-import math 
+import math
 
 # 数字类型转换
-int(x [,base]) 将x转换为一个整数 
-float(x ) 将x转换到一个浮点数 
-complex(real [,imag]) 创建一个复数 
-str(x) 将对象x转换为字符串 
-repr(x) 将对象x转换为表达式字符串 
-eval(str) 用来计算在字符串中的有效Python表达式,并返回一个对象 
-tuple(s) 将序列s转换为一个元组 
-list(s) 将序列s转换为一个列表 
-chr(x) 将一个整数转换为一个字符 
-unichr(x) 将一个整数转换为Unicode字符 
-ord(x) 将一个字符转换为它的整数值 
-hex(x) 将一个整数转换为一个十六进制字符串 
+int(x [,base]) 将x转换为一个整数
+float(x ) 将x转换到一个浮点数
+complex(real [,imag]) 创建一个复数
+str(x) 将对象x转换为字符串
+repr(x) 将对象x转换为表达式字符串
+eval(str) 用来计算在字符串中的有效Python表达式,并返回一个对象
+tuple(s) 将序列s转换为一个元组
+list(s) 将序列s转换为一个列表
+chr(x) 将一个整数转换为一个字符
+unichr(x) 将一个整数转换为Unicode字符
+ord(x) 将一个字符转换为它的整数值
+hex(x) 将一个整数转换为一个十六进制字符串
 oct(x) 将一个整数转换为一个八进制字符串
 
 # 数学函数
@@ -115,9 +111,10 @@ sqrt(x)    返回数字x的平方根，数字可以为负数，返回类型为�
 列表属于可变对象。
 
 **列表使用**
+
 ```python
 # 初始化列表
-lis = list() 
+lis = list()
 In [11]: lis = [1,2,3,4,5,"a","b","c"]
 # 列表截取
 In [12]: print lis[1:3]
@@ -131,7 +128,7 @@ In [15]: lis.append("d")
 In [16]: lis
 Out[16]: [2, 3, 4, 5, 'a', 'b', 'c', 'd']
 # 列表 + 列表
-In [17]: lis + ["e","f"] 
+In [17]: lis + ["e","f"]
 Out[17]: [2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 'f']
 lis.extend(["e","f"])
 
@@ -150,6 +147,7 @@ Out[22]: 140413028860776
 ```
 
 **列表函数**
+
 ```python
 list.append(obj) 在列表末尾添加新的对象
 list.count(obj) 统计某个元素在列表中出现的次数
@@ -164,27 +162,31 @@ list.sort([func]) 对原列表进行排序
 
 ## 元组 tuple
 
-**元组特性**
+**元组特性:**
+
 - 不可变列表
 - 有序
 
 元组时不可变的列表，类似列表，但是不可修改。
+
 ```python
 a = tuple()
 ```
+
 ## 字典 dict
 
+**字典特性:**
 
-**字典特性**
 - 字典是 {Key:value} 格式
 - 无序
-- Key唯一
+- Key 唯一
 
-字典(dictionary)是除列表之外python中最灵活的内置数据结构类型。
+字典(dictionary)是除列表之外 python 中最灵活的内置数据结构类型。
 列表是有序的对象结合，字典是无序的对象集合。
 两者之间的区别在于：字典当中的元素是通过键来存取的，而不是通过偏移存取。
 
 字典由键和对应的值组成。字典也被称作关联数组或哈希表。
+
 ```python
 # 初始化
 dict = {'Alice': '2341', 'Beth': '9102', 'Cecil': '3258'};
@@ -207,10 +209,7 @@ radiansdict.update(dict2) 把字典dict2的键/值对更新到dict里
 radiansdict.values() 以列表返回字典中的所有值
 ```
 
-
-
 ## 日期和时间 date
-
 
 ```python
 
@@ -225,9 +224,4 @@ import calendar
 
 # 参考资源
 
-
-- [Python数据类型详解: https://www.cnblogs.com/linjiqin/p/3608541.html](https://www.cnblogs.com/linjiqin/p/3608541.html)
-
-
-
-
+- [Python 数据类型详解: https://www.cnblogs.com/linjiqin/p/3608541.html](https://www.cnblogs.com/linjiqin/p/3608541.html)

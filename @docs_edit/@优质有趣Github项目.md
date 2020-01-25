@@ -21,3 +21,7 @@ Github项目
 
 多进程增量爬取智联招聘职位信息
 https://github.com/Python3SpiderOrg/zhilianzhaopin.git
+
+
+https://www.zhihu.com/answer/974431591
+

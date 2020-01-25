@@ -49,39 +49,8 @@ pip install huey
 
 ### 安装Redis
 
-```bash
-# Install
-yum install lrzsz -y
-pip install redis
+详见 "Module-Redis文档"
 
-# wget http://download.redis.io/releases/redis-5.0.5.tar.gz
-wget http://download.redis.io/releases/redis-3.2.9.tar.gz
-tar -zxf redis-3.2.9.tar.gz
-# # 编译并指定安装目录
-cd redis-3.2.9  
-# # 创建软链接
-make PREFIX=/usr/local/redis-3.2.9 install
-ln -s /usr/local/redis-3.2.9 /usr/local/redis
-cp redis.conf /etc/redis.conf
-cp /usr/local/redis/bin/redis-server /usr/local/bin/redis-server
-```
-
-配置Redis
-
-```bash
-# 配置 overcommit_memory 参数
-echo "vm.overcommit_memory = 1" >> /etc/sysctl.conf
-# 使其生效
-sysctl vm.overcommit_memory=1
-
-# 关闭透明大页面-临时
-echo never > /sys/kernel/mm/transparent_hugepage/enabled
-# 关闭透明大页面-永久,开机生效
-echo "echo never > /sys/kernel/mm/transparent_hugepage/enabled" >> /etc/rc.local
-
-# 修改 redis.conf
-protected-mode yes 修改为 protected-mode no
-```
 
 ### 安装Sqlite3
 

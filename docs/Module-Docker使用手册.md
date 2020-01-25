@@ -423,6 +423,22 @@ CentOS7可用？
 
 ## Docker 功能
 
+### Docker 镜像/容器位置迁移
+
+由于系统配置时，`/`根目录空间位置不足，导致空间不够，需要更改 Docker 存储位置
+
+```bash
+# 先关闭 docker 容器
+docker stop xxxx
+# 关闭 docker 服务
+systemctl stop docker
+# 迁移数据
+mv /var/lib/docker /home/docker_data
+ln -s /home/docker_data /var/lib/docker
+# 重启服务
+systemctl start docker
+```
+
 ### Docker 网络配置使用
 
 ## 参考链接

@@ -87,6 +87,10 @@ sort -n filename | uniq
 
 ### 删除空行 删除空格/回车组成的空行
 sed -i '/^ *$/d' file
+
+
+# 将目录下所有文件 替换字符串
+sed -i "s/d3b387c031dd/1000db7324ff/g" `grep "d3b387c031dd" -rl /u01 `
 ```
 
 ## 软件安装
