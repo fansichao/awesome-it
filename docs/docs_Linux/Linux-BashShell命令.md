@@ -70,6 +70,7 @@ if [[ "$STR" == *"$SUB"* ]]; then
   echo "It's there."
 fi
 ```
+
 https://www.linuxidc.com/Linux/2019-08/159866.htm
 
 #### 检查字符串是否存在文件中
