@@ -1,22 +1,17 @@
----
-title: Python基础-00菜鸟教程.md
-tags: 2019年 08月 10号
-notebook: 00技术笔记
----
+# Python-菜鸟驿站
 
-## Python-菜鸟驿站
-
-[toc]
+tags: Python 菜鸟驿站 2018年 12月
 
 ## 简介说明  
 
 以下全文来自于[菜鸟驿站官网](http://www.runoob.com/python/python-tutorial.html)，如需跳转请点击。
 
-各类程序员学习路线图：http://www.runoob.com/coder-learn-path
+[各类程序员学习路线图](http://www.runoob.com/coder-learn-path)
 
-学习资料站点地图：http://www.runoob.com/sitemap
+学习资料站点地图：[学习资料站点地图](http://www.runoob.com/sitemap)
 
 ### Python简介
+
 Python是一种解释型、面向对象、动态数据类型的高级程序设计语言。
 Python由Guido van Rossum于1989年底发明，第一个公开发行版发行于1991年。
 像Perl语言一样, Python 源代码同样遵循 GPL(GNU General Public License)协议。
@@ -32,14 +27,15 @@ Python 是面向对象语言: 这意味着Python支持面向对象的风格或�
 
 Python 是初学者的语言：Python 对初级程序员而言，是一种伟大的语言，它支持广泛的应用程序开发，从简单的文字处理到 WWW 浏览器再到游戏。
 
-
 ### Python 发展历史
+
 Python 是由 Guido van Rossum 在八十年代末和九十年代初，在荷兰国家数学和计算机科学研究所设计出来的。
 Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3、C、C++、Algol-68、SmallTalk、Unix shell 和其他的脚本语言等等。
 像 Perl 语言一样，Python 源代码同样遵循 GPL(GNU General Public License)协议。
 现在 Python 是由一个核心开发团队在维护，Guido van Rossum 仍然占据着至关重要的作用，指导其进展。
 
 ### Python 特点
+
 1. 易于学习：Python有相对较少的关键字，结构简单，和一个明确定义的语法，学习起来更加简单。
 2. 易于阅读：Python代码定义的更清晰。
 3. 易于维护：Python的成功在于它的源代码是相当容易维护的。
@@ -50,7 +46,6 @@ Python 本身也是由诸多其他语言发展而来的,这包括 ABC、Modula-3
 8. 数据库：Python提供所有主要的商业数据库的接口。
 9. GUI编程：Python支持GUI可以创建和移植到许多系统调用。
 10. 可嵌入: 你可以将Python嵌入到C/C++程序，让你的程序的用户获得"脚本化"的能力。
-
 
 ### Python环境变量
 
@@ -66,8 +61,7 @@ Python启动后，先寻找PYTHONSTARTUP环境变量，然后执行此变量指�
 **PYTHONHOME**
 另一种模块搜索路径。它通常内嵌于的PYTHONSTARTUP或PYTHONPATH目录中，使得两个模块库更容易切换。
 
-
-**#!/usr/bin/python **: 
+**#!/usr/bin/python **:
 是告诉操作系统执行这个脚本的时候，调用 /usr/bin 下的 python 解释器；
 
 **#!/usr/bin/env python(推荐）**: 
@@ -81,6 +75,7 @@ Python启动后，先寻找PYTHONSTARTUP环境变量，然后执行此变量指�
 ### Python运行参数
 
 Python启动交互式界面参数。
+
 ```python
 $ python # Unix/Linux
 ```
@@ -116,59 +111,59 @@ while else is with except lambda yield
 improt math
 ```
 
-| 函数 | 返回值 ( 描述 ) | 
-| ------ | ------ |
-|abs(x)        |返回数字的绝对值，如abs(-10) 返回 10                                             |
-|ceil(x)         |返回数字的上入整数，如math.ceil(4.1) 返回 5                                      |
-|cmp(x, y)    |如果 x < y 返回 -1, 如果 x == y 返回 0, 如果 x > y 返回 1                        |
-|exp(x)          |返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045                             |
-|fabs(x)         |返回数字的绝对值，如math.fabs(-10) 返回10.0                                      |
-|floor(x)        |返回数字的下舍整数，如math.floor(4.9)返回 4                                      |
-|log(x)          |如math.log(math.e)返回1.0,math.log(100,10)返回2.0                                |
-|log10(x)        |返回以10为基数的x的对数，如math.log10(100)返回 2.0                               |
-|max(x1, x2,...) |返回给定参数的最大值，参数可以为序列。                                           |
-|min(x1, x2,...) |返回给定参数的最小值，参数可以为序列。                                           |
-|modf(x)         |返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示。       |
-|pow(x, y)       |x**y 运算后的值。                                                                |
-|round(x [,n])   |返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。                 |
-|sqrt(x)         |返回数字x的平方根                                                                |
+| 函数            | 返回值 ( 描述 )                                                            |
+| --------------- | -------------------------------------------------------------------------- |
+| abs(x)          | 返回数字的绝对值，如abs(-10) 返回 10                                       |
+| ceil(x)         | 返回数字的上入整数，如math.ceil(4.1) 返回 5                                |
+| cmp(x, y)       | 如果 x < y 返回 -1, 如果 x == y 返回 0, 如果 x > y 返回 1                  |
+| exp(x)          | 返回e的x次幂(ex),如math.exp(1) 返回2.718281828459045                       |
+| fabs(x)         | 返回数字的绝对值，如math.fabs(-10) 返回10.0                                |
+| floor(x)        | 返回数字的下舍整数，如math.floor(4.9)返回 4                                |
+| log(x)          | 如math.log(math.e)返回1.0,math.log(100,10)返回2.0                          |
+| log10(x)        | 返回以10为基数的x的对数，如math.log10(100)返回 2.0                         |
+| max(x1, x2,...) | 返回给定参数的最大值，参数可以为序列。                                     |
+| min(x1, x2,...) | 返回给定参数的最小值，参数可以为序列。                                     |
+| modf(x)         | 返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示。 |
+| pow(x, y)       | x**y 运算后的值。                                                          |
+| round(x [,n])   | 返回浮点数x的四舍五入值，如给出n值，则代表舍入到小数点后的位数。           |
+| sqrt(x)         | 返回数字x的平方根                                                          |
 
 ### Python随机数函数
 随机数可以用于数学，游戏，安全等领域中，还经常被嵌入到算法中，用以提高算法效率，并提高程序的安全性。
 
 **Python包含以下常用随机数函数：**
 
-| 函数 | 返回值 ( 描述 ) | 
-| ------ | ------ |
-|choice(seq)|从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数|
-|randrange ([start,] stop [,step])|从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1|
-|random()|随机生成下一个实数，它在[0,1)范围内。|
-|seed([x])|改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。|
-|shuffle(lst)|将序列的所有元素随机排序|
-|uniform(x, y)|随机生成下一个实数，它在[x,y]范围内。|
+| 函数                              | 返回值 ( 描述 )                                                                              |
+| --------------------------------- | -------------------------------------------------------------------------------------------- |
+| choice(seq)                       | 从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数       |
+| randrange ([start,] stop [,step]) | 从指定范围内，按指定基数递增的集合中获取一个随机数，基数缺省值为1                            |
+| random()                          | 随机生成下一个实数，它在[0,1)范围内。                                                        |
+| seed([x])                         | 改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。 |
+| shuffle(lst)                      | 将序列的所有元素随机排序                                                                     |
+| uniform(x, y)                     | 随机生成下一个实数，它在[x,y]范围内。                                                        |
 
 
 ### Python三角函数
-| 常量 | 返回值 ( 描述 ) | 
-|:-: |:-:|
-|cos(x)|返回x的反余弦弧度值。|
-|asin(x)|返回x的反正弦弧度值。|
-|atan(x)|返回x的反正切弧度值。|
-|atan2(y, x)|返回给定的X及Y坐标值的反正切值。|
-|cos(x)|返回x的弧度的余弦值。|
-|hypot(x, y)|返回欧几里德范数sqrt(x\*x + y\*y)。|
-|sin(x)|返回的x弧度的正弦值。|
-|tan(x)|返回x弧度的正切值。|
-|degrees(x)|将弧度转换为角度,如degrees(math.pi/2),返回90.0|
-|radians(x)|将角度转换为弧度|
+|    常量     |                返回值 ( 描述 )                 |
+| :---------: | :--------------------------------------------: |
+|   cos(x)    |             返回x的反余弦弧度值。              |
+|   asin(x)   |             返回x的反正弦弧度值。              |
+|   atan(x)   |             返回x的反正切弧度值。              |
+| atan2(y, x) |        返回给定的X及Y坐标值的反正切值。        |
+|   cos(x)    |             返回x的弧度的余弦值。              |
+| hypot(x, y) |      返回欧几里德范数sqrt(x\*x + y\*y)。       |
+|   sin(x)    |             返回的x弧度的正弦值。              |
+|   tan(x)    |              返回x弧度的正切值。               |
+| degrees(x)  | 将弧度转换为角度,如degrees(math.pi/2),返回90.0 |
+| radians(x)  |                将角度转换为弧度                |
 
 
 ### Python数学常量
 
-| 常量 | 返回值 ( 描述 ) | 
-| ------ | ------ |
-|pi|数学常量 pi（圆周率，一般以π来表示）|
-|e|数学常量 e，e即自然常数（自然常数）。|
+| 常量 | 返回值 ( 描述 )                       |
+| ---- | ------------------------------------- |
+| pi   | 数学常量 pi（圆周率，一般以π来表示）  |
+| e    | 数学常量 e，e即自然常数（自然常数）。 |
 
 
 ### 匿名函数
@@ -347,55 +342,55 @@ print e.args
 菜鸟驿站异常处理: http://www.runoob.com/python/python-exceptions.html
 
 **Python常见标准异常说明**
-|异常代码|异常说明| 
-|:-|:-:|
-|BaseException|所有异常的基类|
-|SystemExit|解释器请求退出|
-|KeyboardInterrupt|用户中断执行(通常是输入^C)|
-|Exception|常规错误的基类|
-|StopIteration|迭代器没有更多的值|
-|GeneratorExit|生成器(generator)发生异常来通知退出|
-|StandardError|所有的内建标准异常的基类|
-|ArithmeticError|所有数值计算错误的基类|
-|FloatingPointError|浮点计算错误|
-|OverflowError|数值运算超出最大限制|
-|ZeroDivisionError|除(或取模)零 (所有数据类型)|
-|AssertionError|断言语句失败|
-|AttributeError|对象没有这个属性|
-|EOFError|没有内建输入,到达|
-|EOF|标记|
-|EnvironmentError|操作系统错误的基类|  
-|IOError|输入/输出操作失败|  
-|OSError|操作系统错误|  
-|WindowsError|系统调用失败|  
-|ImportError|导入模块/对象失败|  
-|LookupError|无效数据查询的基类|  
-|IndexError|序列中没有此索引(index)|  
-|KeyError|映射中没有这个键|  
-|MemoryError|内存溢出错误(对于|Python解释器不是致命的)|  
-|NameError|未声明/初始化对象 (没有属性)|  
-|UnboundLocalError|访问未初始化的本地变量| 
-|ReferenceError|弱引用(|Weak reference)试图访问已经垃圾回收了的对象| 
-|RuntimeError|一般的运行时错误| 
-|NotImplementedError|尚未实现的方法|  
-|SyntaxErrorPython|语法错误| 
-|IndentationError|缩进错误|  
-|TabErrorTab|和空格混用|
-|SystemError|一般的解释器系统错误| 
-|TypeError|对类型无效的操作|  
-|ValueError|传入无效的参数|  
-|UnicodeErrorUnicode|相关的错误|  
-|UnicodeDecodeErrorUnicode|解码时的错误| 
-|UnicodeEncodeErrorUnicode|编码时错误| 
-|UnicodeTranslateErrorUnicode|转换时错误| 
-|Warning|警告的基类| 
-|DeprecationWarning|关于被弃用的特征的警告|  
-|FutureWarning|关于构造将来语义会有>改变的警告|  
-|OverflowWarning|旧的关于自动提升为长整型(long)的警告|  
-|PendingDeprecationWarning|关于特性将会被废弃的警告|  
-|RuntimeWarning|可疑的运行时行为(runtime behavior)的警告|  
-|SyntaxWarning|可疑的语法的警告|  
-|UserWarning|用户代码生成的警告| 
+| 异常代码                     |                 异常说明                 |
+| :--------------------------- | :--------------------------------------: |
+| BaseException                |              所有异常的基类              |
+| SystemExit                   |              解释器请求退出              |
+| KeyboardInterrupt            |        用户中断执行(通常是输入^C)        |
+| Exception                    |              常规错误的基类              |
+| StopIteration                |            迭代器没有更多的值            |
+| GeneratorExit                |   生成器(generator)发生异常来通知退出    |
+| StandardError                |         所有的内建标准异常的基类         |
+| ArithmeticError              |          所有数值计算错误的基类          |
+| FloatingPointError           |               浮点计算错误               |
+| OverflowError                |           数值运算超出最大限制           |
+| ZeroDivisionError            |       除(或取模)零 (所有数据类型)        |
+| AssertionError               |               断言语句失败               |
+| AttributeError               |             对象没有这个属性             |
+| EOFError                     |            没有内建输入,到达             |
+| EOF                          |                   标记                   |
+| EnvironmentError             |            操作系统错误的基类            |
+| IOError                      |            输入/输出操作失败             |
+| OSError                      |               操作系统错误               |
+| WindowsError                 |               系统调用失败               |
+| ImportError                  |            导入模块/对象失败             |
+| LookupError                  |            无效数据查询的基类            |
+| IndexError                   |         序列中没有此索引(index)          |
+| KeyError                     |             映射中没有这个键             |
+| MemoryError                  |            内存溢出错误(对于             | Python解释器不是致命的)                     |
+| NameError                    |       未声明/初始化对象 (没有属性)       |
+| UnboundLocalError            |          访问未初始化的本地变量          |
+| ReferenceError               |                 弱引用(                  | Weak reference)试图访问已经垃圾回收了的对象 |
+| RuntimeError                 |             一般的运行时错误             |
+| NotImplementedError          |              尚未实现的方法              |
+| SyntaxErrorPython            |                 语法错误                 |
+| IndentationError             |                 缩进错误                 |
+| TabErrorTab                  |                和空格混用                |
+| SystemError                  |           一般的解释器系统错误           |
+| TypeError                    |             对类型无效的操作             |
+| ValueError                   |              传入无效的参数              |
+| UnicodeErrorUnicode          |                相关的错误                |
+| UnicodeDecodeErrorUnicode    |               解码时的错误               |
+| UnicodeEncodeErrorUnicode    |                编码时错误                |
+| UnicodeTranslateErrorUnicode |                转换时错误                |
+| Warning                      |                警告的基类                |
+| DeprecationWarning           |          关于被弃用的特征的警告          |
+| FutureWarning                |     关于构造将来语义会有>改变的警告      |
+| OverflowWarning              |   旧的关于自动提升为长整型(long)的警告   |
+| PendingDeprecationWarning    |         关于特性将会被废弃的警告         |
+| RuntimeWarning               | 可疑的运行时行为(runtime behavior)的警告 |
+| SyntaxWarning                |             可疑的语法的警告             |
+| UserWarning                  |            用户代码生成的警告            |
 
 
 
@@ -966,51 +961,51 @@ SEEK_CUR或者 1 则从当前位置计算; os.SEEK_END或者2则从文件尾部�
 
 **字符串内建函数**
 
-|方法|描述|
-|:-|:-|
-|**string.capitalize():** |把字符串的第一个字符大写|
-|**string.center(width):** |返回一个原字符串居中,并使用空格填充至长度 width 的新字符串|
-|**string.count(str, beg=0, end=len(string)):** |返回 str 在 string 里面出现的次数，如果 beg 或者 end 指定则返回指定范围内 str 出现的次数|
-|**string.decode(encoding='UTF-8', errors='strict'):** |以 encoding 指定的编码格式解码 string， 如果出错默认报一个 ValueError 的 异 常 ， 除非 errors 指 定 的 是 'ignore' 或 者'replace'|
-|**string.encode(encoding='UTF-8', errors='strict'):** |以 encoding 指定的编码格式编码 string，如果出错默认报一个ValueError 的异常，除非 errors 指定的是'ignore'或者'replace'|
-|**string.endswith(obj, beg=0, end=len(string)):** |检查字符串是否以 obj 结束，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False.|
-|**string.expandtabs(tabsize=8):** |把字符串 string 中的 tab 符号转为空格，tab 符号默认的空格数是 8。|
-|**string.find(str, beg=0, end=len(string)):** |检测 str 是否包含在 string 中，如果 beg 和 end 指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回-1|
-|**string.format():** |格式化字符串|
-|**string.index(str, beg=0, end=len(string)):** |跟find()方法一样，只不过如果str不在 string中会报一个异常.|
-|**string.isalnum():** |如果 string 至少有一个字符并且所有字符都是字母或数字则返回 True,否则返回 False |
-|**string.isalpha():** |如果 string 至少有一个字符并且所有字符都是字母则返回 True,否则返回 False|
-|**string.isdecimal():** |如果 string 只包含十进制数字则返回 True 否则返回 False.|
-|**string.isdigit():** |如果 string 只包含数字则返回 True 否则返回 False.|
-|**string.islower():** |如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是小写，则返回 True，否则返回 False|
-|**string.isnumeric():** |如果 string 中只包含数字字符，则返回 True，否则返回 False|
-|**string.isspace():** |如果 string 中只包含空格，则返回 True，否则返回 False.|
-|**string.istitle():** |如果 string 是标题化的(见 title())则返回 True，否则返回 False|
-|**string.isupper():** |如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是大写，则返回 True，否则返回 False|
-|**string.join(seq):** |以 string 作为分隔符，将 seq 中所有的元素(的字符串表示)合并为一个新的字符串|
-|**string.ljust(width):** |返回一个原字符串左对齐,并使用空格填充至长度 width 的新字符串|
-|**string.lower():** |转换 string 中所有大写字符为小写.|
-|**string.lstrip():** |截掉 string 左边的空格|
-|**string.maketrans(intab, outtab]):** |maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。|
-|**max(str):** |返回字符串 str 中最大的字母。|
-|**min(str):** |返回字符串 str 中最小的字母。|
-|**string.partition(str):** |有点像 find()和 split()的结合体,从 str 出现的第一个位置起,把 字 符 串 string 分 成 一 个 3 元 素 的 元 组 (string_pre_str,str,string_post_str),如果 string 中不包含str 则 string_pre_str == string.|
-|**string.replace(str1, str2,  num=string.count(str1)):** |把 string 中的 str1 替换成 str2,如果 num 指定，则替换不超过 num 次.|
-|**string.rfind(str, beg=0,end=len(string) ):** |类似于 find()函数，不过是从右边开始查找.|
-|**string.rindex( str, beg=0,end=len(string)):** |类似于 index()，不过是从右边开始.|
-|**string.rjust(width):** |返回一个原字符串右对齐,并使用空格填充至长度 width 的新字符串|
-|**string.rpartition(str):** |类似于 partition()函数,不过是从右边开始查找.|
-|**string.rstrip():** |删除 string 字符串末尾的空格.|
-|**string.split(str="", num=string.count(str)):** |以 str 为分隔符切片 string，如果 num有指定值，则仅分隔 num 个子字符串|
-|**string.splitlines([keepends]):** |按照行('\r', '\r\n', \n')分隔，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。|
-|**string.startswith(obj, beg=0,end=len(string)):** |检查字符串是否是以 obj 开头，是则返回 True，否则返回 False。如果beg 和 end 指定值，则在指定范围内检查.|
-|**string.strip([obj]):** |在 string 上执行 lstrip()和 rstrip()|
-|**string.swapcase():** |翻转 string 中的大小写|
-|**string.title():** |返回"标题化"的 string,就是说所有单词都是以大写开始，其余字母均为小写(见 istitle())|
-|**string.translate(str, del=""):** |根据 str 给出的表(包含 256 个字符)转换 string 的字符, 要过滤掉的字符放到 del 参数中|
-|**string.upper():** |转换 string 中的小写字母为大写|
-|**string.zfill(width):** |返回长度为 width 的字符串，原字符串 string 右对齐，前面填充0|
-|**string.isdecimal():** |isdecimal()方法检查字符串是否只包含十进制字符。这种方法只存在于unicode对象。|
+| 方法                                                     | 描述                                                                                                                                                                                                |
+| :------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **string.capitalize():**                                 | 把字符串的第一个字符大写                                                                                                                                                                            |
+| **string.center(width):**                                | 返回一个原字符串居中,并使用空格填充至长度 width 的新字符串                                                                                                                                          |
+| **string.count(str, beg=0, end=len(string)):**           | 返回 str 在 string 里面出现的次数，如果 beg 或者 end 指定则返回指定范围内 str 出现的次数                                                                                                            |
+| **string.decode(encoding='UTF-8', errors='strict'):**    | 以 encoding 指定的编码格式解码 string， 如果出错默认报一个 ValueError 的 异 常 ， 除非 errors 指 定 的 是 'ignore' 或 者'replace'                                                                   |
+| **string.encode(encoding='UTF-8', errors='strict'):**    | 以 encoding 指定的编码格式编码 string，如果出错默认报一个ValueError 的异常，除非 errors 指定的是'ignore'或者'replace'                                                                               |
+| **string.endswith(obj, beg=0, end=len(string)):**        | 检查字符串是否以 obj 结束，如果beg 或者 end 指定则检查指定的范围内是否以 obj 结束，如果是，返回 True,否则返回 False.                                                                                |
+| **string.expandtabs(tabsize=8):**                        | 把字符串 string 中的 tab 符号转为空格，tab 符号默认的空格数是 8。                                                                                                                                   |
+| **string.find(str, beg=0, end=len(string)):**            | 检测 str 是否包含在 string 中，如果 beg 和 end 指定范围，则检查是否包含在指定范围内，如果是返回开始的索引值，否则返回-1                                                                             |
+| **string.format():**                                     | 格式化字符串                                                                                                                                                                                        |
+| **string.index(str, beg=0, end=len(string)):**           | 跟find()方法一样，只不过如果str不在 string中会报一个异常.                                                                                                                                           |
+| **string.isalnum():**                                    | 如果 string 至少有一个字符并且所有字符都是字母或数字则返回 True,否则返回 False                                                                                                                      |
+| **string.isalpha():**                                    | 如果 string 至少有一个字符并且所有字符都是字母则返回 True,否则返回 False                                                                                                                            |
+| **string.isdecimal():**                                  | 如果 string 只包含十进制数字则返回 True 否则返回 False.                                                                                                                                             |
+| **string.isdigit():**                                    | 如果 string 只包含数字则返回 True 否则返回 False.                                                                                                                                                   |
+| **string.islower():**                                    | 如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是小写，则返回 True，否则返回 False                                                                                     |
+| **string.isnumeric():**                                  | 如果 string 中只包含数字字符，则返回 True，否则返回 False                                                                                                                                           |
+| **string.isspace():**                                    | 如果 string 中只包含空格，则返回 True，否则返回 False.                                                                                                                                              |
+| **string.istitle():**                                    | 如果 string 是标题化的(见 title())则返回 True，否则返回 False                                                                                                                                       |
+| **string.isupper():**                                    | 如果 string 中包含至少一个区分大小写的字符，并且所有这些(区分大小写的)字符都是大写，则返回 True，否则返回 False                                                                                     |
+| **string.join(seq):**                                    | 以 string 作为分隔符，将 seq 中所有的元素(的字符串表示)合并为一个新的字符串                                                                                                                         |
+| **string.ljust(width):**                                 | 返回一个原字符串左对齐,并使用空格填充至长度 width 的新字符串                                                                                                                                        |
+| **string.lower():**                                      | 转换 string 中所有大写字符为小写.                                                                                                                                                                   |
+| **string.lstrip():**                                     | 截掉 string 左边的空格                                                                                                                                                                              |
+| **string.maketrans(intab, outtab]):**                    | maketrans() 方法用于创建字符映射的转换表，对于接受两个参数的最简单的调用方式，第一个参数是字符串，表示需要转换的字符，第二个参数也是字符串表示转换的目标。                                          |
+| **max(str):**                                            | 返回字符串 str 中最大的字母。                                                                                                                                                                       |
+| **min(str):**                                            | 返回字符串 str 中最小的字母。                                                                                                                                                                       |
+| **string.partition(str):**                               | 有点像 find()和 split()的结合体,从 str 出现的第一个位置起,把 字 符 串 string 分 成 一 个 3 元 素 的 元 组 (string_pre_str,str,string_post_str),如果 string 中不包含str 则 string_pre_str == string. |
+| **string.replace(str1, str2,  num=string.count(str1)):** | 把 string 中的 str1 替换成 str2,如果 num 指定，则替换不超过 num 次.                                                                                                                                 |
+| **string.rfind(str, beg=0,end=len(string) ):**           | 类似于 find()函数，不过是从右边开始查找.                                                                                                                                                            |
+| **string.rindex( str, beg=0,end=len(string)):**          | 类似于 index()，不过是从右边开始.                                                                                                                                                                   |
+| **string.rjust(width):**                                 | 返回一个原字符串右对齐,并使用空格填充至长度 width 的新字符串                                                                                                                                        |
+| **string.rpartition(str):**                              | 类似于 partition()函数,不过是从右边开始查找.                                                                                                                                                        |
+| **string.rstrip():**                                     | 删除 string 字符串末尾的空格.                                                                                                                                                                       |
+| **string.split(str="", num=string.count(str)):**         | 以 str 为分隔符切片 string，如果 num有指定值，则仅分隔 num 个子字符串                                                                                                                               |
+| **string.splitlines([keepends]):**                       | 按照行('\r', '\r\n', \n')分隔，返回一个包含各行作为元素的列表，如果参数 keepends 为 False，不包含换行符，如果为 True，则保留换行符。                                                                |
+| **string.startswith(obj, beg=0,end=len(string)):**       | 检查字符串是否是以 obj 开头，是则返回 True，否则返回 False。如果beg 和 end 指定值，则在指定范围内检查.                                                                                              |
+| **string.strip([obj]):**                                 | 在 string 上执行 lstrip()和 rstrip()                                                                                                                                                                |
+| **string.swapcase():**                                   | 翻转 string 中的大小写                                                                                                                                                                              |
+| **string.title():**                                      | 返回"标题化"的 string,就是说所有单词都是以大写开始，其余字母均为小写(见 istitle())                                                                                                                  |
+| **string.translate(str, del=""):**                       | 根据 str 给出的表(包含 256 个字符)转换 string 的字符, 要过滤掉的字符放到 del 参数中                                                                                                                 |
+| **string.upper():**                                      | 转换 string 中的小写字母为大写                                                                                                                                                                      |
+| **string.zfill(width):**                                 | 返回长度为 width 的字符串，原字符串 string 右对齐，前面填充0                                                                                                                                        |
+| **string.isdecimal():**                                  | isdecimal()方法检查字符串是否只包含十进制字符。这种方法只存在于unicode对象。                                                                                                                        |
 
 
 
@@ -1028,17 +1023,17 @@ In [3]: print time.time()
 #### struct_time元组
 
 **struct_time元组**
-|属性|值|
-|:-:|:-:|
-|tm_year|2008|
-|tm_mon|1-12|
-|tm_mday|1-31|
-|tm_hour|0-23|
-|tm_min|0-59|
-|tm_sec|0-61(60/61闰秒)|
-|tm_wday|0-6周一到周日|
-|tm_yday|0-366(儒略历)|
-|tm_isdst|-1, 0, 1, -1是决定是否为夏令时的旗帜|
+|   属性   |                  值                  |
+| :------: | :----------------------------------: |
+| tm_year  |                 2008                 |
+|  tm_mon  |                 1-12                 |
+| tm_mday  |                 1-31                 |
+| tm_hour  |                 0-23                 |
+|  tm_min  |                 0-59                 |
+|  tm_sec  |           0-61(60/61闰秒)            |
+| tm_wday  |            0-6周一到周日             |
+| tm_yday  |            0-366(儒略历)             |
+| tm_isdst | -1, 0, 1, -1是决定是否为夏令时的旗帜 |
 
 #### 获取当前时间
 
@@ -1119,20 +1114,20 @@ Mo Tu We Th Fr Sa Su
 
 Time 模块包含了以下内置函数，既有时间处理的，也有转换时间格式的：
 
-|模块函数|描述|
-|:-|:-|
-|time.altzone|返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。|
-|time.asctime([tupletime])|接受时间元组并返回一个可读的形式为"Tue Dec 11 18:07:14 2008"（2008年12月11日 周二18时07分14秒）的24个字符的字符串。|
-|time.clock( )|用以浮点数计算的秒数返回当前的CPU时间。用来衡量不同程序的耗时，比time.time()更有用。|
-|time.ctime([secs])|作用相当于asctime(localtime(secs))，未给参数相当于asctime()|
-|time.gmtime([secs])|接收时间戳（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0|
-|time.localtime([secs])|接收时间戳（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。|
-|time.mktime(tupletime)|接受时间元组并返回时间戳（1970纪元后经过的浮点秒数）。|
-|time.sleep(secs)|推迟调用线程的运行，secs指秒数。
-|time.strftime(fmt[,tupletime])|接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。|
-|time.strptime(str,fmt='%a %b %d %H:%M:%S %Y')|根据fmt的格式把一个时间字符串解析为时间元组。|
-|time.time( )|返回当前时间的时间戳（1970纪元后经过的浮点秒数）。|
-|time.tzset()|根据环境变量TZ重新初始化时间相关设置。|
+| 模块函数                                      | 描述                                                                                                                       |
+| :-------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| time.altzone                                  | 返回格林威治西部的夏令时地区的偏移秒数。如果该地区在格林威治东部会返回负值（如西欧，包括英国）。对夏令时启用地区才能使用。 |
+| time.asctime([tupletime])                     | 接受时间元组并返回一个可读的形式为"Tue Dec 11 18:07:14 2008"（2008年12月11日 周二18时07分14秒）的24个字符的字符串。        |
+| time.clock( )                                 | 用以浮点数计算的秒数返回当前的CPU时间。用来衡量不同程序的耗时，比time.time()更有用。                                       |
+| time.ctime([secs])                            | 作用相当于asctime(localtime(secs))，未给参数相当于asctime()                                                                |
+| time.gmtime([secs])                           | 接收时间戳（1970纪元后经过的浮点秒数）并返回格林威治天文时间下的时间元组t。注：t.tm_isdst始终为0                           |
+| time.localtime([secs])                        | 接收时间戳（1970纪元后经过的浮点秒数）并返回当地时间下的时间元组t（t.tm_isdst可取0或1，取决于当地当时是不是夏令时）。      |
+| time.mktime(tupletime)                        | 接受时间元组并返回时间戳（1970纪元后经过的浮点秒数）。                                                                     |
+| time.sleep(secs)                              | 推迟调用线程的运行，secs指秒数。                                                                                           |
+| time.strftime(fmt[,tupletime])                | 接收以时间元组，并返回以可读字符串表示的当地时间，格式由fmt决定。                                                          |
+| time.strptime(str,fmt='%a %b %d %H:%M:%S %Y') | 根据fmt的格式把一个时间字符串解析为时间元组。                                                                              |
+| time.time( )                                  | 返回当前时间的时间戳（1970纪元后经过的浮点秒数）。                                                                         |
+| time.tzset()                                  | 根据环境变量TZ重新初始化时间相关设置。                                                                                     |
 
 Time模块包含了以下2个非常重要的属性：
 **time.timezone**
@@ -1303,34 +1298,34 @@ Out[28]: 24
 
 ### 列表与字典函数
 **Python列表 内置方法**
-|序号|方法|
-| ---- | ---- |
-|list.append(obj)       |在列表末尾添加新的对象| 
-|list.count(obj)        |统计某个元素在列表中出现的次数| 
-|list.extend(seq)       |在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）| 
-|list.index(obj)        |从列表中找出某个值第一个匹配项的索引位置| 
-|list.insert(index, obj)|将对象插入列表| 
-|list.pop(obj=list[-1]) |移除列表中的一个元素（默认最后一个元素），并且返回该元素的值| 
-|list.remove(obj)       |移除列表中某个值的第一个匹配项| 
-|list.reverse()         |反向列表中元素| 
-|list.sort([func])      |对原列表进行排序| 
+| 序号                    | 方法                                                               |
+| ----------------------- | ------------------------------------------------------------------ |
+| list.append(obj)        | 在列表末尾添加新的对象                                             |
+| list.count(obj)         | 统计某个元素在列表中出现的次数                                     |
+| list.extend(seq)        | 在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表） |
+| list.index(obj)         | 从列表中找出某个值第一个匹配项的索引位置                           |
+| list.insert(index, obj) | 将对象插入列表                                                     |
+| list.pop(obj=list[-1])  | 移除列表中的一个元素（默认最后一个元素），并且返回该元素的值       |
+| list.remove(obj)        | 移除列表中某个值的第一个匹配项                                     |
+| list.reverse()          | 反向列表中元素                                                     |
+| list.sort([func])       | 对原列表进行排序                                                   |
 
 **Python字典 内置方法**
 
-|序号                               |函数及描述| 
-| ---- | ---- |
-|dict.clear()                       |删除字典内所有元素| 
-|dict.copy()                        |返回一个字典的浅复制| 
-|dict.fromkeys(seq[, val])          |创建一个新字典，以序列 seq 中元素做字典的键，val 为字典所有键对应的初始值| 
-|dict.get(key, default=None)        |返回指定键的值，如果值不在字典中返回default值| 
-|dict.has_key(key)                  |如果键在字典dict里返回true，否则返回false| 
-|dict.items()                       |以列表返回可遍历的(键, 值) 元组数组| 
-|dict.keys()                        |以列表返回一个字典所有的键| 
-|dict.setdefault(key, default=None) |和get()类似, 但如果键不存在于字典中，将会添加键并将值设为default| 
-|dict.update(dict2)                 |把字典dict2的键/值对更新到dict里| 
-|dict.values()                      |以列表返回字典中的所有值| 
-|pop(key[,default])                 |删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。| 
-|popitem()                          |随机返回并删除字典中的一对键和值。| 
+| 序号                               | 函数及描述                                                                               |
+| ---------------------------------- | ---------------------------------------------------------------------------------------- |
+| dict.clear()                       | 删除字典内所有元素                                                                       |
+| dict.copy()                        | 返回一个字典的浅复制                                                                     |
+| dict.fromkeys(seq[, val])          | 创建一个新字典，以序列 seq 中元素做字典的键，val 为字典所有键对应的初始值                |
+| dict.get(key, default=None)        | 返回指定键的值，如果值不在字典中返回default值                                            |
+| dict.has_key(key)                  | 如果键在字典dict里返回true，否则返回false                                                |
+| dict.items()                       | 以列表返回可遍历的(键, 值) 元组数组                                                      |
+| dict.keys()                        | 以列表返回一个字典所有的键                                                               |
+| dict.setdefault(key, default=None) | 和get()类似, 但如果键不存在于字典中，将会添加键并将值设为default                         |
+| dict.update(dict2)                 | 把字典dict2的键/值对更新到dict里                                                         |
+| dict.values()                      | 以列表返回字典中的所有值                                                                 |
+| pop(key[,default])                 | 删除字典给定键 key 所对应的值，返回值为被删除的值。key值必须给出。 否则，返回default值。 |
+| popitem()                          | 随机返回并删除字典中的一对键和值。                                                       |
 
 
 ### 读取键盘输入

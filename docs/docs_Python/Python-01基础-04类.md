@@ -4,7 +4,6 @@
 
 ## 类的定义（__init__方法，基类，self
 
-
 类的定义：class ClassName(object):，object是父类名，object是一切类的基类。
 __init__方法是函数写在类中就是方法，实例化对象的时候必须调用__init__方法。
 
