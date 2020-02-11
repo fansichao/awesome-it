@@ -2,7 +2,8 @@
 
 ## Neo4j 入门介绍
 
-http://dl2.iteye.com/upload/attachment/0120/3433/e84b4219-9e96-31fb-927f-241366d91c74.png
+ 
+![xx](http://dl2.iteye.com/upload/attachment/0120/3433/e84b4219-9e96-31fb-927f-241366d91c74.png)
 
 > Neo4j 是目前最流行的图形数据库，支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，
 > 顶点和边都可以设置属性，顶点也称作节点，边也称作关系，每个节点和关系都可以由一个或多个属性。

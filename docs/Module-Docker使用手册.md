@@ -643,3 +643,7 @@ echo "exprot LC_ALL=en_US.utf8" >> ~/.bash_profile
 Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.26/images/create?fromSrc=-&message=&repo=docker_7&tag=: dial unix /var/run/docker.sock: connect: permission denied
 (env) [scfan@fdm docker_cmd]$ sudo chmod 777 /var/run/docker.sock
 ```
+
+## 参考资源
+
+- [Docker 部分组成](https://blog.csdn.net/sunzhiqiang6/article/details/80698436)

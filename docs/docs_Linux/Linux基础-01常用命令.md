@@ -2,7 +2,7 @@
 
 ## NeedTODO
 
-数据清洗 -大规模数据清洗的利器 文字解析、文字替换等， 速度远快于replace
+数据清洗 -大规模数据清洗的利器 文字解析、文字替换等， 速度远快于 replace
 https://flashtext.readthedocs.io/en/latest/
 
 ## 文件处理
@@ -16,16 +16,14 @@ split 文件切割软件
 split -b 10M a.csv  a.csv.
 切割后得到
 a.csv.aa a.csv.ab
- 
+
 # 字符串分割函数split
 str.split(str="", num=string.count(str))
 - str :分隔符，默认为空格。
 - num :分割次数。
 ```
 
-
 ### ls 文件长度统计
-
 
 ```bash
 # 统计当前文件夹下文件的个数:
@@ -63,7 +61,7 @@ echo “haha” >> a
 
 # 删除正文首行的#号注释
 sed 's/\#//g' /etc/crontab
- 
+
 
 # 替换文件中字符串
 sed -i "s/str1/str2/g" filname
@@ -71,7 +69,7 @@ sed -i "s/str1/str2/g" filname
 # 删除a.txt中含"abc"的行，但不改变a.txt文件本身，操作之后的结果在终端显示
 sed -e '/abc/d'  a.txt  
 # 删除a.txt中含"abc"的行，将操作之后的结果保存到a.log
-sed -e '/abc/d'  a.txt  > a.log    
+sed -e '/abc/d'  a.txt  > a.log   
 # 删除含字符串"abc"或“efg"的行，将结果保存到a.log
 sed '/abc/d;/efg/d' a.txt > a.log    
 # 查找多个空格
@@ -95,12 +93,14 @@ sed -i "s/d3b387c031dd/1000db7324ff/g" `grep "d3b387c031dd" -rl /u01 `
 
 ## 软件安装
 
-### rpm 
+### rpm
 
 **资源链接:**
-- rpm镜像网：[http://rpmfind.net/](http://rpmfind.net/)
 
-rpm相关命令
+- rpm 镜像网：[http://rpmfind.net/](http://rpmfind.net/)
+
+rpm 相关命令
+
 ```bash
 # 查询包版本
 rpm -qa | grep vim
@@ -112,7 +112,9 @@ rpm -e --nodeps vim-minimal-7.4.629-5.el6_8.1.x86_64
 ```
 
 ### yum
-yum相关命令
+
+yum 相关命令
+
 ```bash
 # 安装
 yum install  -y vim
@@ -130,7 +132,7 @@ yum install mysql-server --downloadonly --downloaddir=/data/packages
 yum install yum-utils  -y # 专门的下载工具
 yum downloader lsof --resolve --destdir=/data/mydepot/ # 默认不会下载对应的依赖文件，需要添加 resolve参数
 
-# 查看可用的rpm包 
+# 查看可用的rpm包
 yum list available 'graphviz*'
 
 # yum 下载 rpm 包
@@ -138,13 +140,14 @@ yum install --downloaddir=/tmp/whj/ --downloadonly glibc-devel.i686
 ```
 
 ### pip
-**pip相关常用命令**
+
+**pip 相关常用命令**
 
 ```bash
 # 搜索包
 pip search xlrd
 # 查看包版本
-pip list 
+pip list
 # 生成环境依赖文件
 pip freeze > requirement.txt
 # 下载安装包 方式1
@@ -170,7 +173,8 @@ pip install xlrd
 pip uninstall xlrd
 ```
 
-**配置国内pip源**
+**配置国内 pip 源**
+
 ```bash
 # 配置 国内pip源   ~/.pip/pip.conf
 [global]
@@ -199,6 +203,7 @@ tar xvJf  node-v6.10.1-linux-x64.tar.xz
 ### zip/unzip
 
 zip -P qwe123 a.zip -r ssss
+
 ```bash
 # zip 参数说明
 
@@ -214,7 +219,8 @@ unzip /home/kms/kms.zip -d /home/kms/server/kms
 
 ## 基础命令
 
-### 配置alias
+### 配置 alias
+
 ```bash
 # ~/.bash_profile
 alias pip=" pip --trusted-host mirrors.aliyun.com "
@@ -222,41 +228,38 @@ alias pip=" pip --trusted-host mirrors.aliyun.com "
 
 ### wget
 
-wget参数解释、用法: [https://blog.csdn.net/endall/article/details/1571220](https://blog.csdn.net/endall/article/details/1571220)
+wget 参数解释、用法: [https://blog.csdn.net/endall/article/details/1571220](https://blog.csdn.net/endall/article/details/1571220)
 
 ```bash
 # 做站点镜像
 wget xxxx -r -np  下载整个目录，不包含上层目录
 ```
 
-
 ### grep
+
 grep -r 递归查询子目录
 grep -i 查询不区分大小写
 grep -n 显示查询出来的文件行号
 grep -w 精准匹配
-grep -l  只显示（包含文件内容的）文件名
+grep -l 只显示（包含文件内容的）文件名
 
-grep -rn xxx .    "." 只查询本目录以及其下的目录---公司电脑只有这样才能查询，具体原因，可能是设置了相关权限等
-
+grep -rn xxx . "." 只查询本目录以及其下的目录---公司电脑只有这样才能查询，具体原因，可能是设置了相关权限等
 
 ### find
 
-忽略大小写 -iname 
-find / -iname  '*csv*'
- 
-
-
+忽略大小写 -iname
+find / -iname '_csv_'
 
 ## vim
 
-### vim键盘图
+### vim 键盘图
 
 ![Linux-VIm](https://github.com/fansichao/file/blob/master/picture/Linux%20vi.png?raw=true)
 
-### vim使用技巧
+### vim 使用技巧
 
-**vim使用技巧**
+**vim 使用技巧**
+
 ```bash
 # 全局替换
 %s/old/new/g
@@ -282,7 +285,7 @@ g/^s*$/d
 # 去掉文件中^M
 ^M = Ctrl v + Ctrl m
 
- 
+
 # 删除换行符：
 :%s/\n//g
 # 将连续的两个空行替换成一个空行：
@@ -302,7 +305,9 @@ g/^s*$/d
 ### vim删除包含指定字符串的所有行
 :g/something/d   # 删除包含something的所有行
 ```
-### .vimrc配置
+
+### .vimrc 配置
+
 ```bash
 set nu
 set ts=4     # 设置 长度为四个空格
@@ -313,9 +318,10 @@ set softtabstop=4/8/16 # tab键为四个空格或者制表符，8为制表符，
 
 ```
 
-### vim-set 
+### vim-set
 
-**Vim中的一些设置**
+**Vim 中的一些设置**
+
 ```bash
 :set fileformat 设置文件格式
 :set endofline 设置文件结束符
@@ -328,33 +334,32 @@ set softtabstop=4/8/16 # tab键为四个空格或者制表符，8为制表符，
 
 
 ```
- 
 
-# Tips大全
+# Tips 大全
 
 - **env** 查看当前环境变量
 - **history** 查看输入的历史命令
 - **chmod** 文件授权 需要一层层授权， 或者 chmod -R xxx 授权其下的所有文件以及文件夹
+
 ```
 注意：不要拿Decimal和str进行比较，会导致结果完全错误。
 注意：字段的格式
 ```
+
 - **ctrl + w** 回退输入的单词
 - **pstree** 进程树
-- **time python xxxx** sh脚本中加time执行可以显示执行的时间详细情况
-- **nohup time xxx** sh文件中 使用nohup调度多个文件，可以多个文件同时执行，（文件之间不能存在依赖）
+- **time python xxxx** sh 脚本中加 time 执行可以显示执行的时间详细情况
+- **nohup time xxx** sh 文件中 使用 nohup 调度多个文件，可以多个文件同时执行，（文件之间不能存在依赖）
 
-**Linux文件比对**
-vimdiff a.txt b.txt  # 效果 左右分割 颜色标记显示     (需要安装vim包)
-diff -wy --suppress-common-lines  a.txt b.txt  # 效果 左右分割 推荐使用
+**Linux 文件比对**
+vimdiff a.txt b.txt # 效果 左右分割 颜色标记显示 (需要安装 vim 包)
+diff -wy --suppress-common-lines a.txt b.txt # 效果 左右分割 推荐使用
 
 **查看端口**
 netstat -lntp | grep 5000
- 
 
-### Linux命令去重
+### Linux 命令去重
 
- 
 ```bash
 常用命令：sort -u xxx
 
@@ -368,11 +373,11 @@ sort -n test.txt | uniq
 ### 删除用户数据
 
 userdel -r xxx # 完全删除用户
-userdel xxx # 只能删除部分用户，像/home/xxx等需要手动删除
-Linux去重
+userdel xxx # 只能删除部分用户，像/home/xxx 等需要手动删除
+Linux 去重
 
+### Linux 查看当前占用 CPU 或内存最多的几个进程：
 
-### Linux 查看当前占用CPU或内存最多的几个进程：
 ```bash
 1. ps命令
     1. ps -aux | sort -k4nr | head -10
@@ -383,10 +388,8 @@ Linux去重
 
 ```
 
-
-切换用户运行sh脚本
-su - fdm -c  "Command"
-
+切换用户运行 sh 脚本
+su - fdm -c "Command"
 
 ### 电源关机
 
@@ -396,11 +399,10 @@ shutdown
 
 ### Linux 登录或注销时执行脚本
 
-分别使用~.bash_profile 和 ~.bash_logout可以做到
+分别使用~.bash_profile 和 ~.bash_logout 可以做到
 
+### tailf、tail -f、tail -F 三者区别
 
-
-### tailf、tail -f、tail -F三者区别
 ```bash
 tail -f      等同于--follow=descriptor，根据文件描述符进行追踪，当文件改名或被删除，追踪停止
 tail -F     等同于--follow=name  --retry，根据文件名进行追踪，并保持重试，即该文件被删除或改名后，如果再次创建相同的文件名，会继续追踪
@@ -408,31 +410,23 @@ tailf        等同于tail -f -n 10（貌似tail -f或-F默认也是打印最后
 
 ```
 
+### 程序转入前台或者后台运行 Linux ctrl 组合命令
 
-
-
-### 程序转入前台或者后台运行  Linux  ctrl组合命令
-
-jobs      //查看任务，返回任务编号n和进程号
+jobs //查看任务，返回任务编号 n 和进程号
 free 查看当前内存使用情况
-bg  %n   //将编号为n的任务转后台运行
-fg  %n   //将编号为n的任务转前台运行
-ctrl+z    //挂起当前任务
-ctrl+c    //结束当前任务  发送Terminal到当前的程序，强制结束当前程序，比较暴力
-ctrl+d    //结束当前任务或退出shell, 发送exit信号
-ctrl+| 
-ctrl+s     暂停屏幕输出
-ctrl+q     恢复屏幕输出
-ctrl+a     切换到命令行开始
-ctrl+e     切换到命令行末尾
-ctrl+y     在光标处粘贴剪切的内容
+bg %n //将编号为 n 的任务转后台运行
+fg %n //将编号为 n 的任务转前台运行
+ctrl+z //挂起当前任务
+ctrl+c //结束当前任务 发送 Terminal 到当前的程序，强制结束当前程序，比较暴力
+ctrl+d //结束当前任务或退出 shell, 发送 exit 信号
+ctrl+|
+ctrl+s 暂停屏幕输出
+ctrl+q 恢复屏幕输出
+ctrl+a 切换到命令行开始
+ctrl+e 切换到命令行末尾
+ctrl+y 在光标处粘贴剪切的内容
 
-
-
-
-
-
-### Linux查看系统安转的所有源包
+### Linux 查看系统安转的所有源包
 
 rpm -qa
 pcp-pmda-kvm-3.10.6-2.el7.x86_64
@@ -440,13 +434,83 @@ unoconv-0.6-7.el7.noarch
 texlive-fp-svn15878.0-38.el7.noarch
 abrt-python-2.1.11-36.el7.centos.x86_64
 libcanberra-gtk3-0.30-5.el7.x86_64
-### Linux查看virtualenv的所有包
+
+### Linux 查看 virtualenv 的所有包
 
 pip freeze
-     效果如下：
-     tornado==4.3
-     Tornado-JSON==1.2.1
-     urlgrabber==3.10
-     urllib3==1.10.2
-     urwid==1.1.1
-    
+效果如下：
+tornado==4.3
+Tornado-JSON==1.2.1
+urlgrabber==3.10
+urllib3==1.10.2
+urwid==1.1.1
+
+## 其他命令
+
+**Linux-Tips 功能:**
+
+```bash
+# 查看可安装包:
+rpm -qa | grep filename
+yum search filename
+pip search filename
+# 2.动态查看日志，多方查看日志nohup
+tail -f nohup.out  -f
+# 3.建立文件链接
+ln -s  xx/xxx/xxx/xx.py     test.link     建立软链接，相当于快捷方式
+ln -d  xx/xxx/xxx/xx.py     test.link     建立硬链接，相当于拷贝一份文件
+# 4.wget命令
+wget命令下载某个文件的命令为：
+wget-P, –directory-prefix=PREFIX  [URL地址]，将url连接中的文件保存到目录 PREFIX/下。
+ 2.与目录相关的参数有：-nd –no-directories 不创建目录；
+    -x, –force-directories 强制创建目录；
+    -nH, –no-host-directories 不创建主机目录；
+    –cut-dirs=NUMBER 忽略 NUMBER层远程目录
+# 6.虚拟机之间的文件传输
+第一种就是ftp，也就是其中一台Linux安装ftp Server，这样可以另外一台使用ftp的client程序来进行文件的copy。
+
+第二种方法就是采用samba服务，类似Windows文件copy 的方式来操作，比较简洁方便。
+
+第三种就是利用scp命令来进行文件复制。
+
+scp是有Security的文件copy，基于ssh登录。操作起来比较方便，比如要把当前一个文件copy到远程另外一台主机上，可以如下命令。
+
+scp /home/daisy/full.tar.gz root@172.19.2.75:/home/root
+
+然后会提示你输入另外那台172.19.2.75主机的root用户的登录密码，接着就开始copy了。
+
+# 7.Linux 文件的处理 read，open，write等
+# 8.Linux atime ctime mtime
+atime access time
+ctime change time
+mtime modify time
+
+# 10.nosetests 单元测试
+
+用于测试某个程序中单独模块的功能
+nosetests -s xxx.py
+只会执行 函数名包含test的函数
+ps：
+     可以吧其他函数放入test_all():中
+
+# 11.获取每月的最大天数
+import datetime
+import calendar
+calendar.monthrange(now_year,now_month)[1]
+
+# 12.sqlalchemy.orm框架 - orm字段缺失，导致对应值缺失。
+
+当表中有10个字段。但是对应的orm只有8个字段，会导致 数据导入正常执行，但是缺失的两个字段无任何值。
+注:数据库修改，对应的orm必须修改一致
+
+# 14.使用copy模块深拷贝对象
+浅拷贝，拷贝对应的引用，例如工厂函数，
+深拷贝，拷贝对象以及引用和引用指向的具体内容
+
+# Decimal取两位小数，精度
+y = Decimal(0.2356).quantize(Decimal('0.00'))
+y = Deciaml(0.24)
+
+# 查看文件夹大小
+du -ah --max-depth=1
+```

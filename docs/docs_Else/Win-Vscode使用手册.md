@@ -163,6 +163,9 @@ git push -u origin master
 - 官网链接:
   - [https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc](https://marketplace.visualstudio.com/items?itemName=AlanWalk.markdown-toc)
 
+![20200202_Win_VScode_目录结构错误问题.png](https://raw.githubusercontent.com/fansichao/images/master/markdown/20200202_Win_VScode_%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98.png)
+[VSCode 中 Markdown 目录显示异常](https://jingyan.baidu.com/article/6b97984df62b501ca3b0bf7a.html)
+
 ### 1.5.10. Markdown AutoTOC 目录
 
 - 说明:
@@ -283,7 +286,7 @@ evermonkey.noteStoreUrl: your API url
 
 重启 Vscode
 
-**步骤 3**:同步 MarkDown
+**步骤 3**:同步 MarkDown 到印象笔记
 
 编写 MarkDown 文件，文件头部加入如下
 
@@ -300,7 +303,7 @@ notebook: （所属的目录）
 **其他步骤: 相关问题**
 重要提示: 如果报 Evernote Error: 5 - Note.title，错误（这个错误坑了好一会）。说明是换行符有问题，请将 vscode 右下角的换行符从 CRLF 切换成 LF,然后再次执行 ever publish，就会有 blogs>>vscode 中使用印象笔记 created successfully.提示。如果还有错误，请到 git issue 查找相关问题。
 
-### VScode 编辑后自动保存
+### 1.6.2. VScode 编辑后自动保存
 
 参考链接: [vscode 如何设置自动保存](https://jingyan.baidu.com/article/f25ef25486bd5c482c1b82b8.html)
 
@@ -371,7 +374,7 @@ PicGo 配置如下:
 - Bookmarks: 一个书签工具,还是很有必要的
 - tortoise-svn: SVN 的集成插件
 
-### 插件
+### 1.8.2. 插件
 
 C/C++ [ms-vscode.cpptolls] 智能推导，调试和代码浏览
 
@@ -503,7 +506,7 @@ Debugger for Chrome/ Debugger for Firefox 字面意思，无需多说
 
 gitignore [codezombiech.gitignore] 帮助你更好的使用 gitignore
 
-### 1.8.2. 快捷键使用
+### 1.8.3. 快捷键使用
 
 在 Ctrl+P 下输入>又可以回到主命令框 Ctrl+Shift+P 模式。
 在 Ctrl+P 窗口下还可以
