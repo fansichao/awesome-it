@@ -73,10 +73,10 @@ Ctrl+鼠标点击函数名，查看内置函数介绍。
 
 缩进/取消缩进：Tab / Shift + Tab
 
+添加书签：Ctrl + B
+
 ## 附件
 
 ### 参考资源
 
 - [PyCharm 快捷键](https://blog.csdn.net/qq_40223983/article/details/96340646)
-
-### Pycharm 工具书
