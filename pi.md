@@ -27,7 +27,7 @@ Pi Network 核心团队由两名斯坦福大学博士和一名斯坦福 MBA 带�
 - 2、United State 这里找到并选择 China(+86)，然后输入手机号，点“GO”。如果网速慢加载不出来就点 try again 再试。
 - 3、Passworld（输入密码，要复杂点），Verlfy you password（确认密码），然后点“SUBMIT”提交。
 - 4、填写名（中文）firstname、姓（中文）lastname；用户名(Choose your usename)建议取英文，这个同时也是你的个人邀请码，在你邀请他人时让他们填写。
-- 5、Invitation code 这里输入邀请码 ，然后点“SUBMIT”提交。
+- 5、Invitation code 这里输入邀请码 world777 ，然后点“SUBMIT”提交。
 - 6、再根据提示一直点确认按钮下去，按提示开启挖矿即可。
 
 **二、验证手机号:**
@@ -67,7 +67,7 @@ OPEN SMS，然后跳转去发短信，发送到刚才复制的那段号码。如
 
 ### 参考资源
 
-- Pi Network  详细教程  [http://world777.piworker.com/](http://world777.piworker.com/)
+- Pi Network 详细教程  [http://world777.piworker.com/](http://world777.piworker.com/)
 - [https://ws234.com/pinetwork.html](https://ws234.com/pinetwork.html)
 - [https://www.zhihu.com/question/348761661](https://www.zhihu.com/question/348761661)
 - [pi 币易货商城网址](https://paypi.shop)
