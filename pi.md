@@ -19,6 +19,11 @@ Pi Network 核心团队由两名斯坦福大学博士和一名斯坦福 MBA 带�
 
 ## 使用详解
 
+下载链接
+
+- [pi network 官网链接](https://minepi.com/)
+- [安卓下载地址](https://www.lanzous.com/i6pwe2j)
+
 ### 文字注册教程
 
 **一、注册方法:**
@@ -67,7 +72,7 @@ OPEN SMS，然后跳转去发短信，发送到刚才复制的那段号码。如
 
 ### 参考资源
 
-- Pi Network 详细教程  [http://world777.piworker.com/](http://world777.piworker.com/)
+- Pi Network  详细教程  [http://world777.piworker.com/](http://world777.piworker.com/)
 - [https://ws234.com/pinetwork.html](https://ws234.com/pinetwork.html)
 - [https://www.zhihu.com/question/348761661](https://www.zhihu.com/question/348761661)
 - [pi 币易货商城网址](https://paypi.shop)
