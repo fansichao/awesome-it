@@ -172,3 +172,96 @@ Levenshtein.hamming(str1, str2) #
 
 Levenshtein.distance(str1,str2)计算编辑距离。是描述一个字符串转化成另一个字串最少的操作次数，在其中的操作包括插入、删除、替换。
 Levenshtein.distance(str1, str2)
+
+### HTTP `url转义`
+
+```python
+         空格 用%20代替
+         " 用%22代替
+         # 用%23代替
+        % 用%25代替
+        &用%26代替
+        ( 用%28代替
+        ) 用%29代替
+       + 用%2B代替
+        , 用%2C代替
+        / 用%2F代替
+        : 用%3A代替
+        ; 用%3B代替
+       < 用%3C代替
+       = 用%3D代替
+       > 用%3E代替
+       ? 用%3F代替
+       @ 用%40代替
+        \ 用%5C代替
+        | 用%7C代替
+
+
+%E6%B2%B3%E6%BA%90
+
+python中关于url中特殊字符的编码和解码
+原创瞌睡的猫猫 最后发布于2018-06-07 18:44:25 阅读数 5627  收藏
+展开
+编码
+
+from urllib.parse import quote
+text = quote(text, 'utf-8')
+1
+2
+解码
+
+from urllib.parse import unquote
+text = unquote(text, 'utf-8')
+1
+2
+假如url = “https://www.baidu.com"一个Ajax请求，url的字符”:”,”/”等需要转码才能传递
+那么就需要编码，代码如下
+
+from urllib.parse import quote
+url = "https://www.baidu.com/"
+url_encode = quote(url, 'utf-8')
+print(url_encode)
+1
+2
+3
+4
+反之，则为解码
+我们在解析网页中可能需要把一些特定的url解码出来以便直观显示等
+代码如下：
+
+from urllib.parse import unquote
+href= "https%3A%2F%2Fwww.baidu.com%2F"
+url_encode = unquote(href, 'utf-8')
+print(url_encode)
+1
+2
+3
+4
+输出结果
+
+https://www.baidu.com/
+————————————————
+版权声明：本文为CSDN博主「瞌睡的猫猫」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/sinat_35886587/article/details/80613618
+
+
+
+
+Python2中,对url解码  可以这样做：
+>>> print urllib.unquote("%E6%B5%8B%E8%AF%95abc")
+
+ 
+
+ 
+
+python3取消unquote属性
+
+可以这样做：
+
+import urllib.parse
+
+print(urllib.parse.unquote("%E6%B5%8B%E8%AF%95abc"))
+ 
+
+ 
+```
