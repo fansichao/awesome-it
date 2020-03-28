@@ -2,68 +2,9 @@
 
 ## 插件列表
 
-数据隐藏
+插件列表
 
-- [tootik](https://eliortabeka.github.io/tootik/)
-
-## 数据转换
-
-JS 数据类型列表
-
-- 数组 Array(0,1,2,3,4)
-- 字符串
-- Json 字符串
-- 字典
-
-本节主要描述常见数据格式相互转换的方法。
-
-### 数组->字符串
-
-数组转换为字符串
-
-```js
-// 需要将数组元素用某个字符连接成字符串
-var a, b;
-a = new Array(0, 1, 2, 3, 4);
-b = a.join("-"); //"0-1-2-3-4"
-```
-
-### 字符串->数组
-
-字符串转数组
-
-```js
-// 实现方法为将字符串按某个字符切割成若干个字符串，并以数组形式返回，示例代码如下：
-var s = "abc,abcd,aaa";
-ss = s.split(","); // 在每个逗号(,)处进行分解  ["abc", "abcd", "aaa"]
-var s1 = "helloworld";
-ss1 = s1.split(""); //["h", "e", "l", "l", "o", "w", "o", "r", "l", "d"]
-```
-
-### 对象->json 字符串
-
-对象转为字符串
-
-```js
-const obj = {
-  id: 0,
-  name: "张三",
-  age: 12
-};
-const objToStr = JSON.stringify(obj);
-console.log("obj:", obj);
-console.log("objToStr:", objToStr);
-```
-
-### json 字符串->对象
-
-```js
-// json字符串转为对象
-const str = '{"id":0,"name":"张三","age":12}';
-const strToObj = JSON.parse(str);
-console.log("str:", str);
-console.log("strToObj:", strToObj);
-```
+- 数据隐藏 [tootik](https://eliortabeka.github.io/tootik/)
 
 ## 常用模块函数
 
@@ -73,15 +14,15 @@ console.log("strToObj:", strToObj);
 
 - 检查对象"值相等"是一个强大复杂的方法
 - 需要依赖完善的测试库,包含各种边界类型情况.
-- Underscore 和 Lo-Dash 有一个名为\_.isEqual()方法，用来比较好的处理深度对象的比较
+- Underscore 和 Lo-Dash 有一个名为`_.isEqual()`方法，用来比较好的处理深度对象的比较
 - 参考链接: [Github-underscore](https://github.com/lessfish/underscore-analysis/blob/master/underscore-1.8.3.js/src/underscore-1.8.3.js#L1094-L1190)
 
 **样例展示:**
 
 ```javascript
+_.isEqual({'a':1},{'a':1})
+true
 _.isEqual({'a':1},{'a':2})
-false
-_.isEqual({'a':1},{'a':2,'b':undefined})
 false
 _.isEqual({'a':1},{'a':1,'b':undefined})
 false
@@ -95,6 +36,21 @@ false
 - 实现类型 强转/非强转
 
 TODO 待寻找组件
+
+```javascript
+/* 数据转换常用函数 */
+
+// 字符串转数组
+var array = strA.split("")
+// 数组转字符串
+var strA = a.join("")
+
+// JSON对象转字符串
+var json_strA = JSON.stringify(json_obj)
+// 字符串转JSON对象
+var json_obj = JSON.parse(json_strA);
+
+```
 
 ### JS 数组去重
 
@@ -118,7 +74,6 @@ unique([1,2,3,1,{'a':1},{'a':1}])
 
 **参考资源:**
 
-- 参考链接: [JavaScript数组去重(12种方法，史上最全)](https://segmentfault.com/a/1190000016418021)
 - 本文附录: [JS去重方法大全](#附录1-JS去重方法大全)
 
 ## 其他函数
@@ -265,6 +220,8 @@ console.log("result:" + result);
 
 ### 附录1-JS去重方法大全
 
+- 原文链接: [JavaScript数组去重(12种方法，史上最全)](https://segmentfault.com/a/1190000016418021)
+  
 ```javascript
 数组去重，一般都是在面试的时候才会碰到，一般是要求手写数组去重方法的代码。如果是被提问到，数组去重的方法有哪些？你能答出其中的10种，面试官很有可能对你刮目相看。
 在真实的项目中碰到的数组去重，一般都是后台去处理，很少让前端处理数组去重。虽然日常项目用到的概率比较低，但还是需要了解一下，以防面试的时候可能回被问到。
