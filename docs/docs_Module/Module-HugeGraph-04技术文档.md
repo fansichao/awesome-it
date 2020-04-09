@@ -143,8 +143,13 @@ HugeGragh 框架模块
 
 ```bash
 # 默认CentOS会自带这些包,Docker中的镜像需要自行安装
+
+# 解决问题 line 92: crontab: command not found
 yum -y install lsof crontabs
 ```
+
+
+
 
 ### 配置数据库-RocksDB
 

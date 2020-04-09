@@ -610,7 +610,7 @@ drwxrwxrwx 5 root root 4096 Oct 15 02:58 graph_data
 -rwxr-xr-x 1 root root    0 Oct 15 02:58 ????????????
 ```
 
-解决方法:
+**方案1:**
 
 ```bash
 yum install -y kde-l10n-Chinese
@@ -628,8 +628,10 @@ source /etc/locale.conf
 
 如果不能解决,可以用如下方法
 
+**方案2:**
+
 ```bash
-echo "exprot LC_ALL=en_US.utf8" >> ~/.bash_profile
+echo "export LC_ALL=en_US.utf8" >> ~/.bash_profile
 # 在用户中加入这个, 或者在 /etc/profie 中加入
 # 不是一个好方法，但是可以解决问题
 ```

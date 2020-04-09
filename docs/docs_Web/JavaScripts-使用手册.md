@@ -20,12 +20,12 @@
 **样例展示:**
 
 ```javascript
-_.isEqual({'a':1},{'a':1})
-true
-_.isEqual({'a':1},{'a':2})
-false
-_.isEqual({'a':1},{'a':1,'b':undefined})
-false
+_.isEqual({ a: 1 }, { a: 1 });
+true;
+_.isEqual({ a: 1 }, { a: 2 });
+false;
+_.isEqual({ a: 1 }, { a: 1, b: undefined });
+false;
 ```
 
 ### JS 数据类型转换
@@ -41,15 +41,14 @@ TODO 待寻找组件
 /* 数据转换常用函数 */
 
 // 字符串转数组
-var array = strA.split("")
+var array = strA.split("");
 // 数组转字符串
-var strA = a.join("")
+var strA = a.join("");
 
 // JSON对象转字符串
-var json_strA = JSON.stringify(json_obj)
+var json_strA = JSON.stringify(json_obj);
 // 字符串转JSON对象
 var json_obj = JSON.parse(json_strA);
-
 ```
 
 ### JS 数组去重
@@ -62,19 +61,63 @@ var json_obj = JSON.parse(json_strA);
 ```javascript
 // 数组去重样例 - 利用hasOwnProperty
 function unique(arr) {
-    var obj = {};
-    return arr.filter(function(item, index, arr){
-        return obj.hasOwnProperty(typeof item + item) ? false : (obj[typeof item + item] = true)
-    })
+  var obj = {};
+  return arr.filter(function(item, index, arr) {
+    return obj.hasOwnProperty(typeof item + item)
+      ? false
+      : (obj[typeof item + item] = true);
+  });
 }
 
-unique([1,2,3,1,{'a':1},{'a':1}])
-[1, 2, 3, {'a':1}]
+unique([1, 2, 3, 1, { a: 1 }, { a: 1 }])[(1, 2, 3, { a: 1 })];
 ```
 
 **参考资源:**
 
-- 本文附录: [JS去重方法大全](#附录1-JS去重方法大全)
+- 本文附录: [JS 去重方法大全](#附录1-JS去重方法大全)
+
+### JS 深拷贝
+
+```python
+/**
+ * 深拷贝
+ * @param {*} obj 拷贝对象(object or array)
+ * @param {*} cache 缓存数组
+ */
+function deepCopy (obj, cache = []) {
+  // typeof [] => 'object'
+  // typeof {} => 'object'
+  if (obj === null || typeof obj !== 'object') {
+    return obj
+  }
+  // 如果传入的对象与缓存的相等, 则递归结束, 这样防止循环
+  /**
+   * 类似下面这种
+   * var a = {b:1}
+   * a.c = a
+   * 资料: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Errors/Cyclic_object_value
+   */
+  const hit = cache.filter(c => c.original === obj)[0]
+  if (hit) {
+    return hit.copy
+  }
+
+  const copy = Array.isArray(obj) ?  [] :   {}
+  // 将copy首先放入cache, 因为我们需要在递归deepCopy的时候引用它
+  cache.push({
+    original: obj,
+    copy
+  })
+  Object.keys(obj).forEach(key => {
+    copy[key] = deepCopy(obj[key], cache)
+  })
+
+  return copy
+}
+```
+
+参考链接:
+https://www.jianshu.com/p/6b0260d599a0
 
 ## 其他函数
 
@@ -136,13 +179,14 @@ for (dic_str of pwd.split("&")) {
 ### 删除 div
 
 ```javascript
-
 // js js中的话要通过获取该元素的父级元素，再调用..removeChild(要删除的元素);
-var removeObj = document.getElementById('reducedLine').getElementsByName('mlt24')[0];
+var removeObj = document
+  .getElementById("reducedLine")
+  .getElementsByName("mlt24")[0];
 removeObj.parentNode.removeChild(removeObj);
 
 //jquery
-$('#divID').remove();
+$("#divID").remove();
 ```
 
 ### 模糊查询(模糊匹配)
@@ -218,10 +262,10 @@ console.log("result:" + result);
 
 ## 附录
 
-### 附录1-JS去重方法大全
+### 附录 1-JS 去重方法大全
 
-- 原文链接: [JavaScript数组去重(12种方法，史上最全)](https://segmentfault.com/a/1190000016418021)
-  
+- 原文链接: [JavaScript 数组去重(12 种方法，史上最全)](https://segmentfault.com/a/1190000016418021)
+
 ```javascript
 数组去重，一般都是在面试的时候才会碰到，一般是要求手写数组去重方法的代码。如果是被提问到，数组去重的方法有哪些？你能答出其中的10种，面试官很有可能对你刮目相看。
 在真实的项目中碰到的数组去重，一般都是后台去处理，很少让前端处理数组去重。虽然日常项目用到的概率比较低，但还是需要了解一下，以防面试的时候可能回被问到。
@@ -239,7 +283,7 @@ console.log(unique(arr))
 不考虑兼容性，这种去重的方法代码最少。这种方法还无法去掉“{}”空对象，后面的高阶方法会添加去掉重复“{}”的方法。
 
 二、利用for嵌套for，然后splice去重（ES5中最常用）
-function unique(arr){            
+function unique(arr){
         for(var i=0; i<arr.length; i++){
             for(var j=i+1; j<arr.length; j++){
                 if(arr[i]==arr[j]){         //第一个等同于第二个，splice方法删除第二个
@@ -384,12 +428,12 @@ function arrayNonRepeatfy(arr) {
   let array = new Array();  // 数组用于返回结果
   for (let i = 0; i < arr.length; i++) {
     if(map .has(arr[i])) {  // 如果有该key值
-      map .set(arr[i], true); 
-    } else { 
+      map .set(arr[i], true);
+    } else {
       map .set(arr[i], false);   // 如果没有该key值
       array .push(arr[i]);
     }
-  } 
+  }
   return array ;
 }
  var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
@@ -405,8 +449,13 @@ var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, n
 console.log(unique(arr));
 // [1, "true", true, 15, false, undefined, null, NaN, "NaN", 0, "a", {…}, {…}]
 十二、[...new Set(arr)]
-[...new Set(arr)] 
+[...new Set(arr)]
 //代码就是这么少----（其实，严格来说并不算是一种，相对于第一种方法来说只是简化了代码）
 PS：有些文章提到了foreach+indexOf数组去重的方法，个人觉得都是大同小异，所以没有写上去。
 
+```
+
+```javascript
+// 根据ID 对DIV赋值
+document.getElementById("warningsetting_title").innerHTML = "查询数据";
 ```

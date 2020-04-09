@@ -2,6 +2,38 @@
 
 tags: `2020年` `02月` `Python进阶` `Python3`
 
+
+
+## Xpath
+
+获取两个对象间的值
+
+```python
+
+
+假设数据如下：
+
+<div class="a">
+  <div class="b">
+      text1
+  </div>
+
+  需要的数据在这里
+
+  <div class="d">
+      text2
+  </div>
+</div>
+通过如下xpath获取：
+
+div[1]//div[contains(text(),"text1")]/following-sibling::node()[position() <= count( div[1]//div[contains(text(),"text2")]/following-sibling::node()) + 1]
+
+
+```
+
+
+## re
+
 ## 简介说明
 
 正则表达式(Regular Expression)是一种文本模式，包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为"元字符"）。
