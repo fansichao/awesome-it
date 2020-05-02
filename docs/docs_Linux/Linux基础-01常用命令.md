@@ -48,11 +48,11 @@ sed 文件替换
 
 ```bash
 # 在文件的首行插入指定内容：
-sed -i "1i#! /bin/sh -" a 
+sed -i "1i#! /bin/sh -" a
 执行后，在a文件的第一行插入#! /bin/sh -
 
 # 在文件的指定行（n）插入指定内容：
-sed -i "niecho "haha"" a 
+sed -i "niecho "haha"" a
 执行后，在a文件的第n行插入echo "haha"
 
 # 在文件的末尾行插入指定内容：
@@ -62,16 +62,15 @@ echo “haha” >> a
 # 删除正文首行的#号注释
 sed 's/\#//g' /etc/crontab
 
-
 # 替换文件中字符串
 sed -i "s/str1/str2/g" filname
 
 # 删除a.txt中含"abc"的行，但不改变a.txt文件本身，操作之后的结果在终端显示
 sed -e '/abc/d'  a.txt  
 # 删除a.txt中含"abc"的行，将操作之后的结果保存到a.log
-sed -e '/abc/d'  a.txt  > a.log   
+sed -e '/abc/d'  a.txt  > a.log
 # 删除含字符串"abc"或“efg"的行，将结果保存到a.log
-sed '/abc/d;/efg/d' a.txt > a.log    
+sed '/abc/d;/efg/d' a.txt > a.log
 # 查找多个空格
 /\s\+
 # 删除第1000行输出  a不变 b删除一条数据
@@ -82,13 +81,14 @@ sed -n '2,$p'  filename > new_filename
 # 删除Linux文件重复行
 sort -n filename | uniq
 
-
-### 删除空行 删除空格/回车组成的空行
+# 删除空行 删除空格/回车组成的空行
 sed -i '/^ *$/d' file
-
 
 # 将目录下所有文件 替换字符串
 sed -i "s/d3b387c031dd/1000db7324ff/g" `grep "d3b387c031dd" -rl /u01 `
+
+# 替换目录下所有文件 sed和grep搭配使用
+sed -i 's/ id="content-main"//g'   ` grep -rl  'content-main' `
 ```
 
 ## 软件安装
@@ -249,6 +249,28 @@ grep -rn xxx . "." 只查询本目录以及其下的目录---公司电脑只有�
 
 忽略大小写 -iname
 find / -iname '_csv_'
+
+```bash
+# 查找500M以上的文件
+sudo find / -size +500M /swap.img
+
+# 查找整整500M的文件
+sudo find / -size 500M
+
+# 查找小于500M的文件
+sudo find / -size -500M
+
+# 查找大于100M且小于500M的文件
+sudo find / -size -500M -size +100M
+
+其他查找单位
+- b 512-byte blocks (this is the default if no suffix is used)
+- c bytes
+- w two-byte words
+- k Kilobytes
+- M Megabytes
+- G Gigabytes
+```
 
 ## vim
 

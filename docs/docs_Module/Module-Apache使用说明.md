@@ -101,6 +101,35 @@ mv  /etc/httpd/conf.d/welcome.conf /etc/httpd/conf.d/welcome.conf.bak
 /bin/systemctl restart httpd.service
 ```
 
+```bash
+# 查看Apache服务状态时,显示 Could not reliably determine the server's fully qualified domain name
+[root@41d129b3de9a ~]#  /bin/systemctl status httpd.service
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Fri 2020-04-10 11:28:31 UTC; 3s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+  Process: 13192 ExecStop=/bin/kill -WINCH ${MAINPID} (code=exited, status=0/SUCCESS)
+ Main PID: 13199 (httpd)
+   Status: "Processing requests..."
+   CGroup: /docker/41d129b3de9ac86439cf7cf46d42d061b26ab31c138520d2090f9d5a9b1f0757/system.slice/httpd.service
+           ├─13199 /usr/sbin/httpd -DFOREGROUND
+           ├─13200 /usr/sbin/httpd -DFOREGROUND
+           ├─13201 /usr/sbin/httpd -DFOREGROUND
+           ├─13202 /usr/sbin/httpd -DFOREGROUND
+           ├─13203 /usr/sbin/httpd -DFOREGROUND
+           └─13204 /usr/sbin/httpd -DFOREGROUND
+           ‣ 13199 /usr/sbin/httpd -DFOREGROUND
+
+Apr 10 11:28:31 41d129b3de9a systemd[1]: Starting The Apache HTTP Server...
+Apr 10 11:28:31 41d129b3de9a httpd[13199]: AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.18.0.86. Set the 'Ser...his message
+Apr 10 11:28:31 41d129b3de9a systemd[1]: Started The Apache HTTP Server.
+Hint: Some lines were ellipsized, use -l to show in full.
+
+# 解决方法
+vi /etc/httpd/conf/httpd.conf   加入一句  ServerName  localhost:80
+```
+
 ### Apache 测试页面
 
 **Apache 测试页意味着:**

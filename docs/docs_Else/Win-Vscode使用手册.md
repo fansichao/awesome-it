@@ -318,6 +318,8 @@ notebook: （所属的目录）
 
 ### 1.7.1. 插件-PicGo MarkDwon 支持图片上传到 Github
 
+自动保存图片
+
 **参考链接:**
 
 - [vscode 书写 Markdown 快速插入图片 picgo 2.0 插件使用](https://blog.csdn.net/li123_123_/article/details/102819890)

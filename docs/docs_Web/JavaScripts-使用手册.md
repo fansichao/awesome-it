@@ -62,7 +62,7 @@ var json_obj = JSON.parse(json_strA);
 // 数组去重样例 - 利用hasOwnProperty
 function unique(arr) {
   var obj = {};
-  return arr.filter(function(item, index, arr) {
+  return arr.filter(function (item, index, arr) {
     return obj.hasOwnProperty(typeof item + item)
       ? false
       : (obj[typeof item + item] = true);
@@ -244,6 +244,8 @@ const a2 = [...a1];
 const [...a2] = a1;
 ```
 
+## 常用函数
+
 ### 字符串替换
 
 ```javascript
@@ -258,6 +260,34 @@ console.log("result:" + result);
 var str = "abcabcabc";
 var result = str.replace(/a/g, "A");
 console.log("result:" + result);
+```
+
+### 检查 对象是否在数组中
+
+```javascript
+// 检查 对象是否在数组中
+function check_obj_exists_array(obj, array) {
+  // return: 存在true 不存在false
+
+  for (var i in array) {
+    if (check_obj_equal(obj, array[i])) {
+      return true;
+    }
+  }
+  return false;
+}
+```
+
+### 检查对象是否存在 或 空 未定义等
+
+```javascript
+// 检查对象是否存在 或 空 未定义等
+function check_obj_is_has_val(obj) {
+  if (obj == undefined || obj == null || ["", [], {}].indexOf(obj) != -1) {
+    return false;
+  }
+  return true;
+}
 ```
 
 ## 附录
